@@ -56,23 +56,23 @@
 			<div class="row justify-content-center">
 				<div class="col-md-12">
 					<div class="wrapper">
-						<div style="position: relative; left: -5vw; width: 1450px;" class="row mb-5">
-							<div style="width: 450px;" class="col-md-3">
+						<div style="position: relative; width: 1200px; margin: auto;" class="row mb-5">
+							<div style="width: 400px;" class="col-md-3">
 								<div class="dbox w-100 text-center">
 					        		<div class="icon d-flex align-items-center justify-content-center">
 					        			<span class="fa fa-phone"></span>
 					        		</div>
-			        				<div style="position: relative; top: -65px; left: 12vw;" class="text">
+			        				<div style="position: relative; top: -65px; left: 140px;" class="text">
 				            			<p><span>Telefone:</span><a href="tel://1234567920">(27) 99751-2899</a></p>
 				          			</div>
 			          			</div>
 							</div>
-							<div style="width: 450px;" class="col-md-3">
+							<div style="margin-right: 40px; width: 440px;" class="col-md-3">
 								<div class="dbox w-100 text-center">
 			        		<div class="icon d-flex align-items-center justify-content-center">
 			        			<span class="fa fa-paper-plane"></span>
 			        		</div>
-			        		<div style="position: relative; top: -65px; left: 12vw;" class="text">
+			        		<div style="position: relative; top: -65px; left: 170px;" class="text">
 				            	<p>
 				            		<span>Email:</span>
 				            		<a href="mailto:info@yoursite.com">brunagomes@gmail.com</a>
@@ -80,12 +80,12 @@
 				          </div>
 			          </div>
 							</div>
-							<div style="width: 450px;" class="col-md-3">
+							<div style="width: 400px;" class="col-md-3">
 								<div class="dbox w-100 text-center">
 					        		<div class="icon d-flex align-items-center justify-content-center">
 					        			<span class="fa fa-globe"></span>
 					        		</div>
-					        		<div style="position: relative; top: -65px; left: 12vw;" class="text">
+					        		<div style="position: relative; top: -65px; left: 120px;" class="text">
 						            	<p><span>Instagram:</span> <a href="https://www.instagram.com/studiouna__b/">studioUna</a></p>
 						          	</div>
 			          			</div>
@@ -97,24 +97,25 @@
 									<h3 class="mb-4">Entre em contato:</h3>
 									<div id="form-message-warning" class="mb-4"></div> 
 				      				<div id="form-message-success" class="mb-4">Your message was sent, thank you!</div>
-									<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+									<form method="get" action="<%=request.getContextPath()%>/ServletFormulario" id="contactForm" name="contactForm" class="contactForm">
+										<input type="hidden" name="acao" value="cadastrarPergunta"/>
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="label" for="name">Nome completo:</label>
-													<input type="text" class="form-control" name="name" id="name" placeholder="Nome">
+													<input type="text" class="form-control" name="nome_cliente" id="name" placeholder="Nome">
 												</div>
 											</div>
 											<div class="col-md-6"> 
 												<div class="form-group">
 													<label class="label" for="email">E-mail:</label>
-													<input type="email" class="form-control" name="email" id="email" placeholder="E-mail">
+													<input type="email" class="form-control" name="email_cliente" id="email" placeholder="E-mail">
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="#">Mensagem:</label>
-													<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Mensagem"></textarea>
+													<textarea name="mensagem_cliente" class="form-control" id="message" cols="30" rows="4" placeholder="Mensagem"></textarea>
 												</div>
 											</div>
 											<div class="col-md-12">
@@ -140,6 +141,5 @@
 	<script src="script/popper.js"></script>
 	<script src="script/bootstrap.min.js"></script>
 	<script src="script/jquery.validate.min.js"></script>
-	<script src="script/main.js"></script>
 </body>
 </html>

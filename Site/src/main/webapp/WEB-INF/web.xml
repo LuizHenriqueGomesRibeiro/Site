@@ -49,4 +49,14 @@
     <servlet-name>Formulario</servlet-name>
     <url-pattern>/Formulario</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>APIServletsClientes</display-name>
+    <servlet-name>APIServletsClientes</servlet-name>
+    <servlet-class>CLIENTE.SERVLET.APIServletsClientes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>APIServletsClientes</servlet-name>
+    <url-pattern>/APIServletsClientes</url-pattern>
+  </servlet-mapping>
 </web-app>
