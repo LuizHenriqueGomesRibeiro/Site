@@ -37,7 +37,7 @@
 							<li class="nav-item 2"><a class="nav-link" href="#">Projetos</a></li>
 							<li class="nav-item 3"><a class="nav-link" href="#">Escritório</a></li>
 							<li class="nav-item 4"><a class="nav-link" href="#">Mídia</a></li>
-							<li class="nav-item 5"><a class="nav-link" href="#">Contato</a></li>
+							<li class="nav-item 5"><a class="nav-link" href="contato.jsp">Contato</a></li>
 							<li class="disabled-link nav-item 5"><a class="nav-link" href="#">|</a></li>
 							<li class="nav-item 5"><a class="nav-link" href="restrito.jsp">Área restrita</a></li>
 						</ul>

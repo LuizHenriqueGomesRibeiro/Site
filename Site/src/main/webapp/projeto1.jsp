@@ -20,9 +20,7 @@
   <link rel="stylesheet" href="estilos/style2.css">
 </head>
 <body>
-	<nav
-		style="position: fixed; background-color: white; height: 130px; box-shadow: none; color: black;"
-		class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+	<nav style="position: fixed; background-color: white; height: 130px; box-shadow: none; color: black;" class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
 		<div style="position: relative; top: 5px; width: 600px; float: right;"
 			class="container-fluid">
 			<a class="navbar-brand" href="#">Brand</a>
@@ -43,7 +41,7 @@
 					<li class="nav-item 4"><a style="color: black;"
 						class="nav-link" href="#">Mídia</a></li>
 					<li class="nav-item 5"><a style="color: black;"
-						class="nav-link" href="#">Contato</a></li>
+						class="nav-link" href="contato.jsp">Contato</a></li>
 					<li class="disabled-link nav-item 5"><a style="color: black;"
 						class="nav-link" href="#">|</a></li>
 					<li class="nav-item 5"><a style="color: black;"
@@ -52,170 +50,171 @@
 			</div>
 		</div>
 	</nav>
-		<div style="position: relative; top: 20vh;">
-			<div style="position: relative; float: left; width: 30%; padding-left: 20px;">
-				<p>Local:</p>
-				<p>Angra dos Reis, RJ</p>
-	
-				<p>Data do projeto:</p>
-				<p>2018</p>
-	
-				<p>Arquitetura:</p>
-				<p>Bernardes + Jacobsen Arquitetura</p>
-	
-				<p>Interiores:</p>
-				<p>Bernardes Arquitetura</p>
-	
-				<p>Equipe:</p>
-				<p>Thiago Bernardes, Camila Tariki, Antonia Bernardes, Steven
-					Evans, Izabela Figueiredo, José Miguel Ferreira, Daniel Vannucchi,
-					Ulisses Frare, Ana Paula Endo, Mariane Graciano, Liana Tessler
-					Szyflinger, Stephanie Andrade, Andréa Mendonça, Ana Carolina Zuin,
-					Milla Machado, Flavio Faggion, João Magalhães, Julia Santoro,
-					Valesca Daólio, Aline Bianca</p>
-	
-				<p>Paisagismo:</p>
-				<p>Embyá - Paisagens e Ecosistemas</p>
-	
-				<p>Iluminação:</p>
-				<p>Estúdio Carlos Fortes</p>
-	
-				<p>Fotos:</p>
-				<p>Leonardo Finotti</p>
-	
-				<p>Prêmios:</p>
-				<p>- Global Architecture & Design Awards, 2º Lugar, 2018</p>
-			</div>
-			<div style="position: relative; float: right; width: 70%;">
-				<ul class="da">
-					<li><a href="projeto1.jsp">
-							<figure>
-								<img class="da" src='imagens/DETALHE-1.png'
-									alt='Volcano and lava field against a stormy sky'>
-								<figcaption>Casa cor | 2019</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/DIURNO-EED.png'
-									alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
-								<figcaption>Adventure getaways</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/ESCRITÓRIO 02.png'
-									alt='Person standing alone in a misty forest'>
-								<figcaption>Forest escapes</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/ESCRITÓRIO 04.png'
-									alt='Person hiking on a trail through mountains while taking a photo with phone'>
-								<figcaption>Hiking trails</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/VARANDA-01.png'
-									alt='Street scene with person walking and others on motorbikes, all wearing masks'>
-								<figcaption>Street scenes</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/QUARTO ELIS_REV 01.png'
-									alt='Fashionable-looking girl with blond hair and pink sunglasses'>
-								<figcaption>Trending</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="projeto1.jsp">
-							<figure>
-								<img class="da" src='imagens/DETALHE-1.png'
-									alt='Volcano and lava field against a stormy sky'>
-								<figcaption>Casa cor | 2019</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/DIURNO-EED.png'
-									alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
-								<figcaption>Adventure getaways</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/ESCRITÓRIO 02.png'
-									alt='Person standing alone in a misty forest'>
-								<figcaption>Forest escapes</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/ESCRITÓRIO 04.png'
-									alt='Person hiking on a trail through mountains while taking a photo with phone'>
-								<figcaption>Hiking trails</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/VARANDA-01.png'
-									alt='Street scene with person walking and others on motorbikes, all wearing masks'>
-								<figcaption>Street scenes</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/QUARTO ELIS_REV 01.png'
-									alt='Fashionable-looking girl with blond hair and pink sunglasses'>
-								<figcaption>Trending</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="projeto1.jsp">
-							<figure>
-								<img class="da" src='imagens/DETALHE-1.png'
-									alt='Volcano and lava field against a stormy sky'>
-								<figcaption>Casa cor | 2019</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/DIURNO-EED.png'
-									alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
-								<figcaption>Adventure getaways</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/ESCRITÓRIO 02.png'
-									alt='Person standing alone in a misty forest'>
-								<figcaption>Forest escapes</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/ESCRITÓRIO 04.png'
-									alt='Person hiking on a trail through mountains while taking a photo with phone'>
-								<figcaption>Hiking trails</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/VARANDA-01.png'
-									alt='Street scene with person walking and others on motorbikes, all wearing masks'>
-								<figcaption>Street scenes</figcaption>
-							</figure>
-					</a></li>
-					<li><a href="">
-							<figure>
-								<img class="da" src='imagens/QUARTO ELIS_REV 01.png'
-									alt='Fashionable-looking girl with blond hair and pink sunglasses'>
-								<figcaption>Trending</figcaption>
-							</figure>
-					</a></li>
-				</ul>
-			</div>
+	<div style="position: relative; top: 20vh;">
+		<div
+			style="position: relative; float: left; width: 30%; padding-left: 20px;">
+			<p>Local:</p>
+			<p>Angra dos Reis, RJ</p>
+
+			<p>Data do projeto:</p>
+			<p>2018</p>
+
+			<p>Arquitetura:</p>
+			<p>Bernardes + Jacobsen Arquitetura</p>
+
+			<p>Interiores:</p>
+			<p>Bernardes Arquitetura</p>
+
+			<p>Equipe:</p>
+			<p>Thiago Bernardes, Camila Tariki, Antonia Bernardes, Steven
+				Evans, Izabela Figueiredo, José Miguel Ferreira, Daniel Vannucchi,
+				Ulisses Frare, Ana Paula Endo, Mariane Graciano, Liana Tessler
+				Szyflinger, Stephanie Andrade, Andréa Mendonça, Ana Carolina Zuin,
+				Milla Machado, Flavio Faggion, João Magalhães, Julia Santoro,
+				Valesca Daólio, Aline Bianca</p>
+
+			<p>Paisagismo:</p>
+			<p>Embyá - Paisagens e Ecosistemas</p>
+
+			<p>Iluminação:</p>
+			<p>Estúdio Carlos Fortes</p>
+
+			<p>Fotos:</p>
+			<p>Leonardo Finotti</p>
+
+			<p>Prêmios:</p>
+			<p>- Global Architecture & Design Awards, 2º Lugar, 2018</p>
 		</div>
+		<div style="position: relative; float: right; width: 70%;">
+			<ul class="da">
+				<li><a href="projeto1.jsp">
+						<figure>
+							<img class="da" src='imagens/DETALHE-1.png'
+								alt='Volcano and lava field against a stormy sky'>
+							<figcaption>Casa cor | 2019</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/DIURNO-EED.png'
+								alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
+							<figcaption>Adventure getaways</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/ESCRITÓRIO 02.png'
+								alt='Person standing alone in a misty forest'>
+							<figcaption>Forest escapes</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/ESCRITÓRIO 04.png'
+								alt='Person hiking on a trail through mountains while taking a photo with phone'>
+							<figcaption>Hiking trails</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/VARANDA-01.png'
+								alt='Street scene with person walking and others on motorbikes, all wearing masks'>
+							<figcaption>Street scenes</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/QUARTO ELIS_REV 01.png'
+								alt='Fashionable-looking girl with blond hair and pink sunglasses'>
+							<figcaption>Trending</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="projeto1.jsp">
+						<figure>
+							<img class="da" src='imagens/DETALHE-1.png'
+								alt='Volcano and lava field against a stormy sky'>
+							<figcaption>Casa cor | 2019</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/DIURNO-EED.png'
+								alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
+							<figcaption>Adventure getaways</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/ESCRITÓRIO 02.png'
+								alt='Person standing alone in a misty forest'>
+							<figcaption>Forest escapes</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/ESCRITÓRIO 04.png'
+								alt='Person hiking on a trail through mountains while taking a photo with phone'>
+							<figcaption>Hiking trails</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/VARANDA-01.png'
+								alt='Street scene with person walking and others on motorbikes, all wearing masks'>
+							<figcaption>Street scenes</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/QUARTO ELIS_REV 01.png'
+								alt='Fashionable-looking girl with blond hair and pink sunglasses'>
+							<figcaption>Trending</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="projeto1.jsp">
+						<figure>
+							<img class="da" src='imagens/DETALHE-1.png'
+								alt='Volcano and lava field against a stormy sky'>
+							<figcaption>Casa cor | 2019</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/DIURNO-EED.png'
+								alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
+							<figcaption>Adventure getaways</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/ESCRITÓRIO 02.png'
+								alt='Person standing alone in a misty forest'>
+							<figcaption>Forest escapes</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/ESCRITÓRIO 04.png'
+								alt='Person hiking on a trail through mountains while taking a photo with phone'>
+							<figcaption>Hiking trails</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/VARANDA-01.png'
+								alt='Street scene with person walking and others on motorbikes, all wearing masks'>
+							<figcaption>Street scenes</figcaption>
+						</figure>
+				</a></li>
+				<li><a href="">
+						<figure>
+							<img class="da" src='imagens/QUARTO ELIS_REV 01.png'
+								alt='Fashionable-looking girl with blond hair and pink sunglasses'>
+							<figcaption>Trending</figcaption>
+						</figure>
+				</a></li>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>
