@@ -56,10 +56,10 @@
 		<div style="position: relative; top: 30px;">
 			<ul class="da">
 				<li>
-					<a href="">
+					<a href="projeto1.jsp">
 						<figure>
 							<img class="da" src='imagens/DETALHE-1.png' alt='Volcano and lava field against a stormy sky'>
-							<figcaption>Mountains and volcanos</figcaption>
+							<figcaption>Casa cor | 2019</figcaption>
 						</figure>
 					</a>
 				</li>
