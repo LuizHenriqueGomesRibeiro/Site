@@ -1,4 +1,4 @@
-package CLIENTE.SERVLET;
+package SERVLET.API;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Servlet implementation class APIServletsClientes
  */
-public class APIServletsClientes extends HttpServlet {
+public class APIEntrada extends HttpServlet {
 	/**
 	 * 
 	 */

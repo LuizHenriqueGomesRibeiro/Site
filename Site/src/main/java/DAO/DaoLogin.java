@@ -1,12 +1,12 @@
-package BRUNA.DAO.LOGIN;
+package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import BRUNA.MODEL.ModelLogin;
 import CONEXAO.Conexao;
+import Model.ModelLogin;
 
 public class DaoLogin {
 private Connection connection;

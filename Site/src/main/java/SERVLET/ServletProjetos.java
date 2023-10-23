@@ -1,4 +1,4 @@
-package BRUNA.SERVLET;
+package SERVLET;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

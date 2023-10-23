@@ -1,10 +1,10 @@
-package BRUNA.SERVLET;
+package SERVLET;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
-import BRUNA.DAO.LOGIN.DaoLogin;
-import BRUNA.MODEL.ModelLogin;
+import DAO.DaoLogin;
+import Model.ModelLogin;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;

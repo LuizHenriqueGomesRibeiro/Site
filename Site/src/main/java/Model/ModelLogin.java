@@ -1,4 +1,4 @@
-package BRUNA.MODEL;
+package Model;
 
 public class ModelLogin {
 	private String nome;

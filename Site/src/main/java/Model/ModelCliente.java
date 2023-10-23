@@ -1,4 +1,4 @@
-package CLIENTE.MODEL;
+package Model;
 
 public class ModelCliente {
 	private Long id;
