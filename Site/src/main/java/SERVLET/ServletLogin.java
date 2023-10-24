@@ -57,6 +57,7 @@ public class ServletLogin extends APIEntrada {
 						session.setAttribute("email", modelLogin.getEmail());
 						session.setAttribute("senha", modelLogin.getSenha());
 						session.setAttribute("nome", modelLogin.getNome());
+						session.setAttribute("login", modelLogin);
 						
 						if (url == null || url.equals("null")) {
 							url = "principal/principal.jsp";

@@ -58,7 +58,7 @@
 	</section>
 	<div style="position: relative; width: 70vw; margin: auto; top: 40px;">
 		<div id="formulario">
-			<form enctype="multipart/form-data" method="get" action="<%=request.getContextPath()%>/ServletProjetos" id="projeto" name="contactForm"
+			<form enctype="multipart/form-data" method="post" action="<%=request.getContextPath()%>/ServletProjetos" id="projeto" name="contactForm"
 				class="contactForm">
 				<input type="hidden" name="acao" value="persistirProjeto" />
 				<div class="row">
@@ -232,8 +232,14 @@
 			var file = document.getElementById(foto1).files[0];
 			var reader = new FileReader();
 			
-			reader.onloader = function (){
+			reader.onloadend = function (){
 				preview.src = reader.result;
+			};
+			
+			if(file){
+				reader.readAsDataURL(file);
+			}else{
+				preview.src = '';
 			}
 		}
 	</script>

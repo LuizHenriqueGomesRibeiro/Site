@@ -6,8 +6,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
+import DAO.DAOProjetos;
+import Model.ModelProjeto;
 import SERVLET.API.APIEntrada;
+import SQL.SQL;
 
 /**
  * Servlet implementation class Projetos
@@ -16,14 +20,25 @@ import SERVLET.API.APIEntrada;
 @WebServlet(urlPatterns = { "/ServletProjetos" })
 public class ServletProjetos extends APIEntrada {
 	private static final long serialVersionUID = 1L;
+	DAOProjetos daoprojetos = new DAOProjetos();
+	SQL sqlprojeto = new SQL();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(acao(request).equalsIgnoreCase("persistirProjeto")) {
-			persistirProjeto(request);
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		try {
+			if(acao(request).equalsIgnoreCase("persistirProjeto")) {
+				persistirProjeto(request);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	
-	public void persistirProjeto(HttpServletRequest request){
-		
+	public void persistirProjeto(HttpServletRequest request) throws Exception{
+		ModelProjeto projeto = parametrosPersistirProjeto(request);
+		daoprojetos.persistirProjeto(sqlprojeto.persistenciaProjeto(projeto));
 	}
+	
 }

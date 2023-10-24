@@ -59,4 +59,14 @@
     <servlet-name>APIServletsClientes</servlet-name>
     <url-pattern>/APIServletsClientes</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletSessao</display-name>
+    <servlet-name>ServletSessao</servlet-name>
+    <servlet-class>SERVLET.ServletSessao</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletSessao</servlet-name>
+    <url-pattern>/ServletSessao</url-pattern>
+  </servlet-mapping>
 </web-app>

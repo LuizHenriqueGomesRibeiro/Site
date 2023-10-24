@@ -29,20 +29,29 @@ private Connection connection;
 	}
 	
 	public ModelLogin buscarLogin(ModelLogin modelLogin) throws SQLException{
-		String sql = "SELECT * FROM login WHERE email = ? AND senha = ?";
+		String sql = "SELECT * FROM login WHERE email = '" + modelLogin.getEmail() + "' AND senha = '" + modelLogin.getSenha() + "'";
 		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, modelLogin.getEmail());
-		statement.setString(2, modelLogin.getSenha());
-		
 		ResultSet result = statement.executeQuery();
-		
 		while(result.next()) {
 			modelLogin.setId(result.getInt("id"));
 			modelLogin.setEmail(result.getString("email"));
 			modelLogin.setNome(result.getString("nome"));
 			modelLogin.setSenha(result.getString("senha"));
 		}
-		
+		return modelLogin;
+	}
+	
+	public ModelLogin buscarLogin(String login, String senha) throws SQLException{
+		String sql = "SELECT * FROM login WHERE login = '" + login + "' AND senha = '" + senha + "'";
+		PreparedStatement statement = connection.prepareStatement(sql);
+		ResultSet result = statement.executeQuery();
+		ModelLogin modelLogin = new ModelLogin();
+		while(result.next()) {
+			modelLogin.setId(result.getInt("id"));
+			modelLogin.setEmail(result.getString("email"));
+			modelLogin.setNome(result.getString("nome"));
+			modelLogin.setSenha(result.getString("senha"));
+		}
 		return modelLogin;
 	}
 }

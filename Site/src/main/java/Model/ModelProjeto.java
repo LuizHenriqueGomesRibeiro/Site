@@ -5,7 +5,14 @@ public class ModelProjeto {
 	private String nome;
 	private String fotoprojeto;
 	private String extensaofotoprojeto;
+	private ModelLogin login_pai_id;
 	
+	public ModelLogin getLogin_pai_id() {
+		return login_pai_id;
+	}
+	public void setLogin_pai_id(ModelLogin login_pai_id) {
+		this.login_pai_id = login_pai_id;
+	}
 	public Long getId() {
 		return id;
 	}
