@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import DAO.DaoLogin;
 import Model.ModelLogin;
+import SERVLET.API.APIEntrada;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -19,7 +20,7 @@ import jakarta.servlet.http.HttpSession;
  */
 @MultipartConfig
 @WebServlet(urlPatterns = { "/ServletLogin" })
-public class ServletLogin extends HttpServlet {
+public class ServletLogin extends APIEntrada {
 	private static final long serialVersionUID = 1L;
 	
 	DaoLogin daoLogin = new DaoLogin();
@@ -58,7 +59,6 @@ public class ServletLogin extends HttpServlet {
 						session.setAttribute("nome", modelLogin.getNome());
 						
 						if (url == null || url.equals("null")) {
-							System.out.println("5");
 							url = "principal/principal.jsp";
 						}
 

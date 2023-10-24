@@ -7,10 +7,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import SERVLET.API.APIEntrada;
+
 /**
  * Servlet implementation class Perguntas
  */
-public class ServletPerguntas extends HttpServlet {
+public class ServletPerguntas extends APIEntrada {
 	private static final long serialVersionUID = 1L;
        
     /**

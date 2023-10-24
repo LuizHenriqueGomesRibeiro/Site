@@ -20,7 +20,7 @@ public class APIEntrada extends HttpServlet {
 		return request.getParameter("acao");
 	}
 
-	public String nome(HttpServletRequest request) {
+	public String nome_cliente(HttpServletRequest request) {
 		return request.getParameter("nome_cliente");
 	}
 	
@@ -30,6 +30,10 @@ public class APIEntrada extends HttpServlet {
 	
 	public String mensagem(HttpServletRequest request) {
 		return request.getParameter("mensagem_cliente");
+	}
+	
+	public String nome_projeto(HttpServletRequest request) {
+		return request.getParameter("nome_projeto");
 	}
 	
 	public String parametrosCadastrarPergunta(HttpServletRequest request) {

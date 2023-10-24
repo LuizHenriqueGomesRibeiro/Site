@@ -29,7 +29,7 @@
 							<div class="col-md-7">
 								<div class="contact-wrap w-100 p-md-5 p-4">
 									<h3 class="mb-4">Escolha que projeto você deseja alterar:</h3>
-									<div id="table" style="position: relative; width: 50vw; left: -100px;">
+									<div id="table" style="position: relative; width: 50vw; left: -100px; height: 200px;">
 										<table class="table table-striped table-sm">
 											<thead>
 												<tr>
@@ -58,58 +58,160 @@
 	</section>
 	<div style="position: relative; width: 70vw; margin: auto; top: 40px;">
 		<div id="formulario">
-			<form method="get" action="<%=request.getContextPath()%>/ServletFormulario" id="editarProjeto" name="contactForm"
+			<form enctype="multipart/form-data" method="get" action="<%=request.getContextPath()%>/ServletProjetos" id="projeto" name="contactForm"
 				class="contactForm">
-				<input type="hidden" name="acao" value="editarProjeto" />
+				<input type="hidden" name="acao" value="persistirProjeto" />
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
-							<label class="label" for="name">Nome completo:</label> <input
+							<label class="label" for="name">Nome do projeto:</label> <input
 								type="text" class="form-control" name="nome_cliente" id="name"
 								placeholder="Nome">
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label class="label" for="email">E-mail:</label> <input
-								type="email" class="form-control" name="email_cliente" id="email"
-								placeholder="E-mail">
+							<label class="label" for="email">Foto 1:</label>
+							<img alt="Imagem" id="foto64" src="" width="70px;">
 						</div>
+						<input type="file" accept="image/*" onchange="visualizarImg('foto64', 'foto1')" class="form-control" name="foto1" id="foto1">
 					</div>
-					<div class="col-md-12">
-						<div class="form-group">
-							<label class="label" for="#">Mensagem:</label>
-							<textarea name="mensagem_cliente" class="form-control"
-								id="message" cols="30" rows="4" placeholder="Mensagem"></textarea>
-						</div>
-					</div>
-				</div>
-				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
-							<label class="label" for="name">Nome completo:</label> <input
-								type="text" class="form-control" name="nome_cliente" id="name"
-								placeholder="Nome">
+							<label class="label" for="email">Foto 1:</label> <input
+								type="email" class="form-control" name="foto"
+								id="email" placeholder="E-mail">
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label class="label" for="email">E-mail:</label> <input
-								type="email" class="form-control" name="email_cliente" id="email"
-								placeholder="E-mail">
+							<label class="label" for="email">Foto 2:</label> <input
+								type="email" class="form-control" name="foto2"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 3:</label> <input
+								type="email" class="form-control" name="foto3"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 4:</label> <input
+								type="email" class="form-control" name="foto4"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 5:</label> <input
+								type="email" class="form-control" name="foto5"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 6:</label> <input
+								type="email" class="form-control" name="foto6"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 7:</label> <input
+								type="email" class="form-control" name="foto7"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 8:</label> <input
+								type="email" class="form-control" name="foto8"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 9:</label> <input
+								type="email" class="form-control" name="foto9"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 10:</label> <input
+								type="email" class="form-control" name="foto10"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 11:</label> <input
+								type="email" class="form-control" name="foto11"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 12:</label> <input
+								type="email" class="form-control" name="foto12"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 13:</label> <input
+								type="email" class="form-control" name="foto13"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 14:</label> <input
+								type="email" class="form-control" name="foto14"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 15:</label> <input
+								type="email" class="form-control" name="foto15"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 16:</label> <input
+								type="email" class="form-control" name="foto16"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 17:</label> <input
+								type="email" class="form-control" name="foto17"
+								id="email" placeholder="E-mail">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="email">Foto 18:</label> <input
+								type="email" class="form-control" name="foto18"
+								id="email" placeholder="E-mail">
 						</div>
 					</div>
 					<div class="col-md-12">
 						<div class="form-group">
-							<label class="label" for="#">Mensagem:</label>
+							<label class="label" for="#">Descrição:</label>
 							<textarea name="mensagem_cliente" class="form-control"
 								id="message" cols="30" rows="4" placeholder="Mensagem"></textarea>
 						</div>
 					</div>
 					<div class="col-md-12">
 						<div class="form-group">
-							<input type="submit" value="Enviar mensagem:"
-								class="btn btn-primary">
+							<input type="submit" value="Persistir projeto" class="btn btn-primary">
 							<div class="submitting"></div>
 						</div>
 					</div>
@@ -123,6 +225,16 @@
 		function editar() {
 			jQuery("#table").hide();
 			jQuery("#formulario").show();
+		}
+		
+		function visualizarImg(foto64, foto1){
+			var preview = document.getElementById(foto64);
+			var file = document.getElementById(foto1).files[0];
+			var reader = new FileReader();
+			
+			reader.onloader = function (){
+				preview.src = reader.result;
+			}
 		}
 	</script>
 </body>
