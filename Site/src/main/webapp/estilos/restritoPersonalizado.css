@@ -1,0 +1,15 @@
+.img{
+	position: absolute;
+    width: 312px;
+    height: 172px;
+    top: 30px;
+    left: 80px;
+    object-fit: cover;
+    background-color: antiquewhite;
+}
+
+.inputImg{
+	position: relative; 
+	left: 80px;
+	width: 312px;
+}

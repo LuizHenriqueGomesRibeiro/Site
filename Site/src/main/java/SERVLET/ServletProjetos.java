@@ -6,7 +6,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 
 import DAO.DAOProjetos;
 import Model.ModelProjeto;
@@ -24,21 +23,30 @@ public class ServletProjetos extends APIEntrada {
 	SQL sqlprojeto = new SQL();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(acao(request).equalsIgnoreCase("acessarProjetos")) {
+			acessarProjetos(request, response);
+		}
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		try {
 			if(acao(request).equalsIgnoreCase("persistirProjeto")) {
-				persistirProjeto(request);
+				persistirProjeto(request, response);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void persistirProjeto(HttpServletRequest request) throws Exception{
+	public void acessarProjetos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("principal/cadastrarProjeto.jsp").forward(request, response);
+	}
+	
+	public void persistirProjeto(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		ModelProjeto projeto = parametrosPersistirProjeto(request);
 		daoprojetos.persistirProjeto(sqlprojeto.persistenciaProjeto(projeto));
+		request.setAttribute("projeto", projeto);
+		request.getRequestDispatcher("principal/cadastrarProjeto.jsp").forward(request, response);
 	}
 	
 }

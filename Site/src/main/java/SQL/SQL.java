@@ -7,8 +7,8 @@ public class SQL {
 		String sql = "INSERT INTO projeto(nome, login_pai_id, fotoprojeto, extensaofotoprojeto) VALUES ('" + 
 			modelProjeto.getNome() 
 			+ "', '" + modelProjeto.getLogin_pai_id().getId() 
-			+ "', " + modelProjeto.getFotoprojeto() 
-			+ ", '" + modelProjeto.getExtensaofotoprojeto() + "')";
+			+ "', '" + modelProjeto.getFotoprojeto() 
+			+ "', '" + modelProjeto.getExtensaofotoprojeto() + "')";
 		return sql;
 	}
 }
