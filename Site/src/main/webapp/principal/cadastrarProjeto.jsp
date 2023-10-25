@@ -61,12 +61,12 @@
 			<form enctype="multipart/form-data" method="post" action="<%=request.getContextPath()%>/ServletProjetos" id="projeto" name="contactForm"
 				class="contactForm">
 				<input type="hidden" name="acao" value="persistirProjeto" />
-				<div style="width: 100vw;" class="row" id="carregarInputs">
+				<div class="row" id="carregarInputs">
 					<div class="col-md-6">
 						<div class="form-group">
 							<label class="label" for="name">Nome do projeto:</label> <input
 								type="text" class="form-control" name="nome_cliente" id="name"
-								placeholder="Nome" onclick="carregarInputs();">
+								placeholder="Nome">
 						</div>
 					</div>
 					<div style="position: relative;" class="col-md-6">
@@ -80,16 +80,44 @@
 					</div>
 				</div>
 			</form>
+			<label class="picture" for="picture__input" tabIndex="0">
+  <span class="picture__image"></span>
+</label>
+
+<input type="file" name="picture__input" id="picture__input">
+			<button onclick="carregarInputs();" type="button">Carregar lista</button>
 		</div>
 	</div>
 	<script type="text/javascript">
-		jQuery("#formulario").hide();
-
-		function editar() {
-			jQuery("#table").hide();
-			jQuery("#formulario").show();
-		}
-		
+		const inputFile = document.querySelector("#picture__input");
+		const pictureImage = document.querySelector(".picture__image");
+		const pictureImageTxt = "Choose an image";
+		pictureImage.innerHTML = pictureImageTxt;
+	
+		inputFile.addEventListener("change", function (e) {
+		  const inputTarget = e.target;
+		  const file = inputTarget.files[0];
+	
+		  if (file) {
+		    const reader = new FileReader();
+	
+		    reader.addEventListener("load", function (e) {
+		      const readerTarget = e.target;
+	
+		      const img = document.createElement("img");
+		      img.src = readerTarget.result;
+		      img.classList.add("picture__img");
+	
+		      pictureImage.innerHTML = "";
+		      pictureImage.appendChild(img);
+		    });
+	
+		    reader.readAsDataURL(file);
+		  } else {
+		    pictureImage.innerHTML = pictureImageTxt;
+		  }
+		});
+	
 		function visualizarImg(foto64, foto1){
 			var preview = document.getElementById(foto64);
 			var file = document.getElementById(foto1).files[0];
@@ -107,17 +135,17 @@
 		}
 		
 		function carregarInputs(){
-			for(var p = 0; p < 10; p++){
+			for(var p = 1; p < 10; p++){
 				jQuery("#carregarInputs").append(
-					'<div style="position: relative;" class="col-md-6">' +
+					'<div style="position: relative; margin-top: 170px;" class="col-md-6">' +
 						'<div class="form-group">' +
-							'<label class="label" for="email"></label>' +
+							'<label class="label" for="email">Foto secundária ' + p + '</label>' +
 							'<div style="position: relative;">' +
 								'<img alt="Imagem" id="foto64" class="img" src="${projeto.fotoprojeto}">' +
 							'</div>' +
 						'</div>' +
-						'<input type="file" accept="image/*" onchange="visualizarImg("foto64", "foto1")" class="form-control inputImg" name="foto1" id="foto1">' +
-					'</div>"'
+						'<input type="file" accept="image/*" onchange="visualizarImg(\'foto64\', \'foto1\')" class="form-control inputImg" name="foto1" id="foto1">' +
+					'</div>'
 				);
 			}
 		}
