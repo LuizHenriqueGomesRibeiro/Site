@@ -17,8 +17,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="estilos/restritoPersonalizado.css">
+  <script type="text/javascript" src="script/cadastrarProjeto.js"></script>
 </head>
-<body>
+<body style="overflow-x: hidden;">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -56,12 +57,12 @@
 				</div>
 			</div>
 	</section>
-	<div style="position: relative; width: 70vw; margin: auto; top: 40px;">
+	<div style="position: relative; width: 90vw; margin: auto;">
 		<div id="formulario">
 			<form enctype="multipart/form-data" method="post" action="<%=request.getContextPath()%>/ServletProjetos" id="projeto" name="contactForm"
 				class="contactForm">
 				<input type="hidden" name="acao" value="persistirProjeto" />
-				<div class="row" id="carregarInputs">
+				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
 							<label class="label" for="name">Nome do projeto:</label> <input
@@ -69,86 +70,105 @@
 								placeholder="Nome">
 						</div>
 					</div>
-					<div style="position: relative;" class="col-md-6">
-						<div class="form-group">
-							<label class="label" for="email">Foto principal:</label>
-							<div style="position: relative;">
-								<img alt="Imagem" id="foto64" class="img" src="${projeto.fotoprojeto}">
-							</div>
-						</div>
-						<input type="file" accept="image/*" onchange="visualizarImg('foto64', 'foto1')" class="form-control inputImg" name="foto1" id="foto1">
+				</div>
+				<div class="form-group">
+					<label class="label" for="email">Foto principal:</label>
+					<div style="position: relative;">
+						<img style="position: absolute; width: 624px; height: 342px; top: 30px; left: 80px; object-fit: cover; 
+						background-color: antiquewhite;" alt="Imagem" id="foto64" src="${projeto.fotoprojeto}">
 					</div>
 				</div>
+				<input style="width: 624px;" type="file" accept="image/*" onchange="visualizarImg('foto64', 'foto')" class="form-control inputImg" name="foto" id="foto">
+				<div style="position: relative; margin-bottom: 180px; margin-top: 340px;" class="row">
+					<div class="col">
+						<div class="form-group">
+							<label class="label" for="email">Foto secundária 1:</label>
+							<div style="position: relative;">
+								<img alt="Imagem" id="foto641" class="img" src="${projeto.foto1}">
+							</div>
+						</div>
+						<input type="file" accept="image/*" onchange="visualizarImg('foto641', 'foto1')" class="form-control inputImg" name="foto1" id="foto1">
+					</div>
+					<div class="col">
+						<div class="form-group"> 
+							<label class="label" for="email">Foto secundária 2:</label>
+							<div style="position: relative;">
+								<img alt="Imagem" id="foto642" class="img" src="${projeto.foto2}">
+							</div>
+						</div>
+						<input type="file" accept="image/*" onchange="visualizarImg('foto642', 'foto2')" class="form-control inputImg" name="foto2" id="foto2">
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<label class="label" for="email">Foto secundária 3:</label>
+							<div style="position: relative;">
+								<img alt="Imagem" id="foto643" class="img" src="${projeto.foto3}">
+							</div>
+						</div>
+						<input type="file" accept="image/*" onchange="visualizarImg('foto643', 'foto3')" class="form-control inputImg" name="foto3" id="foto3">
+					</div>
+				</div>
+				<div style="position: relative; margin-bottom: 180px;" class="row">
+					<div class="col">
+						<div class="form-group">
+							<label class="label" for="email">Foto secundária 4:</label>
+							<div style="position: relative;">
+								<img alt="Imagem" id="foto644" class="img" src="${projeto.foto4}">
+								</div>
+							</div>
+							<input type="file" accept="image/*" onchange="visualizarImg('foto644', 'foto4')" class="form-control inputImg" name="foto4" id="foto4">
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label class="label" for="email">Foto secundária 5:</label>
+								<div style="position: relative;">
+								<img alt="Imagem" id="foto645" class="img" src="${projeto.foto5}">
+							</div>
+						</div>
+						<input type="file" accept="image/*" onchange="visualizarImg('foto645', 'foto5')" class="form-control inputImg" name="foto5" id="foto5">
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<label class="label" for="email">Foto secundária 6:</label>
+							<div style="position: relative;">
+								<img alt="Imagem" id="foto646" class="img" src="${projeto.foto6}">
+							</div>
+						</div>
+						<input type="file" accept="image/*" onchange="visualizarImg('foto646', 'foto6')" class="form-control inputImg" name="foto6" id="foto6">
+					</div>
+				</div>
+				<div style="position: relative; margin-bottom: 180px;" class="row">
+					<div class="col">
+						<div class="form-group">
+							<label class="label" for="email">Foto secundária 7:</label>
+							<div style="position: relative;">
+								<img alt="Imagem" id="foto647" class="img" src="${projeto.foto7}">
+								</div>
+							</div>
+							<input type="file" accept="image/*" onchange="visualizarImg('foto647', 'foto7')" class="form-control inputImg" name="foto7" id="foto7">
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label class="label" for="email">Foto secundária 8:</label>
+								<div style="position: relative;">
+								<img alt="Imagem" id="foto648" class="img" src="${projeto.foto8}">
+							</div>
+						</div>
+						<input type="file" accept="image/*" onchange="visualizarImg('foto648', 'foto8')" class="form-control inputImg" name="foto8" id="foto8">
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<label class="label" for="email">Foto secundária 9:</label>
+							<div style="position: relative;">
+								<img alt="Imagem" id="foto649" class="img" src="${projeto.foto9}">
+							</div>
+						</div>
+						<input type="file" accept="image/*" onchange="visualizarImg('foto649', 'foto9')" class="form-control inputImg" name="foto9" id="foto9">
+					</div>
+				</div>
+				<button>Salvar</button>
 			</form>
-			<label class="picture" for="picture__input" tabIndex="0">
-  <span class="picture__image"></span>
-</label>
-
-<input type="file" name="picture__input" id="picture__input">
-			<button onclick="carregarInputs();" type="button">Carregar lista</button>
 		</div>
 	</div>
-	<script type="text/javascript">
-		const inputFile = document.querySelector("#picture__input");
-		const pictureImage = document.querySelector(".picture__image");
-		const pictureImageTxt = "Choose an image";
-		pictureImage.innerHTML = pictureImageTxt;
-	
-		inputFile.addEventListener("change", function (e) {
-		  const inputTarget = e.target;
-		  const file = inputTarget.files[0];
-	
-		  if (file) {
-		    const reader = new FileReader();
-	
-		    reader.addEventListener("load", function (e) {
-		      const readerTarget = e.target;
-	
-		      const img = document.createElement("img");
-		      img.src = readerTarget.result;
-		      img.classList.add("picture__img");
-	
-		      pictureImage.innerHTML = "";
-		      pictureImage.appendChild(img);
-		    });
-	
-		    reader.readAsDataURL(file);
-		  } else {
-		    pictureImage.innerHTML = pictureImageTxt;
-		  }
-		});
-	
-		function visualizarImg(foto64, foto1){
-			var preview = document.getElementById(foto64);
-			var file = document.getElementById(foto1).files[0];
-			var reader = new FileReader();
-			
-			reader.onloadend = function (){
-				preview.src = reader.result;
-			};
-			
-			if(file){
-				reader.readAsDataURL(file);
-			}else{
-				preview.src = '';
-			}
-		}
-		
-		function carregarInputs(){
-			for(var p = 1; p < 10; p++){
-				jQuery("#carregarInputs").append(
-					'<div style="position: relative; margin-top: 170px;" class="col-md-6">' +
-						'<div class="form-group">' +
-							'<label class="label" for="email">Foto secundária ' + p + '</label>' +
-							'<div style="position: relative;">' +
-								'<img alt="Imagem" id="foto64" class="img" src="${projeto.fotoprojeto}">' +
-							'</div>' +
-						'</div>' +
-						'<input type="file" accept="image/*" onchange="visualizarImg(\'foto64\', \'foto1\')" class="form-control inputImg" name="foto1" id="foto1">' +
-					'</div>'
-				);
-			}
-		}
-	</script>
 </body>
 </html>

@@ -25,6 +25,8 @@ public class ServletProjetos extends APIEntrada {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(acao(request).equalsIgnoreCase("acessarProjetos")) {
 			acessarProjetos(request, response);
+		}else if(acao(request).equalsIgnoreCase("carregarTela")) {
+			carregarTela(request, response);
 		}
 	}
 	
@@ -47,6 +49,10 @@ public class ServletProjetos extends APIEntrada {
 		daoprojetos.persistirProjeto(sqlprojeto.persistenciaProjeto(projeto));
 		request.setAttribute("projeto", projeto);
 		request.getRequestDispatcher("principal/cadastrarProjeto.jsp").forward(request, response);
+	}
+	
+	public void carregarTela(HttpServletRequest request, HttpServletResponse response) {
+		
 	}
 	
 }
