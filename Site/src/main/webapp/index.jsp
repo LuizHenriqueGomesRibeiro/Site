@@ -18,47 +18,41 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="estilos/style.css">
   <link rel="stylesheet" href="estilos/style2.css">
+  <script type="text/javascript" src="script/paginaProjeto.js"></script>
 </head>
-<body>
-	<div class="carousel">
-			<nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
-				<div style=" width: 600px; left: 200px;" class="container-fluid">
-					<a class="navbar-brand" href="#">Brand</a>
-					<button class="navbar-toggler" type="button"
-						data-mdb-toggle="collapse"
-						data-mdb-target="#navbarSupportedContent"
-						aria-controls="navbarSupportedContent" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<i class="fas fa-bars"></i>
-					</button>
-					<div class="toc collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-							<li class="nav-item 1"><a class="nav-link active" aria-current="page" href="#">Studiouna</a></li>
-							<li class="nav-item 2"><a class="nav-link" href="#">Projetos</a></li>
-							<li class="nav-item 3"><a class="nav-link" href="#">Escritório</a></li>
-							<li class="nav-item 4"><a class="nav-link" href="#">Mídia</a></li>
-							<li class="nav-item 5"><a class="nav-link" href="contato.jsp">Contato</a></li>
-							<li class="disabled-link nav-item 5"><a class="nav-link" href="#">|</a></li>
-							<li class="nav-item 5"><a class="nav-link" href="restrito.jsp">Área restrita</a></li>
-						</ul>
+<body onload="loading();">
+	<div id="carregando">
+		<h1>Carregando...</h1>
+	</div>
+	<div style="display: none;" id="carregado">
+		<div class="carousel">
+			<div style="height: 100px; width: 100vw;">
+				<div style="width: 900px; position: relative; margin: auto; height: 100px; top: 10px;">
+					<img alt="" style="width: 70px; height: 70px;" src="imagens/thumbnail_LOGO COLORIDA.png"/>
+					<div style="position: relative; top: -50px; left: 470px;">
+						<a class="navbar-brand" href="#">Studiouna</a>
+						<a class="navbar-brand" href="#">Projetos</a>
+						<a class="navbar-brand" href="#">Escritório</a>
+						<a class="navbar-brand" href="#">Mídia</a>
+						<a class="navbar-brand" href="contato.jsp">Contato</a>
+						<a class="navbar-brand" href="restrito.jsp">Área restrita</a>
 					</div>
 				</div>
-			</nav>
-		<ul class="panes">
-			<li id="s1"><img src="imagens/DIURNO-EED.png"></li>
-			<li id="s2"><img src="imagens/RENDER-8.png"></li>
-			<li id="s3"><img src="imagens/VARANDA-01.png"></li>
-			<li id="s4"><img src="imagens/VARANDA 02.png"></li>
-			<li id="s5"><img src="imagens/VARANDA GOURMET6.png"></li>
-		</ul>
-	</div>
-	<div style="position: relative; top: 100vh;">
-		<div style="position: relative; top: 30px;">
+			</div>
+			<ul style="position: relative;" class="panes">
+				<li id="s1"><img src="${projeto.foto1}"></li>
+				<li id="s2"><img src="${projeto.foto2}"></li>
+				<li id="s3"><img src="${projeto.foto3}"></li>
+				<li id="s4"><img src="${projeto.foto4}"></li>
+				<li id="s5"><img src="${projeto.foto5}"></li>
+			</ul>
+		</div>
+		<div style="position: relative; top: 116vh;">
 			<ul class="da">
 				<li>
-					<a href="projeto1.jsp">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjeto1">
 						<figure>
-							<img class="da" src='imagens/DETALHE-1.png' alt='Volcano and lava field against a stormy sky'>
+							<img class="da" src='${projeto.foto1}' alt='Volcano and lava field against a stormy sky'>
 							<figcaption>Casa cor | 2019</figcaption>
 						</figure>
 					</a>
@@ -66,7 +60,7 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='imagens/DIURNO-EED.png' alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
+							<img class="da" src='${projeto.foto2}' alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
 							<figcaption>Adventure getaways</figcaption>
 						</figure>
 					</a>
@@ -74,7 +68,7 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='imagens/ESCRITÓRIO 02.png' alt='Person standing alone in a misty forest'>
+							<img class="da" src='${projeto.foto3}' alt='Person standing alone in a misty forest'>
 							<figcaption>Forest escapes</figcaption>
 						</figure>
 					</a>
@@ -82,7 +76,7 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='imagens/ESCRITÓRIO 04.png' alt='Person hiking on a trail through mountains while taking a photo with phone'>
+							<img class="da" src='${projeto.foto4}' alt='Person hiking on a trail through mountains while taking a photo with phone'>
 							<figcaption>Hiking trails</figcaption>
 						</figure>
 					</a>
@@ -90,7 +84,7 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='imagens/VARANDA-01.png' alt='Street scene with person walking and others on motorbikes, all wearing masks'>
+							<img class="da" src='${projeto.foto5}' alt='Street scene with person walking and others on motorbikes, all wearing masks'>
 							<figcaption>Street scenes</figcaption>
 						</figure>
 					</a>
@@ -98,7 +92,7 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='imagens/QUARTO ELIS_REV 01.png' alt='Fashionable-looking girl with blond hair and pink sunglasses'>
+							<img class="da" src='${projeto.foto6}' alt='Fashionable-looking girl with blond hair and pink sunglasses'>
 							<figcaption>Trending</figcaption>
 						</figure>
 					</a>
@@ -106,7 +100,7 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='imagens/RENDER-8.png' alt='Volcano and lava field against a stormy sky'>
+							<img class="da" src='${projeto.foto7}' alt='Volcano and lava field against a stormy sky'>
 							<figcaption>Mountains and volcanos</figcaption>
 						</figure>
 					</a>
@@ -114,7 +108,7 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='imagens/VARANDA-01.png' alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
+							<img class="da" src='${projeto.foto8}' alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
 							<figcaption>Adventure getaways</figcaption>
 						</figure>
 					</a>
@@ -122,32 +116,8 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='imagens/VARANDA 02.png' alt='Person standing alone in a misty forest'>
+							<img class="da" src='${projeto.foto9}' alt='Person standing alone in a misty forest'>
 							<figcaption>Forest escapes</figcaption>
-						</figure>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<figure>
-							<img class="da" src='imagens/VARANDA GOURMET6.png' alt='Person hiking on a trail through mountains while taking a photo with phone'>
-							<figcaption>Hiking trails</figcaption>
-						</figure>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<figure>
-							<img class="da" src='imagens/VARANDA-01.png' alt='Street scene with person walking and others on motorbikes, all wearing masks'>
-							<figcaption>Street scenes</figcaption>
-						</figure>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<figure>
-							<img class="da" src='imagens/VARANDA-01.png' alt='Fashionable-looking girl with blond hair and pink sunglasses'>
-							<figcaption>Trending</figcaption>
 						</figure>
 					</a>
 				</li>

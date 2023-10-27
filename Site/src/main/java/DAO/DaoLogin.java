@@ -33,7 +33,7 @@ private Connection connection;
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet result = statement.executeQuery();
 		while(result.next()) {
-			modelLogin.setId(result.getInt("id"));
+			modelLogin.setId(result.getLong("id"));
 			modelLogin.setEmail(result.getString("email"));
 			modelLogin.setNome(result.getString("nome"));
 			modelLogin.setSenha(result.getString("senha"));
@@ -47,7 +47,7 @@ private Connection connection;
 		ResultSet result = statement.executeQuery();
 		ModelLogin modelLogin = new ModelLogin();
 		while(result.next()) {
-			modelLogin.setId(result.getInt("id"));
+			modelLogin.setId(result.getLong("id"));
 			modelLogin.setEmail(result.getString("email"));
 			modelLogin.setNome(result.getString("nome"));
 			modelLogin.setSenha(result.getString("senha"));

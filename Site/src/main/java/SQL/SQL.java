@@ -31,4 +31,14 @@ public class SQL {
 			"')";
 		return sql;
 	}
+	
+	public String buscaProjeto() {
+		String sql = "SELECT * FROM projeto WHERE id = 28";
+		return sql;
+	}
+	
+	public String listaProjetos(Long login_pai_id) {
+		String sql = "SELECT * FROM projeto WHERE login_pai_id = " + login_pai_id;
+		return sql;
+	}
 }

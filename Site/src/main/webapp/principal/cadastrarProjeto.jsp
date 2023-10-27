@@ -74,7 +74,7 @@
 				<div class="form-group">
 					<label class="label" for="email">Foto principal:</label>
 					<div style="position: relative;">
-						<img style="position: absolute; width: 624px; height: 342px; top: 30px; left: 80px; object-fit: cover; 
+						<img style="position: absolute; width: 624px; height: 280px; top: 30px; left: 80px; object-fit: cover; 
 						background-color: antiquewhite;" alt="Imagem" id="foto64" src="${projeto.fotoprojeto}">
 					</div>
 				</div>
