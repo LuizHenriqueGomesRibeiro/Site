@@ -11,3 +11,4 @@ function visualizarImg(foto64, foto) {
 		preview.src = '';
 	}
 }
+

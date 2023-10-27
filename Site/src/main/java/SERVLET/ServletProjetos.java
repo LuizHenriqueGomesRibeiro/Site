@@ -7,7 +7,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 import DAO.DAOProjetos;
 import Model.ModelProjeto;
@@ -27,11 +26,14 @@ public class ServletProjetos extends APIEntrada {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			if(acao(request).equalsIgnoreCase("acessarProjetos")) {
-					acessarProjetos(request, response);
+				acessarProjetos(request, response);
 			}else if(acao(request).equalsIgnoreCase("carregarTela")) {
 				carregarTela(request, response);
 			}else if(acao(request).equalsIgnoreCase("carregarProjeto1")) {
-					carregarProjeto1(request, response);
+				carregarProjeto1(request, response);
+			}else if(acao(request).equalsIgnoreCase("carregarProjetoEditar")) {
+				carregarProjetoEditar(request, response);
+			}else if(acao(request).equalsIgnoreCase("excluirProjeto")) {
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -50,7 +52,7 @@ public class ServletProjetos extends APIEntrada {
 	}
 	
 	public void acessarProjetos(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
-		request.setAttribute("produtos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos(getUser(request).getId())));
+		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos(getUser(request).getId())));
 		request.getRequestDispatcher("principal/cadastrarProjeto.jsp").forward(request, response);
 	}
 	
@@ -62,14 +64,22 @@ public class ServletProjetos extends APIEntrada {
 	}
 	
 	public void carregarTela(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto());
+		// You need to fix it yet;
+		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto(28L));
 		request.setAttribute("projeto", projeto);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 	
 	public void carregarProjeto1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto());
+		// You need to fix it yet;
+		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto(28L));
 		request.setAttribute("projeto", projeto);
 		request.getRequestDispatcher("projeto1.jsp").forward(request, response);
+	}
+	
+	public void carregarProjetoEditar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto(id_projeto(request)));
+		request.setAttribute("projeto", projeto);
+		request.getRequestDispatcher("carregarProjetoEditar.jsp").forward(request, response);
 	}
 }

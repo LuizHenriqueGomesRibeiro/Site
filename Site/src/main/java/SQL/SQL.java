@@ -32,8 +32,8 @@ public class SQL {
 		return sql;
 	}
 	
-	public String buscaProjeto() {
-		String sql = "SELECT * FROM projeto WHERE id = 28";
+	public String buscaProjeto(Long id) {
+		String sql = "SELECT * FROM projeto WHERE id = " + id;
 		return sql;
 	}
 	

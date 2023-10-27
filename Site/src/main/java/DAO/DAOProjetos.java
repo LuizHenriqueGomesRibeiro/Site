@@ -54,6 +54,7 @@ private Connection connection;
 	
 	public ModelProjeto setModelProjeto(ResultSet resultado, ModelProjeto modelProjeto) throws SQLException {	
 		modelProjeto.setFotoprojeto(resultado.getString("fotoprojeto"));
+		modelProjeto.setId(resultado.getLong("id"));
 		modelProjeto.setFoto1(resultado.getString("foto1"));
 		modelProjeto.setFoto2(resultado.getString("foto2"));
 		modelProjeto.setFoto3(resultado.getString("foto3"));

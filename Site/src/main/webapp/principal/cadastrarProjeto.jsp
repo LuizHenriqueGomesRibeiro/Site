@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,18 +36,20 @@
 											<thead>
 												<tr>
 													<th>Nome</th>
-													<th>Ver</th>
+													<th>Foto principal</th>
 													<th>Editar</th>
 													<th>Excluir</th>
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<td><a style="pointer-events: none;" class="page-link" onclick="">Projeto Filadélfia</a></td>
-													<td><a class="page-link" href="#" onclick="">Ver</a></td>
-													<td><a class="page-link" href="#" onclick="editar();">Editar</a></td>
-													<td><a style="color: red;" class="page-link" href="#" onclick="">Excluir</a></td>
-												</tr>
+												<c:forEach items="${projetos}" var="ml">
+													<tr>
+														<td><c:out value="${ml.nome}"></c:out></td>
+														<td><img width="70px;" height="70px;" alt="" src="${ml.fotoprojeto}"></td>
+														<td><a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoEditar&id_projeto=${ml.id}">Editar</a></td>
+														<td><a href="<%=request.getContextPath()%>/ServletProjetos?acao=excluirProjeto&id_projeto=${ml.id}">Excluir</a></td>
+													</tr>												
+												</c:forEach>
 											</tbody>
 										</table>
 									</div>
