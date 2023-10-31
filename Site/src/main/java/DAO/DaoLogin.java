@@ -54,4 +54,18 @@ private Connection connection;
 		}
 		return modelLogin;
 	}
+	
+	public ModelLogin buscarLogin(Long id) throws SQLException{
+		String sql = "SELECT * FROM login WHERE id = " + id;
+		PreparedStatement statement = connection.prepareStatement(sql);
+		ResultSet result = statement.executeQuery();
+		ModelLogin modelLogin = new ModelLogin();
+		while(result.next()) {
+			modelLogin.setId(result.getLong("id"));
+			modelLogin.setEmail(result.getString("email"));
+			modelLogin.setNome(result.getString("nome"));
+			modelLogin.setSenha(result.getString("senha"));
+		}
+		return modelLogin;
+	}
 }

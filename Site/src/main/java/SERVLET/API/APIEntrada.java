@@ -179,6 +179,8 @@ public class APIEntrada extends ServletSessao {
 		modelProjeto.setFoto9(imagem9(request));
 		modelProjeto.setExtensaofoto9(imagem9tipo(request));
 		modelProjeto.setLogin_pai_id(getUser(request));
+		modelProjeto.setNome(nome_projeto(request));
+		modelProjeto.setId(id_projeto(request));
 		return modelProjeto;
 	}
 }

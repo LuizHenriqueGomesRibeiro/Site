@@ -25,12 +25,13 @@
 		<div id="formulario">
 			<form enctype="multipart/form-data" method="post" action="<%=request.getContextPath()%>/ServletProjetos" id="projeto" name="contactForm"
 				class="contactForm">
-				<input type="hidden" name="acao" value="persistirProjeto" />
+				<input type="hidden" name="acao" value="editarProjeto" />
+				<input name="id_projeto" id="id_projeto" value="${projeto.id}" />
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
 							<label class="label" for="name">Nome do projeto:</label> <input
-								type="text" class="form-control" name="nome_cliente" id="name"
+								type="text" class="form-control" name="nome_projeto" id="name"
 								placeholder="Nome">
 						</div>
 					</div>

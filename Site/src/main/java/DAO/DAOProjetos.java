@@ -9,9 +9,12 @@ import java.util.List;
 
 import CONEXAO.Conexao;
 import Model.ModelProjeto;
+import SQL.SQL;
 
 public class DAOProjetos {
-private Connection connection;
+	private Connection connection;
+	DaoLogin daologin = new DaoLogin();
+	SQL sql = new SQL();
 	
 	public DAOProjetos() {
 		connection = Conexao.getConnection();
@@ -64,6 +67,7 @@ private Connection connection;
 		modelProjeto.setFoto7(resultado.getString("foto7"));
 		modelProjeto.setFoto8(resultado.getString("foto8"));
 		modelProjeto.setFoto9(resultado.getString("foto9"));
+		modelProjeto.setLogin_pai_id(daologin.buscarLogin(Long.parseLong(resultado.getString("login_pai_id"))));
 		return modelProjeto;
 	}
 	

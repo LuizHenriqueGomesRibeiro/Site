@@ -33,8 +33,6 @@ public class ServletProjetos extends APIEntrada {
 				carregarProjeto1(request, response);
 			}else if(acao(request).equalsIgnoreCase("carregarProjetoEditar")) {
 				carregarProjetoEditar(request, response);
-			}else if(acao(request).equalsIgnoreCase("editarProjeto")) {
-				editarProjeto(request, response);
 			}else if(acao(request).equalsIgnoreCase("excluirProjeto")) {
 				excluirProjeto(request, response);
 			}
@@ -48,6 +46,8 @@ public class ServletProjetos extends APIEntrada {
 		try {
 			if(acao(request).equalsIgnoreCase("persistirProjeto")) {
 				persistirProjeto(request, response);
+			}else if(acao(request).equalsIgnoreCase("editarProjeto")) {
+				editarProjeto(request, response);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -87,7 +87,7 @@ public class ServletProjetos extends APIEntrada {
 	}
 	
 	public void editarProjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto(id_projeto(request)));
+		ModelProjeto projeto = parametrosPersistirProjeto(request);
 		daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoProjeto(projeto));
 		acessarProjetos(request, response);
 	}
