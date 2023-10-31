@@ -33,7 +33,10 @@ public class ServletProjetos extends APIEntrada {
 				carregarProjeto1(request, response);
 			}else if(acao(request).equalsIgnoreCase("carregarProjetoEditar")) {
 				carregarProjetoEditar(request, response);
+			}else if(acao(request).equalsIgnoreCase("editarProjeto")) {
+				editarProjeto(request, response);
 			}else if(acao(request).equalsIgnoreCase("excluirProjeto")) {
+				excluirProjeto(request, response);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -49,11 +52,6 @@ public class ServletProjetos extends APIEntrada {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public void acessarProjetos(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
-		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos(getUser(request).getId())));
-		request.getRequestDispatcher("principal/cadastrarProjeto.jsp").forward(request, response);
 	}
 	
 	public void persistirProjeto(HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -80,6 +78,22 @@ public class ServletProjetos extends APIEntrada {
 	public void carregarProjetoEditar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto(id_projeto(request)));
 		request.setAttribute("projeto", projeto);
-		request.getRequestDispatcher("carregarProjetoEditar.jsp").forward(request, response);
+		request.getRequestDispatcher("principal/carregarProjetoEditar.jsp").forward(request, response);
+	}
+	
+	public void excluirProjeto(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
+		daoprojetos.excluirProjeto(sqlprojeto.excluiProjeto(id_projeto(request)));
+		acessarProjetos(request, response);
+	}
+	
+	public void editarProjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto(id_projeto(request)));
+		daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoProjeto(projeto));
+		acessarProjetos(request, response);
+	}
+	
+	public void acessarProjetos(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
+		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos(getUser(request).getId())));
+		request.getRequestDispatcher("principal/cadastrarProjeto.jsp").forward(request, response);
 	}
 }

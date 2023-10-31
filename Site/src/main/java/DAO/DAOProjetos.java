@@ -65,6 +65,17 @@ private Connection connection;
 		modelProjeto.setFoto8(resultado.getString("foto8"));
 		modelProjeto.setFoto9(resultado.getString("foto9"));
 		return modelProjeto;
-		
+	}
+	
+	public void atualizarProjeto(String sql) throws SQLException {
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.executeUpdate();
+		connection.commit();
+	}
+	
+	public void excluirProjeto(String sql) throws SQLException {
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.executeUpdate();
+		connection.commit();
 	}
 }
