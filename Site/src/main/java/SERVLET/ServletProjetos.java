@@ -55,10 +55,31 @@ public class ServletProjetos extends APIEntrada {
 	}
 	
 	public void persistirProjeto(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		ModelProjeto projeto = parametrosPersistirProjeto(request);
-		daoprojetos.persistirProjeto(sqlprojeto.persistenciaProjeto(projeto));
-		request.setAttribute("projeto", projeto);
-		request.getRequestDispatcher("principal/cadastrarProjeto.jsp").forward(request, response);
+		ModelProjeto modelProjeto = new ModelProjeto();
+		modelProjeto.setFotoprojeto(imagem_projeto(request));
+		modelProjeto.setExtensaofotoprojeto(imagem_projeto_tipo(request));
+		modelProjeto.setFoto1(imagem1(request));
+		modelProjeto.setExtensaofoto1(imagem1tipo(request));
+		modelProjeto.setFoto2(imagem2(request));
+		modelProjeto.setExtensaofoto2(imagem2tipo(request));
+		modelProjeto.setFoto3(imagem3(request));
+		modelProjeto.setExtensaofoto3(imagem3tipo(request));
+		modelProjeto.setFoto4(imagem4(request));
+		modelProjeto.setExtensaofoto4(imagem4tipo(request));
+		modelProjeto.setFoto5(imagem5(request));
+		modelProjeto.setExtensaofoto5(imagem5tipo(request));
+		modelProjeto.setFoto6(imagem6(request));
+		modelProjeto.setExtensaofoto6(imagem6tipo(request));
+		modelProjeto.setFoto7(imagem7(request));
+		modelProjeto.setExtensaofoto7(imagem7tipo(request));
+		modelProjeto.setFoto8(imagem8(request));
+		modelProjeto.setExtensaofoto8(imagem8tipo(request));
+		modelProjeto.setFoto9(imagem9(request));
+		modelProjeto.setExtensaofoto9(imagem9tipo(request));
+		modelProjeto.setLogin_pai_id(getUser(request));
+		modelProjeto.setNome(nome_projeto(request));
+		daoprojetos.persistirProjeto(sqlprojeto.persistenciaProjeto(modelProjeto));
+		acessarProjetos(request, response);
 	}
 	
 	public void carregarTela(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
@@ -87,8 +108,42 @@ public class ServletProjetos extends APIEntrada {
 	}
 	
 	public void editarProjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ModelProjeto projeto = parametrosPersistirProjeto(request);
-		daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoProjeto(projeto));
+		ModelProjeto modelProjeto = new ModelProjeto();
+		if(imagem_projeto(request).length() != 31) {
+			modelProjeto.setFotoprojeto(imagem_projeto(request));
+			modelProjeto.setExtensaofotoprojeto(imagem_projeto_tipo(request));
+		}if(imagem1(request).length() != 31) {
+			modelProjeto.setFoto1(imagem1(request));
+			modelProjeto.setExtensaofoto1(imagem1tipo(request));
+		}if(imagem2(request).length() != 31) {
+			modelProjeto.setFoto2(imagem2(request));
+			modelProjeto.setExtensaofoto2(imagem2tipo(request));
+		}if(imagem3(request).length() != 31) {
+			modelProjeto.setFoto3(imagem3(request));
+			modelProjeto.setExtensaofoto3(imagem3tipo(request));
+		}if(imagem4(request).length() != 31) {
+			modelProjeto.setFoto4(imagem4(request));
+			modelProjeto.setExtensaofoto4(imagem4tipo(request));
+		}if(imagem5(request).length() != 31) {
+			modelProjeto.setFoto5(imagem5(request));
+			modelProjeto.setExtensaofoto5(imagem5tipo(request));
+		}if(imagem6(request).length() != 31) {
+			modelProjeto.setFoto6(imagem6(request));
+			modelProjeto.setExtensaofoto6(imagem6tipo(request));
+		}if(imagem7(request).length() != 31) {
+			modelProjeto.setFoto7(imagem7(request));
+			modelProjeto.setExtensaofoto7(imagem7tipo(request));
+		}if(imagem8(request).length() != 31) {
+			modelProjeto.setFoto8(imagem8(request));
+			modelProjeto.setExtensaofoto8(imagem8tipo(request));
+		}if(imagem9(request).length() != 31) {
+			modelProjeto.setFoto9(imagem9(request));
+			modelProjeto.setExtensaofoto9(imagem9tipo(request));
+		}
+		
+		modelProjeto.setLogin_pai_id(getUser(request));
+		modelProjeto.setNome(nome_projeto(request));
+		daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoProjeto(modelProjeto));
 		acessarProjetos(request, response);
 	}
 	

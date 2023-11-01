@@ -158,29 +158,31 @@ public class APIEntrada extends ServletSessao {
 	
 	public ModelProjeto parametrosPersistirProjeto(HttpServletRequest request) throws Exception {
 		ModelProjeto modelProjeto = new ModelProjeto();
-		modelProjeto.setFotoprojeto(imagem_projeto(request));
-		modelProjeto.setExtensaofotoprojeto(imagem_projeto_tipo(request));
-		modelProjeto.setFoto1(imagem1(request));
-		modelProjeto.setExtensaofoto1(imagem1tipo(request));
-		modelProjeto.setFoto2(imagem2(request));
-		modelProjeto.setExtensaofoto2(imagem2tipo(request));
-		modelProjeto.setFoto3(imagem3(request));
-		modelProjeto.setExtensaofoto3(imagem3tipo(request));
-		modelProjeto.setFoto4(imagem4(request));
-		modelProjeto.setExtensaofoto4(imagem4tipo(request));
-		modelProjeto.setFoto5(imagem5(request));
-		modelProjeto.setExtensaofoto5(imagem5tipo(request));
-		modelProjeto.setFoto6(imagem6(request));
-		modelProjeto.setExtensaofoto6(imagem6tipo(request));
-		modelProjeto.setFoto7(imagem7(request));
-		modelProjeto.setExtensaofoto7(imagem7tipo(request));
-		modelProjeto.setFoto8(imagem8(request));
-		modelProjeto.setExtensaofoto8(imagem8tipo(request));
-		modelProjeto.setFoto9(imagem9(request));
-		modelProjeto.setExtensaofoto9(imagem9tipo(request));
-		modelProjeto.setLogin_pai_id(getUser(request));
-		modelProjeto.setNome(nome_projeto(request));
-		modelProjeto.setId(id_projeto(request));
+		if(imagem_projeto(request).length() != 31) {
+			modelProjeto.setFotoprojeto(imagem_projeto(request));
+			modelProjeto.setExtensaofotoprojeto(imagem_projeto_tipo(request));
+			modelProjeto.setFoto1(imagem1(request));
+			modelProjeto.setExtensaofoto1(imagem1tipo(request));
+			modelProjeto.setFoto2(imagem2(request));
+			modelProjeto.setExtensaofoto2(imagem2tipo(request));
+			modelProjeto.setFoto3(imagem3(request));
+			modelProjeto.setExtensaofoto3(imagem3tipo(request));
+			modelProjeto.setFoto4(imagem4(request));
+			modelProjeto.setExtensaofoto4(imagem4tipo(request));
+			modelProjeto.setFoto5(imagem5(request));
+			modelProjeto.setExtensaofoto5(imagem5tipo(request));
+			modelProjeto.setFoto6(imagem6(request));
+			modelProjeto.setExtensaofoto6(imagem6tipo(request));
+			modelProjeto.setFoto7(imagem7(request));
+			modelProjeto.setExtensaofoto7(imagem7tipo(request));
+			modelProjeto.setFoto8(imagem8(request));
+			modelProjeto.setExtensaofoto8(imagem8tipo(request));
+			modelProjeto.setFoto9(imagem9(request));
+			modelProjeto.setExtensaofoto9(imagem9tipo(request));
+			modelProjeto.setLogin_pai_id(getUser(request));
+			modelProjeto.setNome(nome_projeto(request));
+			modelProjeto.setId(id_projeto(request));
+		}
 		return modelProjeto;
 	}
 }
