@@ -32,34 +32,86 @@ public class SQL {
 		return sql;
 	}
 	
-	public String atualizacaoProjeto(ModelProjeto modelProjeto) {
+	public String atualizacaoFotoProjeto(ModelProjeto modelProjeto) {
 		String sql = "UPDATE projeto SET nome = '" + modelProjeto.getNome() + "', " + 
 		"login_pai_id = " + modelProjeto.getLogin_pai_id().getId() + ", " + 
-		"fotoprojeto = '" + modelProjeto.getFotoprojeto() + "', " +
-		"extensaofotoprojeto = '" + modelProjeto.getExtensaofotoprojeto() + "', " + 
+		"fotoprojeto = '" + modelProjeto.getFotoprojeto() + "', " + 
+		"extensaofotoprojeto = '" + modelProjeto.getExtensaofotoprojeto() + "'"; 
+		return sql;
+	}
+	
+	public String atualizacaoFoto1(ModelProjeto modelProjeto) {
+		String sql = "UPDATE projeto SET nome = '" + modelProjeto.getNome() + "', " + 
+		"login_pai_id = " + modelProjeto.getLogin_pai_id().getId() + ", " + 
 		"foto1 = '" + modelProjeto.getFoto1() + "', " + 
-		"extensaofoto1 = '" + modelProjeto.getExtensaofoto1() + "', " + 
+		"extensaofoto1 = '" + modelProjeto.getExtensaofoto1() + "'"; 
+		return sql;
+	}
+	
+	public String atualizacaoFoto2(ModelProjeto modelProjeto) {
+		String sql = "UPDATE projeto SET nome = '" + modelProjeto.getNome() + "', " + 
+		"login_pai_id = " + modelProjeto.getLogin_pai_id().getId() + ", " + 
 		"foto2 = '" + modelProjeto.getFoto2() + "', " + 
-		"extensaofoto2 = '" + modelProjeto.getExtensaofoto2() + "', " + 
+		"extensaofoto2 = '" + modelProjeto.getExtensaofoto2() + "'"; 
+		return sql;
+	}
+	
+	public String atualizacaoFoto3(ModelProjeto modelProjeto) {
+		String sql = "UPDATE projeto SET nome = '" + modelProjeto.getNome() + "', " + 
+		"login_pai_id = " + modelProjeto.getLogin_pai_id().getId() + ", " + 
 		"foto3 = '" + modelProjeto.getFoto3() + "', " + 
-		"extensaofoto3 = '" + modelProjeto.getExtensaofoto3() + "', " + 
+		"extensaofoto3 = '" + modelProjeto.getExtensaofoto3() + "'"; 
+		return sql;
+	}
+	
+	public String atualizacaoFoto4(ModelProjeto modelProjeto) {
+		String sql = "UPDATE projeto SET nome = '" + modelProjeto.getNome() + "', " + 
+		"login_pai_id = " + modelProjeto.getLogin_pai_id().getId() + ", " + 
 		"foto4 = '" + modelProjeto.getFoto4() + "', " + 
-		"extensaofoto4 = '" + modelProjeto.getExtensaofoto4() + "', " + 
-		"foto5 = '" + modelProjeto.getFoto5() + "', " +
-		"extensaofoto5 = '" + modelProjeto.getExtensaofoto5() + "', " + 
+		"extensaofoto4 = '" + modelProjeto.getExtensaofoto4() + "'"; 
+		return sql;
+	}
+	
+	public String atualizacaoFoto5(ModelProjeto modelProjeto) {
+		String sql = "UPDATE projeto SET nome = '" + modelProjeto.getNome() + "', " + 
+		"login_pai_id = " + modelProjeto.getLogin_pai_id().getId() + ", " + 
+		"foto5 = '" + modelProjeto.getFoto5() + "', " + 
+		"extensaofoto5 = '" + modelProjeto.getExtensaofoto5() + "'"; 
+		return sql;
+	}
+	
+	public String atualizacaoFoto6(ModelProjeto modelProjeto) {
+		String sql = "UPDATE projeto SET nome = '" + modelProjeto.getNome() + "', " + 
+		"login_pai_id = " + modelProjeto.getLogin_pai_id().getId() + ", " + 
 		"foto6 = '" + modelProjeto.getFoto6() + "', " + 
-		"extensaofoto6 = '" + modelProjeto.getExtensaofoto6() + "', " + 
-		"foto7 = '" + modelProjeto.getFoto7() + "', " +
-		"extensaofoto7 = '" + modelProjeto.getExtensaofoto7() + "', " +
-		"foto8 = '" + modelProjeto.getFoto8() + "', " +
-		"extensaofoto8 = '" + modelProjeto.getExtensaofoto8() + "', " + 
+		"extensaofoto6 = '" + modelProjeto.getExtensaofoto6() + "'"; 
+		return sql;
+	}
+	
+	public String atualizacaoFoto7(ModelProjeto modelProjeto) {
+		String sql = "UPDATE projeto SET nome = '" + modelProjeto.getNome() + "', " + 
+		"login_pai_id = " + modelProjeto.getLogin_pai_id().getId() + ", " + 
+		"foto7 = '" + modelProjeto.getFoto7() + "', " + 
+		"extensaofoto7 = '" + modelProjeto.getExtensaofoto7() + "'"; 
+		return sql;
+	}
+	
+	public String atualizacaoFoto8(ModelProjeto modelProjeto) {
+		String sql = "UPDATE projeto SET nome = '" + modelProjeto.getNome() + "', " + 
+		"login_pai_id = " + modelProjeto.getLogin_pai_id().getId() + ", " + 
+		"foto8 = '" + modelProjeto.getFoto8() + "', " + 
+		"extensaofoto8 = '" + modelProjeto.getExtensaofoto8() + "'"; 
+		return sql;
+	}
+	
+	public String atualizacaoFoto9(ModelProjeto modelProjeto) {
+		String sql = "UPDATE projeto SET nome = '" + modelProjeto.getNome() + "', " + 
+		"login_pai_id = " + modelProjeto.getLogin_pai_id().getId() + ", " + 
 		"foto9 = '" + modelProjeto.getFoto9() + "', " + 
-		"extensaofoto9 = '" + modelProjeto.getExtensaofoto9()  + "' " + 
-		"WHERE id = " + modelProjeto.getId();
+		"extensaofoto9 = '" + modelProjeto.getExtensaofoto9() + "'"; 
 		return sql;
 	}
 
-	
 	public String buscaProjeto(Long id) {
 		String sql = "SELECT * FROM projeto WHERE id = " + id;
 		return sql;

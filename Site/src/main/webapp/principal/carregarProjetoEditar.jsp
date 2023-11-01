@@ -26,7 +26,7 @@
 			<form enctype="multipart/form-data" method="post" action="<%=request.getContextPath()%>/ServletProjetos" id="projeto" name="contactForm"
 				class="contactForm">
 				<input type="hidden" name="acao" value="editarProjeto" />
-				<input name="id_projeto" id="id_projeto" value="${projeto.id}" />
+				<input type="hidden" name="id_projeto" id="id_projeto" value="${projeto.id}" />
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
