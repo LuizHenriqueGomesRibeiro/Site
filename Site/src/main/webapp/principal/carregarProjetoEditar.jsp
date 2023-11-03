@@ -34,6 +34,21 @@
 								type="text" class="form-control" name="nome_projeto" id="name"
 								placeholder="Nome">
 						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="inputGroupSelect01">Options</label>
+							</div>
+							<select name="tipo_projeto" class="custom-select" id="inputGroupSelect01">
+								<c:if test="${projeto.tipo eq 1}">
+									<option value="principal" selected="selected">Projeto principal</option>
+									<option value="carrosel">Carrosel</option>
+								</c:if>
+								<c:if test="${projeto.tipo eq 0}">
+									<option value="principal">Projeto principal</option>
+									<option value="carrosel" selected="selected">Carrosel</option>
+								</c:if>
+							</select>
+						</div>
 					</div>
 				</div>
 				<div class="form-group">

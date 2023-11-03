@@ -24,7 +24,14 @@ public class ModelProjeto {
 	private String foto9;
 	private String extensaofoto9;
 	private ModelLogin login_pai_id;
+	private int tipo;
 	
+	public int getTipo() {
+		return tipo;
+	}
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
 	public String getFoto1() {
 		return foto1;
 	}

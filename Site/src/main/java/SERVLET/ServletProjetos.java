@@ -47,7 +47,6 @@ public class ServletProjetos extends APIEntrada {
 			if(acao(request).equalsIgnoreCase("persistirProjeto")) {
 				persistirProjeto(request, response);
 			}else if(acao(request).equalsIgnoreCase("editarProjeto")) {
-				System.out.println(imagem_projeto(request).length());
 				editarProjeto(request, response);
 			}
 		} catch (Exception e) {
@@ -85,7 +84,7 @@ public class ServletProjetos extends APIEntrada {
 	
 	public void carregarTela(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		// You need to fix it yet;
-		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto(28L));
+		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPrincipal());
 		request.setAttribute("projeto", projeto);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
@@ -110,6 +109,13 @@ public class ServletProjetos extends APIEntrada {
 	
 	public void editarProjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelProjeto modelProjeto = new ModelProjeto();
+		if(tipo_projeto(request).equalsIgnoreCase("carrosel")) {
+			modelProjeto.setTipo(0);
+			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoTipo(0, id_projeto(request)));
+		}else if(tipo_projeto(request).equalsIgnoreCase("principal")) {
+			modelProjeto.setTipo(1);
+			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoTipo(1, id_projeto(request)));
+		}
 		modelProjeto.setLogin_pai_id(getUser(request));
 		modelProjeto.setNome(nome_projeto(request));
 		modelProjeto.setId(id_projeto(request));
@@ -154,7 +160,6 @@ public class ServletProjetos extends APIEntrada {
 			modelProjeto.setExtensaofoto9(imagem9tipo(request));
 			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoFoto9(modelProjeto));
 		}
-		//daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoProjeto(modelProjeto));
 		acessarProjetos(request, response);
 	}
 	

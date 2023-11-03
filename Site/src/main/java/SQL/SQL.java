@@ -111,9 +111,19 @@ public class SQL {
 		"extensaofoto9 = '" + modelProjeto.getExtensaofoto9() + "'"; 
 		return sql;
 	}
+	
+	public String atualizacaoTipo(int tipo, Long id) {
+		String sql = "UPDATE projeto SET tipo = " + tipo + " WHERE id = " + id;
+		return sql;
+	}
 
 	public String buscaProjeto(Long id) {
 		String sql = "SELECT * FROM projeto WHERE id = " + id;
+		return sql;
+	}
+	
+	public String buscaProjetoPrincipal() {
+		String sql = "SELECT * FROM projeto WHERE tipo = " + 1;
 		return sql;
 	}
 	
