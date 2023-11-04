@@ -25,7 +25,14 @@ public class ModelProjeto {
 	private String extensaofoto9;
 	private ModelLogin login_pai_id;
 	private int tipo;
+	private int ranking;
 	
+	public int getRanking() {
+		return ranking;
+	}
+	public void setRanking(int ranking) {
+		this.ranking = ranking;
+	}
 	public int getTipo() {
 		return tipo;
 	}

@@ -74,6 +74,17 @@
 						</div>
 					</div>
 				</div>
+				<select name="ranking_projeto" class="custom-select" id="inputGroupSelect01">
+					<option value="1">Ranking 1</option>
+					<option value="2">Ranking 2</option>
+					<option value="3">Ranking 3</option>
+					<option value="4">Ranking 4</option>
+					<option value="5">Ranking 5</option>
+					<option value="6">Ranking 6</option>
+					<option value="7">Ranking 7</option>
+					<option value="8">Ranking 8</option>
+					<option value="9">Ranking 9</option>
+				</select>
 				<div class="form-group">
 					<label class="label" for="email">Foto principal:</label>
 					<div style="position: relative;">

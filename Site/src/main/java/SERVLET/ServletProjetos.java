@@ -1,10 +1,5 @@
 package SERVLET;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.MultipartConfig;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -12,6 +7,11 @@ import DAO.DAOProjetos;
 import Model.ModelProjeto;
 import SERVLET.API.APIEntrada;
 import SQL.SQL;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class Projetos
@@ -76,6 +76,7 @@ public class ServletProjetos extends APIEntrada {
 		modelProjeto.setExtensaofoto8(imagem8tipo(request));
 		modelProjeto.setFoto9(imagem9(request));
 		modelProjeto.setExtensaofoto9(imagem9tipo(request));
+		modelProjeto.setRanking(ranking_projeto(request));
 		modelProjeto.setLogin_pai_id(getUser(request));
 		modelProjeto.setNome(nome_projeto(request));
 		daoprojetos.persistirProjeto(sqlprojeto.persistenciaProjeto(modelProjeto));
@@ -83,14 +84,12 @@ public class ServletProjetos extends APIEntrada {
 	}
 	
 	public void carregarTela(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-		// You need to fix it yet;
 		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPrincipal());
 		request.setAttribute("projeto", projeto);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 	
 	public void carregarProjeto1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-		// You need to fix it yet;
 		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto(28L));
 		request.setAttribute("projeto", projeto);
 		request.getRequestDispatcher("projeto1.jsp").forward(request, response);
@@ -106,9 +105,17 @@ public class ServletProjetos extends APIEntrada {
 		daoprojetos.excluirProjeto(sqlprojeto.excluiProjeto(id_projeto(request)));
 		acessarProjetos(request, response);
 	}
-	
+
 	public void editarProjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println(ranking_projeto(request));
 		ModelProjeto modelProjeto = new ModelProjeto();
+		editarProjetoAlternarTipo(request, response, modelProjeto);
+		modelProjeto = editarProjetoSetarValoresUniversais(request, response, modelProjeto);
+		modelProjeto = editarProjetoSetarFotos(request, response, modelProjeto);
+		acessarProjetos(request, response);
+	}
+	
+	public void editarProjetoAlternarTipo(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
 		if(tipo_projeto(request).equalsIgnoreCase("carrosel")) {
 			modelProjeto.setTipo(0);
 			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoTipo(0, id_projeto(request)));
@@ -116,51 +123,118 @@ public class ServletProjetos extends APIEntrada {
 			modelProjeto.setTipo(1);
 			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoTipo(1, id_projeto(request)));
 		}
+	}
+	
+	public ModelProjeto editarProjetoSetarValoresUniversais(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception  {
 		modelProjeto.setLogin_pai_id(getUser(request));
 		modelProjeto.setNome(nome_projeto(request));
 		modelProjeto.setId(id_projeto(request));
+		return modelProjeto; 
+	}
+	
+	public ModelProjeto editarProjetoSetarFotos(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
+		modelProjeto = editarProjetoSetarValoresUniversais(request, response, modelProjeto);
+		modelProjeto = editarProjetoSetarImagemPrincipal(request, response, modelProjeto);
+		modelProjeto = editarProjetoSetarImagem1(request, response, modelProjeto);
+		modelProjeto = editarProjetoSetarImagem2(request, response, modelProjeto);
+		modelProjeto = editarProjetoSetarImagem3(request, response, modelProjeto);
+		modelProjeto = editarProjetoSetarImagem4(request, response, modelProjeto);
+		modelProjeto = editarProjetoSetarImagem5(request, response, modelProjeto);
+		modelProjeto = editarProjetoSetarImagem6(request, response, modelProjeto);
+		modelProjeto = editarProjetoSetarImagem7(request, response, modelProjeto);
+		modelProjeto = editarProjetoSetarImagem8(request, response, modelProjeto);
+		modelProjeto = editarProjetoSetarImagem9(request, response, modelProjeto);
+		return modelProjeto;
+	}
+	
+	public ModelProjeto editarProjetoSetarImagemPrincipal(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
 		if(imagem_projeto(request).length() > 100) {
 			modelProjeto.setFotoprojeto(imagem_projeto(request));
 			modelProjeto.setExtensaofotoprojeto(imagem_projeto_tipo(request));
 			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoFotoProjeto(modelProjeto));
-		}if(imagem1(request).length() > 100) {
+		}
+		return modelProjeto;
+	}
+	
+	public ModelProjeto editarProjetoSetarImagem1(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
+		if(imagem1(request).length() > 100) {
 			modelProjeto.setFoto1(imagem1(request));
 			modelProjeto.setExtensaofoto1(imagem1tipo(request));
 			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoFoto1(modelProjeto));
-		}if(imagem2(request).length() > 100) {
+		}
+		return modelProjeto;
+	}
+	
+	public ModelProjeto editarProjetoSetarImagem2(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
+		if(imagem2(request).length() > 100) {
 			modelProjeto.setFoto2(imagem2(request));
 			modelProjeto.setExtensaofoto2(imagem2tipo(request));
 			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoFoto2(modelProjeto));
-		}if(imagem3(request).length() > 100) {
+		}
+		return modelProjeto;
+	}
+	
+	public ModelProjeto editarProjetoSetarImagem3(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
+		if(imagem3(request).length() > 100) {
 			modelProjeto.setFoto3(imagem3(request));
 			modelProjeto.setExtensaofoto3(imagem3tipo(request));
 			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoFoto3(modelProjeto));
-		}if(imagem4(request).length() > 100) {
+		}
+		return modelProjeto;
+	}
+	
+	public ModelProjeto editarProjetoSetarImagem4(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
+		if(imagem4(request).length() > 100) {
 			modelProjeto.setFoto4(imagem4(request));
 			modelProjeto.setExtensaofoto4(imagem4tipo(request));
 			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoFoto4(modelProjeto));
-		}if(imagem5(request).length() > 100) {
+		}
+		return modelProjeto;
+	}
+	
+	public ModelProjeto editarProjetoSetarImagem5(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
+		if(imagem5(request).length() > 100) {
 			modelProjeto.setFoto5(imagem5(request));
 			modelProjeto.setExtensaofoto5(imagem5tipo(request));
 			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoFoto5(modelProjeto));
-		}if(imagem6(request).length() > 100) {
+		}
+		return modelProjeto;
+	}
+	
+	public ModelProjeto editarProjetoSetarImagem6(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
+		if(imagem6(request).length() > 100) {
 			modelProjeto.setFoto6(imagem6(request));
 			modelProjeto.setExtensaofoto6(imagem6tipo(request));
 			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoFoto6(modelProjeto));
-		}if(imagem7(request).length() > 100) {
+		}
+		return modelProjeto;
+	}
+	
+	public ModelProjeto editarProjetoSetarImagem7(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
+		if(imagem7(request).length() > 100) {
 			modelProjeto.setFoto7(imagem7(request));
 			modelProjeto.setExtensaofoto7(imagem7tipo(request));
 			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoFoto7(modelProjeto));
-		}if(imagem8(request).length() > 100) {
+		}
+		return modelProjeto;
+	}
+	
+	public ModelProjeto editarProjetoSetarImagem8(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
+		if(imagem8(request).length() > 100) {
 			modelProjeto.setFoto8(imagem8(request));
 			modelProjeto.setExtensaofoto8(imagem8tipo(request));
 			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoFoto8(modelProjeto));
-		}if(imagem9(request).length() > 100) {
+		}
+		return modelProjeto;
+	}
+	
+	public ModelProjeto editarProjetoSetarImagem9(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
+		if(imagem9(request).length() > 100) {
 			modelProjeto.setFoto9(imagem9(request));
 			modelProjeto.setExtensaofoto9(imagem9tipo(request));
 			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoFoto9(modelProjeto));
 		}
-		acessarProjetos(request, response);
+		return modelProjeto;
 	}
 	
 	public void acessarProjetos(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
