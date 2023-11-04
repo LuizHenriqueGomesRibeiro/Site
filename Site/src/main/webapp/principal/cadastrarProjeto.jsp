@@ -84,6 +84,7 @@
 					<option value="7">Ranking 7</option>
 					<option value="8">Ranking 8</option>
 					<option value="9">Ranking 9</option>
+					<option value="0">Ranking 0</option>
 				</select>
 				<div class="form-group">
 					<label class="label" for="email">Foto principal:</label>

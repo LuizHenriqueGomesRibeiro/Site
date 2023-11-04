@@ -32,7 +32,7 @@ public class SQL {
 			+ "')";
 		return sql;
 	}
-	
+	// posteriormente: colocar ranking em todas as atualizações (ou criar uma atualização somente para as variaveis globais);
 	public String atualizacaoFotoProjeto(ModelProjeto modelProjeto) {
 		String sql = "UPDATE projeto SET nome = '" + modelProjeto.getNome() + "', " + 
 		"login_pai_id = " + modelProjeto.getLogin_pai_id().getId() + ", " + 

@@ -105,11 +105,11 @@ public class ServletProjetos extends APIEntrada {
 		daoprojetos.excluirProjeto(sqlprojeto.excluiProjeto(id_projeto(request)));
 		acessarProjetos(request, response);
 	}
-
+	
+	// mudar para o modo de return (menos confuso);
 	public void editarProjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println(ranking_projeto(request));
 		ModelProjeto modelProjeto = new ModelProjeto();
-		editarProjetoAlternarTipo(request, response, modelProjeto);
+		//editarProjetoAlternarTipo(request, response, modelProjeto);
 		modelProjeto = editarProjetoSetarValoresUniversais(request, response, modelProjeto);
 		modelProjeto = editarProjetoSetarFotos(request, response, modelProjeto);
 		acessarProjetos(request, response);
@@ -129,6 +129,7 @@ public class ServletProjetos extends APIEntrada {
 		modelProjeto.setLogin_pai_id(getUser(request));
 		modelProjeto.setNome(nome_projeto(request));
 		modelProjeto.setId(id_projeto(request));
+		modelProjeto.setRanking(ranking_projeto(request));
 		return modelProjeto; 
 	}
 	

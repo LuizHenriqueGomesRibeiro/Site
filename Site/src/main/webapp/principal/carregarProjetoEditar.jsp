@@ -49,6 +49,7 @@
 									<option value="7">Ranking 7</option>
 									<option value="8">Ranking 8</option>
 									<option value="9">Ranking 9</option>
+									<option value="0">Ranking 0</option>
 								</c:if>
 								<c:if test="${projeto.ranking == 2}">
 									<option value="1">Ranking 1</option>
@@ -60,6 +61,7 @@
 									<option value="7">Ranking 7</option>
 									<option value="8">Ranking 8</option>
 									<option value="9">Ranking 9</option>
+									<option value="0">Ranking 0</option>
 								</c:if>
 								<c:if test="${projeto.ranking == 3}">
 									<option value="1">Ranking 1</option>
@@ -71,6 +73,7 @@
 									<option value="7">Ranking 7</option>
 									<option value="8">Ranking 8</option>
 									<option value="9">Ranking 9</option>
+									<option value="0">Ranking 0</option>
 								</c:if>
 								<c:if test="${projeto.ranking == 4}">
 									<option value="1">Ranking 1</option>
@@ -82,6 +85,7 @@
 									<option value="7">Ranking 7</option>
 									<option value="8">Ranking 8</option>
 									<option value="9">Ranking 9</option>
+									<option value="0">Ranking 0</option>
 								</c:if>
 								<c:if test="${projeto.ranking == 5}">
 									<option value="1">Ranking 1</option>
@@ -93,6 +97,7 @@
 									<option value="7">Ranking 7</option>
 									<option value="8">Ranking 8</option>
 									<option value="9">Ranking 9</option>
+									<option value="0">Ranking 0</option>
 								</c:if>
 								<c:if test="${projeto.ranking == 6}">
 									<option value="1">Ranking 1</option>
@@ -104,6 +109,7 @@
 									<option value="7">Ranking 7</option>
 									<option value="8">Ranking 8</option>
 									<option value="9">Ranking 9</option>
+									<option value="0">Ranking 0</option>
 								</c:if>
 								<c:if test="${projeto.ranking == 7}">
 									<option value="1">Ranking 1</option>
@@ -115,6 +121,7 @@
 									<option value="7" selected="selected">Ranking 7</option>
 									<option value="8">Ranking 8</option>
 									<option value="9">Ranking 9</option>
+									<option value="0">Ranking 0</option>
 								</c:if>
 								<c:if test="${projeto.ranking == 8}">
 									<option value="1">Ranking 1</option>
@@ -126,6 +133,7 @@
 									<option value="7">Ranking 7</option>
 									<option value="8" selected="selected">Ranking 8</option>
 									<option value="9">Ranking 9</option>
+									<option value="0">Ranking 0</option>
 								</c:if>
 								<c:if test="${projeto.ranking == 9}">
 									<option value="1">Ranking 1</option>
@@ -137,6 +145,19 @@
 									<option value="7">Ranking 7</option>
 									<option value="8">Ranking 8</option>
 									<option value="9" selected="selected">Ranking 9</option>
+									<option value="0">Ranking 0</option>
+								</c:if>
+								<c:if test="${projeto.ranking == 0}">
+									<option value="1">Ranking 1</option>
+									<option value="2">Ranking 2</option>
+									<option value="3">Ranking 3</option>
+									<option value="4">Ranking 4</option>
+									<option value="5">Ranking 5</option>
+									<option value="6">Ranking 6</option>
+									<option value="7">Ranking 7</option>
+									<option value="8">Ranking 8</option>
+									<option value="9">Ranking 9</option>
+									<option value="0" selected="selected">Ranking 0</option>
 								</c:if>
 							</select>
 						</div>
