@@ -60,14 +60,14 @@ public class ServletLogin extends APIEntrada {
 						session.setAttribute("login", modelLogin);
 						
 						if (url == null || url.equals("null")) {
-							url = "principal/principal.jsp";
+							url = "aplicacao/principal/principal.jsp";
 						}
 
 						RequestDispatcher redirecionar = request.getRequestDispatcher(url);
 						redirecionar.forward(request, response);
 						
 					}else {
-						RequestDispatcher redirecionar = request.getRequestDispatcher("restrito.jsp");
+						RequestDispatcher redirecionar = request.getRequestDispatcher("aplicacao/restrito.jsp");
 						request.setAttribute("mensagem", "Informe o login e senha corretamente.");
 						redirecionar.forward(request, response);
 					}
@@ -78,7 +78,7 @@ public class ServletLogin extends APIEntrada {
 				}
 			}
 		}else {
-			RequestDispatcher redirecionar = request.getRequestDispatcher("restrito.jsp");
+			RequestDispatcher redirecionar = request.getRequestDispatcher("aplicacao/restrito.jsp");
 			request.setAttribute("mensagem", "Ocorreu algum erro. Contacte a equipe de suporte.");
 			redirecionar.forward(request, response);
 		}

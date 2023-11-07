@@ -35,7 +35,7 @@
 					<a style="color: blue;" class="navbar-brand" href="#">Escritório</a>
 					<a style="color: blue;" class="navbar-brand" href="#">Mídia</a>
 					<a style="color: blue;" class="navbar-brand" href="contato.jsp">Contato</a>
-					<a style="color: blue;" class="navbar-brand" href="restrito.jsp">Área restrita</a>
+					<a style="color: blue;" class="navbar-brand" href="aplicacao/restrito.jsp">Área restrita</a>
 				</div>
 			</div>
 		</div>
@@ -78,42 +78,42 @@
 			<ul class="da">
 				<li><a href="">
 						<figure>
-							<img class="da" src="${projeto.foto1}"
+							<img class="da" src="${projeto1.foto1}"
 								alt='Volcano and lava field against a stormy sky'>
 							<figcaption>Casa cor | 2019</figcaption>
 						</figure>
 				</a></li>
 				<li><a href="">
 						<figure>
-							<img class="da" src="${projeto.foto2}"
+							<img class="da" src="${projeto1.foto2}"
 								alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
 							<figcaption>Adventure getaways</figcaption>
 						</figure>
 				</a></li>
 				<li><a href="">
 						<figure>
-							<img class="da" src="${projeto.foto3}"
+							<img class="da" src="${projeto1.foto3}"
 								alt='Volcano and lava field against a stormy sky'>
 							<figcaption>Casa cor | 2019</figcaption>
 						</figure>
 				</a></li>
 				<li><a href="">
 						<figure>
-							<img class="da" src="${projeto.foto4}"
+							<img class="da" src="${projeto1.foto4}"
 								alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
 							<figcaption>Adventure getaways</figcaption>
 						</figure>
 				</a></li>
 				<li><a href="">
 						<figure>
-							<img class="da" src="${projeto.foto5}"
+							<img class="da" src="${projeto1.foto5}"
 								alt='Volcano and lava field against a stormy sky'>
 							<figcaption>Casa cor | 2019</figcaption>
 						</figure>
 				</a></li>
 				<li><a href="">
 						<figure>
-							<img class="da" src="${projeto.foto6}"
+							<img class="da" src="${projeto1.foto6}"
 								alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
 							<figcaption>Adventure getaways</figcaption>
 						</figure>

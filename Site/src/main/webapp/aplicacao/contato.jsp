@@ -46,7 +46,7 @@
 					<li class="disabled-link nav-item 5"><a style="color: black;"
 						class="nav-link" href="#">|</a></li>
 					<li class="nav-item 5"><a style="color: black;"
-						class="nav-link" href="restrito.jsp">Área restrita</a></li>
+						class="nav-link" href="aplicacao/restrito.jsp">Área restrita</a></li>
 				</ul>
 			</div>
 		</div>

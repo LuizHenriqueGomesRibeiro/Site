@@ -29,8 +29,8 @@ public class ServletProjetos extends APIEntrada {
 				acessarProjetos(request, response);
 			}else if(acao(request).equalsIgnoreCase("carregarTela")) {
 				carregarTela(request, response);
-			}else if(acao(request).equalsIgnoreCase("carregarProjeto1")) {
-				carregarProjeto1(request, response);
+			}else if(acao(request).equalsIgnoreCase("carregarProjetoExibir")) {
+				carregarProjetoExibir(request, response);
 			}else if(acao(request).equalsIgnoreCase("carregarProjetoEditar")) {
 				carregarProjetoEditar(request, response);
 			}else if(acao(request).equalsIgnoreCase("excluirProjeto")) {
@@ -84,21 +84,27 @@ public class ServletProjetos extends APIEntrada {
 	}
 	
 	public void carregarTela(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPrincipal());
-		request.setAttribute("projeto", projeto);
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.setAttribute("projeto1", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(1)));
+		request.setAttribute("projeto2", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(2)));
+		request.setAttribute("projeto3", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(3)));
+		request.setAttribute("projeto4", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(4)));
+		request.setAttribute("projeto5", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(5)));
+		request.setAttribute("projeto6", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(6)));
+		request.setAttribute("projeto7", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(7)));
+		request.setAttribute("projeto8", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(8)));
+		request.setAttribute("projeto9", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(9)));
+		request.getRequestDispatcher("aplicacao/index.jsp").forward(request, response);
 	}
 	
-	public void carregarProjeto1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto(28L));
-		request.setAttribute("projeto", projeto);
-		request.getRequestDispatcher("projeto1.jsp").forward(request, response);
+	public void carregarProjetoExibir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+		request.setAttribute("projeto" + ranking_projeto(request), daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(ranking_projeto(request))));
+		request.getRequestDispatcher("aplicacao/projeto" + ranking_projeto(request) + ".jsp").forward(request, response);
 	}
 	
 	public void carregarProjetoEditar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto(id_projeto(request)));
 		request.setAttribute("projeto", projeto);
-		request.getRequestDispatcher("principal/carregarProjetoEditar.jsp").forward(request, response);
+		request.getRequestDispatcher("aplicacao/principal/carregarProjetoEditar.jsp").forward(request, response);
 	}
 	
 	public void excluirProjeto(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
@@ -106,7 +112,6 @@ public class ServletProjetos extends APIEntrada {
 		acessarProjetos(request, response);
 	}
 	
-	// mudar para o modo de return (menos confuso);
 	public void editarProjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelProjeto modelProjeto = new ModelProjeto();
 		//editarProjetoAlternarTipo(request, response, modelProjeto);
@@ -240,6 +245,6 @@ public class ServletProjetos extends APIEntrada {
 	
 	public void acessarProjetos(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
 		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos(getUser(request).getId())));
-		request.getRequestDispatcher("principal/cadastrarProjeto.jsp").forward(request, response);
+		request.getRequestDispatcher("aplicacao/principal/cadastrarProjeto.jsp").forward(request, response);
 	}
 }

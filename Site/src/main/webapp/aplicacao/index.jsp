@@ -35,32 +35,38 @@
 						<a class="navbar-brand" href="#">Escritório</a>
 						<a class="navbar-brand" href="#">Mídia</a>
 						<a class="navbar-brand" href="contato.jsp">Contato</a>
-						<a class="navbar-brand" href="restrito.jsp">Área restrita</a>
+						<a class="navbar-brand" href="aplicacao/restrito.jsp">Área restrita</a>
 					</div>
 				</div>
 			</div>
 			<ul style="position: relative;" class="panes">
-				<li id="s1"><img src="${projeto.foto1}"></li>
-				<li id="s2"><img src="${projeto.foto2}"></li>
-				<li id="s3"><img src="${projeto.foto3}"></li>
-				<li id="s4"><img src="${projeto.foto4}"></li>
-				<li id="s5"><img src="${projeto.foto5}"></li>
+				<li id="s1"><img src="${projeto1.fotoprojeto}"></li>
+				<li id="s2"><img src="${projeto2.fotoprojeto}"></li>
+				<li id="s3"><img src="${projeto3.fotoprojeto}"></li>
+				<li id="s4"><img src="${projeto4.fotoprojeto}"></li>
+				<li id="s5"><img src="${projeto5.fotoprojeto}"></li>
 			</ul>
 		</div>
 		<div style="position: relative; top: 116vh;">
 			<ul class="da">
 				<li>
-					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjeto1">
+					<a id="teste" href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=1">
 						<figure>
-							<img class="da" src='${projeto.foto1}' alt='Volcano and lava field against a stormy sky'>
+							<img class="da" src='${projeto1.foto1}' alt='Volcano and lava field against a stormy sky'>
 							<figcaption>Casa cor | 2019</figcaption>
 						</figure>
 					</a>
 				</li>
+				<script>
+					jQuery("#teste").click(function(){
+						alert("teste:");
+						alert(${projeto1.ranking});
+					});
+				</script>
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='${projeto.foto2}' alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
+							<img class="da" src='${projeto2.foto1}' alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
 							<figcaption>Adventure getaways</figcaption>
 						</figure>
 					</a>
@@ -68,7 +74,7 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='${projeto.foto3}' alt='Person standing alone in a misty forest'>
+							<img class="da" src='${projeto3.foto1}' alt='Person standing alone in a misty forest'>
 							<figcaption>Forest escapes</figcaption>
 						</figure>
 					</a>
@@ -76,7 +82,7 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='${projeto.foto4}' alt='Person hiking on a trail through mountains while taking a photo with phone'>
+							<img class="da" src='${projeto4.foto1}' alt='Person hiking on a trail through mountains while taking a photo with phone'>
 							<figcaption>Hiking trails</figcaption>
 						</figure>
 					</a>
@@ -84,7 +90,7 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='${projeto.foto5}' alt='Street scene with person walking and others on motorbikes, all wearing masks'>
+							<img class="da" src='${projeto5.foto1}' alt='Street scene with person walking and others on motorbikes, all wearing masks'>
 							<figcaption>Street scenes</figcaption>
 						</figure>
 					</a>
@@ -92,7 +98,7 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='${projeto.foto6}' alt='Fashionable-looking girl with blond hair and pink sunglasses'>
+							<img class="da" src='${projeto6.foto1}' alt='Fashionable-looking girl with blond hair and pink sunglasses'>
 							<figcaption>Trending</figcaption>
 						</figure>
 					</a>
@@ -100,7 +106,7 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='${projeto.foto7}' alt='Volcano and lava field against a stormy sky'>
+							<img class="da" src='${projeto7.foto1}' alt='Volcano and lava field against a stormy sky'>
 							<figcaption>Mountains and volcanos</figcaption>
 						</figure>
 					</a>
@@ -108,7 +114,7 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='${projeto.foto8}' alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
+							<img class="da" src='${projeto8.foto1}' alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
 							<figcaption>Adventure getaways</figcaption>
 						</figure>
 					</a>
@@ -116,7 +122,7 @@
 				<li>
 					<a href="">
 						<figure>
-							<img class="da" src='${projeto.foto9}' alt='Person standing alone in a misty forest'>
+							<img class="da" src='${projeto9.foto1}' alt='Person standing alone in a misty forest'>
 							<figcaption>Forest escapes</figcaption>
 						</figure>
 					</a>
