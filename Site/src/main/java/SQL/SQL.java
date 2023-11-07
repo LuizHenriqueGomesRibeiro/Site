@@ -137,4 +137,10 @@ public class SQL {
 		String sql = "DELETE FROM projeto WHERE id = " + id;
 		return sql;
 	}
+
+	public String atualizacaoValoresUniversais(ModelProjeto modelProjeto) {
+		String sql = "UPDATE projeto SET sobre = " + modelProjeto.getSobre() + ", nome = " + modelProjeto.getNome() + ", ranking = " + modelProjeto.getRanking() + 
+			" WHERE id = " + modelProjeto.getId() + ";";
+		return sql;
+	}
 }

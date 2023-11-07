@@ -164,6 +164,10 @@
 					</div>
 				</div>
 				<div class="form-group">
+					<label class="label" for="name">Sobre o projeto:</label> 
+					<textarea name="sobre_projeto" style="width: 100%; height: 150px;" value="${projeto.sobre}"></textarea>
+				</div>
+				<div class="form-group">
 					<label class="label" for="email">Foto principal:</label>
 					<div style="position: relative;">
 						<img style="position: absolute; width: 624px; height: 280px; top: 30px; left: 80px; object-fit: cover; 

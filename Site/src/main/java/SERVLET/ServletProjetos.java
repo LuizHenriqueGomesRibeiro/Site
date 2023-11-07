@@ -79,6 +79,7 @@ public class ServletProjetos extends APIEntrada {
 		modelProjeto.setRanking(ranking_projeto(request));
 		modelProjeto.setLogin_pai_id(getUser(request));
 		modelProjeto.setNome(nome_projeto(request));
+		modelProjeto.setSobre(sobre_projeto(request));
 		daoprojetos.persistirProjeto(sqlprojeto.persistenciaProjeto(modelProjeto));
 		acessarProjetos(request, response);
 	}
@@ -97,13 +98,12 @@ public class ServletProjetos extends APIEntrada {
 	}
 	
 	public void carregarProjetoExibir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-		request.setAttribute("projeto" + ranking_projeto(request), daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(ranking_projeto(request))));
-		request.getRequestDispatcher("aplicacao/projeto" + ranking_projeto(request) + ".jsp").forward(request, response);
+		request.setAttribute("projeto", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(ranking_projeto(request))));
+		request.getRequestDispatcher("aplicacao/projeto.jsp").forward(request, response);
 	}
 	
 	public void carregarProjetoEditar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-		ModelProjeto projeto = daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto(id_projeto(request)));
-		request.setAttribute("projeto", projeto);
+		request.setAttribute("projeto", daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto(id_projeto(request))));
 		request.getRequestDispatcher("aplicacao/principal/carregarProjetoEditar.jsp").forward(request, response);
 	}
 	
@@ -114,7 +114,6 @@ public class ServletProjetos extends APIEntrada {
 	
 	public void editarProjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelProjeto modelProjeto = new ModelProjeto();
-		//editarProjetoAlternarTipo(request, response, modelProjeto);
 		modelProjeto = editarProjetoSetarValoresUniversais(request, response, modelProjeto);
 		modelProjeto = editarProjetoSetarFotos(request, response, modelProjeto);
 		acessarProjetos(request, response);
@@ -131,10 +130,12 @@ public class ServletProjetos extends APIEntrada {
 	}
 	
 	public ModelProjeto editarProjetoSetarValoresUniversais(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception  {
+		modelProjeto.setSobre(sobre_projeto(request));
 		modelProjeto.setLogin_pai_id(getUser(request));
 		modelProjeto.setNome(nome_projeto(request));
 		modelProjeto.setId(id_projeto(request));
 		modelProjeto.setRanking(ranking_projeto(request));
+		daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoValoresUniversais(modelProjeto));
 		return modelProjeto; 
 	}
 	

@@ -43,77 +43,57 @@
 	<div style="position: relative; top: 20vh;">
 		<div style="position: relative; float: left; width: 30%; padding-left: 20px;">
 			<p>Local:</p>
-			<p>Angra dos Reis, RJ</p>
+			<p></p>
 
 			<p>Data do projeto:</p>
-			<p>2018</p>
+			<p></p>
 
 			<p>Arquitetura:</p>
-			<p>Bernardes + Jacobsen Arquitetura</p>
+			<p></p>
 
-			<p>Interiores:</p>
-			<p>Bernardes Arquitetura</p>
-
-			<p>Equipe:</p>
-			<p>Thiago Bernardes, Camila Tariki, Antonia Bernardes, Steven
-				Evans, Izabela Figueiredo, José Miguel Ferreira, Daniel Vannucchi,
-				Ulisses Frare, Ana Paula Endo, Mariane Graciano, Liana Tessler
-				Szyflinger, Stephanie Andrade, Andréa Mendonça, Ana Carolina Zuin,
-				Milla Machado, Flavio Faggion, João Magalhães, Julia Santoro,
-				Valesca Daólio, Aline Bianca</p>
-
-			<p>Paisagismo:</p>
-			<p>Embyá - Paisagens e Ecosistemas</p>
-
-			<p>Iluminação:</p>
-			<p>Estúdio Carlos Fortes</p>
-
-			<p>Fotos:</p>
-			<p>Leonardo Finotti</p>
-
-			<p>Prêmios:</p>
-			<p>- Global Architecture & Design Awards, 2º Lugar, 2018</p>
+			<p>Sobre:</p>
+			<p></p>
 		</div>
 		<div style="position: relative; float: right; width: 70%;">
 			<ul class="da">
 				<li><a href="">
 						<figure>
-							<img class="da" src="${projeto1.foto1}"
+							<img class="da" src="${projeto.foto1}"
 								alt='Volcano and lava field against a stormy sky'>
 							<figcaption>Casa cor | 2019</figcaption>
 						</figure>
 				</a></li>
 				<li><a href="">
 						<figure>
-							<img class="da" src="${projeto1.foto2}"
+							<img class="da" src="${projeto.foto2}"
 								alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
 							<figcaption>Adventure getaways</figcaption>
 						</figure>
 				</a></li>
 				<li><a href="">
 						<figure>
-							<img class="da" src="${projeto1.foto3}"
+							<img class="da" src="${projeto.foto3}"
 								alt='Volcano and lava field against a stormy sky'>
 							<figcaption>Casa cor | 2019</figcaption>
 						</figure>
 				</a></li>
 				<li><a href="">
 						<figure>
-							<img class="da" src="${projeto1.foto4}"
+							<img class="da" src="${projeto.foto4}"
 								alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
 							<figcaption>Adventure getaways</figcaption>
 						</figure>
 				</a></li>
 				<li><a href="">
 						<figure>
-							<img class="da" src="${projeto1.foto5}"
+							<img class="da" src="${projeto.foto5}"
 								alt='Volcano and lava field against a stormy sky'>
 							<figcaption>Casa cor | 2019</figcaption>
 						</figure>
 				</a></li>
 				<li><a href="">
 						<figure>
-							<img class="da" src="${projeto1.foto6}"
+							<img class="da" src="${projeto.foto6}"
 								alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
 							<figcaption>Adventure getaways</figcaption>
 						</figure>

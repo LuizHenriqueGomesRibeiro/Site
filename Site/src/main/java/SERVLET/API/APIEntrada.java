@@ -54,6 +54,10 @@ public class APIEntrada extends ServletSessao {
 		return Integer.parseInt(request.getParameter("ranking_projeto"));
 	}
 	
+	public String sobre_projeto(HttpServletRequest request) {
+		return request.getParameter("sobre_projeto");
+	}
+	
 	public String imagem_projeto(HttpServletRequest request) throws IOException, ServletException {
 		Part part = request.getPart("foto");
 		byte[] foto = IOUtils.toByteArray(part.getInputStream());

@@ -50,21 +50,15 @@
 		<div style="position: relative; top: 116vh;">
 			<ul class="da">
 				<li>
-					<a id="teste" href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=1">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=1">
 						<figure>
 							<img class="da" src='${projeto1.foto1}' alt='Volcano and lava field against a stormy sky'>
 							<figcaption>Casa cor | 2019</figcaption>
 						</figure>
 					</a>
 				</li>
-				<script>
-					jQuery("#teste").click(function(){
-						alert("teste:");
-						alert(${projeto1.ranking});
-					});
-				</script>
 				<li>
-					<a href="">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=2">
 						<figure>
 							<img class="da" src='${projeto2.foto1}' alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
 							<figcaption>Adventure getaways</figcaption>
@@ -72,7 +66,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=3">
 						<figure>
 							<img class="da" src='${projeto3.foto1}' alt='Person standing alone in a misty forest'>
 							<figcaption>Forest escapes</figcaption>
@@ -80,7 +74,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=4">
 						<figure>
 							<img class="da" src='${projeto4.foto1}' alt='Person hiking on a trail through mountains while taking a photo with phone'>
 							<figcaption>Hiking trails</figcaption>
@@ -88,7 +82,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=5">
 						<figure>
 							<img class="da" src='${projeto5.foto1}' alt='Street scene with person walking and others on motorbikes, all wearing masks'>
 							<figcaption>Street scenes</figcaption>
@@ -96,7 +90,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=6">
 						<figure>
 							<img class="da" src='${projeto6.foto1}' alt='Fashionable-looking girl with blond hair and pink sunglasses'>
 							<figcaption>Trending</figcaption>
@@ -104,7 +98,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=7">
 						<figure>
 							<img class="da" src='${projeto7.foto1}' alt='Volcano and lava field against a stormy sky'>
 							<figcaption>Mountains and volcanos</figcaption>
@@ -112,7 +106,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=8">
 						<figure>
 							<img class="da" src='${projeto8.foto1}' alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
 							<figcaption>Adventure getaways</figcaption>
@@ -120,7 +114,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=9">
 						<figure>
 							<img class="da" src='${projeto9.foto1}' alt='Person standing alone in a misty forest'>
 							<figcaption>Forest escapes</figcaption>

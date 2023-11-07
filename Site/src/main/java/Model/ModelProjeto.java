@@ -24,9 +24,16 @@ public class ModelProjeto {
 	private String foto9;
 	private String extensaofoto9;
 	private ModelLogin login_pai_id;
+	private String sobre;
 	private int tipo;
 	private int ranking;
 	
+	public String getSobre() {
+		return sobre;
+	}
+	public void setSobre(String sobre) {
+		this.sobre = sobre;
+	}
 	public int getRanking() {
 		return ranking;
 	}
