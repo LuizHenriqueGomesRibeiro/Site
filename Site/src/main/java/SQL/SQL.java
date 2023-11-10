@@ -118,11 +118,6 @@ public class SQL {
 		return sql;
 	}
 	
-	public String atualizacaoTipo(int tipo, Long id) {
-		String sql = "UPDATE projeto SET tipo = " + tipo + " WHERE id = " + id;
-		return sql;
-	}
-
 	public String buscaProjetoPorRanking(int ranking) {
 		String sql = "SELECT * FROM projeto WHERE ranking = " + ranking;
 		return sql;
@@ -139,7 +134,8 @@ public class SQL {
 	}
 
 	public String atualizacaoValoresUniversais(ModelProjeto modelProjeto) {
-		String sql = "UPDATE projeto SET sobre = '" + modelProjeto.getSobre() + "', nome = '" + modelProjeto.getNome() + "' WHERE id = " + modelProjeto.getId() + ";";
+		String sql = "UPDATE projeto SET sobre = '" + modelProjeto.getSobre() + "', nome = '" + modelProjeto.getNome() + "', ranking = " + modelProjeto.getRanking() + 
+			" WHERE id = " + modelProjeto.getId() + ";";
 		return sql;
 	}
 }

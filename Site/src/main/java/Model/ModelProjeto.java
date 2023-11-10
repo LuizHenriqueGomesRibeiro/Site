@@ -25,7 +25,6 @@ public class ModelProjeto {
 	private String extensaofoto9;
 	private ModelLogin login_pai_id;
 	private String sobre;
-	private int tipo;
 	private int ranking;
 	
 	public String getSobre() {
@@ -39,12 +38,6 @@ public class ModelProjeto {
 	}
 	public void setRanking(int ranking) {
 		this.ranking = ranking;
-	}
-	public int getTipo() {
-		return tipo;
-	}
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
 	}
 	public String getFoto1() {
 		return foto1;

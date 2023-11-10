@@ -85,9 +85,8 @@ public class ServletProjetos extends APIEntrada {
 	}
 	
 	public void carregarTela(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-		for(int p = 1; p < 9; p++) {
+		for(int p = 1; p < 10; p++) {
 			request.setAttribute("projeto" + p, daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(p)));
-			System.out.println(sqlprojeto.buscaProjetoPorRanking(p));
 		}
 		request.getRequestDispatcher("aplicacao/index.jsp").forward(request, response);
 	}
@@ -127,13 +126,9 @@ public class ServletProjetos extends APIEntrada {
 		modelProjeto.setLogin_pai_id(getUser(request));
 		modelProjeto.setNome(nome_projeto(request));
 		modelProjeto.setId(id_projeto(request));
+		modelProjeto.setRanking(ranking_projeto(request));
 		daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoValoresUniversais(modelProjeto));
 		//editarProjetoSetarRanking(request, modelProjeto);
-	}
-	
-	public void editarProjetoSetarRanking(HttpServletRequest request, ModelProjeto modelProjeto) throws SQLException {
-		modelProjeto.setRanking(ranking_projeto(request));
-		//daoprojetos.atualizarRanking(sqlprojeto.atualizacaoRanking(modelProjeto));
 	}
 	
 	public void editarProjetoSetarFotos(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
@@ -241,13 +236,10 @@ public class ServletProjetos extends APIEntrada {
 	
 	public void acessarProjetos(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
 		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos(getUser(request).getId())));
-		for(int p = 1; p < 9; p++) {
-			System.out.println("option" + p);
-			if(daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(p)) != null){
-				System.out.println("option" + p + " está cheio");
+		for(int p = 1; p < 10; p++) {
+			if(daoprojetos.verificarExistenciaDeProjeto(sqlprojeto.buscaProjetoPorRanking(p))){
 				request.setAttribute("option" + p, true);
 			}else{
-				System.out.println("option" + p + " está vazio");
 				request.setAttribute("option" + p, false);
 			}
 		}

@@ -32,6 +32,16 @@ public class DAOProjetos {
 		return resultadoBusca(resultado);
 	}
 	
+	public boolean verificarExistenciaDeProjeto(String sql) throws SQLException {
+		PreparedStatement statement = connection.prepareStatement(sql);
+		ResultSet resultado = statement.executeQuery();
+		if(resultado.next()) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 	public ModelProjeto resultadoBusca(ResultSet resultado) throws SQLException {
 		ModelProjeto modelProjeto = new ModelProjeto();
 		while(resultado.next()) {
