@@ -85,15 +85,10 @@ public class ServletProjetos extends APIEntrada {
 	}
 	
 	public void carregarTela(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-		request.setAttribute("projeto1", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(1)));
-		request.setAttribute("projeto2", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(2)));
-		request.setAttribute("projeto3", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(3)));
-		request.setAttribute("projeto4", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(4)));
-		request.setAttribute("projeto5", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(5)));
-		request.setAttribute("projeto6", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(6)));
-		request.setAttribute("projeto7", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(7)));
-		request.setAttribute("projeto8", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(8)));
-		request.setAttribute("projeto9", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(9)));
+		for(int p = 1; p < 9; p++) {
+			request.setAttribute("projeto" + p, daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(p)));
+			System.out.println(sqlprojeto.buscaProjetoPorRanking(p));
+		}
 		request.getRequestDispatcher("aplicacao/index.jsp").forward(request, response);
 	}
 	
@@ -112,46 +107,46 @@ public class ServletProjetos extends APIEntrada {
 		acessarProjetos(request, response);
 	}
 	
+	/*
+		                   *------------------------->setarValoresUniversais---------------------->setarRanking;
+						   |
+	   editarProjeto ------|------------>setarFotos------------>setarImagemPrincipal, 1, 2, 3, 4, 5, 6, 7, 8, 9;
+	   					   |
+	                       *--------------------------->acessarProjetos(redirecionar para cadastrarProjeto.jsp);
+	*/
+	
 	public void editarProjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelProjeto modelProjeto = new ModelProjeto();
-		modelProjeto = editarProjetoSetarValoresUniversais(request, response, modelProjeto);
-		modelProjeto = editarProjetoSetarFotos(request, response, modelProjeto);
+		editarProjetoSetarValoresUniversais(request, modelProjeto);
+		editarProjetoSetarFotos(request, response, modelProjeto);
 		acessarProjetos(request, response);
 	}
 	
-	public void editarProjetoAlternarTipo(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
-		if(tipo_projeto(request).equalsIgnoreCase("carrosel")) {
-			modelProjeto.setTipo(0);
-			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoTipo(0, id_projeto(request)));
-		}else if(tipo_projeto(request).equalsIgnoreCase("principal")) {
-			modelProjeto.setTipo(1);
-			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoTipo(1, id_projeto(request)));
-		}
-	}
-	
-	public ModelProjeto editarProjetoSetarValoresUniversais(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception  {
+	public void editarProjetoSetarValoresUniversais(HttpServletRequest request, ModelProjeto modelProjeto) throws Exception  {
 		modelProjeto.setSobre(sobre_projeto(request));
 		modelProjeto.setLogin_pai_id(getUser(request));
 		modelProjeto.setNome(nome_projeto(request));
 		modelProjeto.setId(id_projeto(request));
-		modelProjeto.setRanking(ranking_projeto(request));
 		daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoValoresUniversais(modelProjeto));
-		return modelProjeto; 
+		//editarProjetoSetarRanking(request, modelProjeto);
 	}
 	
-	public ModelProjeto editarProjetoSetarFotos(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
-		modelProjeto = editarProjetoSetarValoresUniversais(request, response, modelProjeto);
-		modelProjeto = editarProjetoSetarImagemPrincipal(request, response, modelProjeto);
-		modelProjeto = editarProjetoSetarImagem1(request, response, modelProjeto);
-		modelProjeto = editarProjetoSetarImagem2(request, response, modelProjeto);
-		modelProjeto = editarProjetoSetarImagem3(request, response, modelProjeto);
-		modelProjeto = editarProjetoSetarImagem4(request, response, modelProjeto);
-		modelProjeto = editarProjetoSetarImagem5(request, response, modelProjeto);
-		modelProjeto = editarProjetoSetarImagem6(request, response, modelProjeto);
-		modelProjeto = editarProjetoSetarImagem7(request, response, modelProjeto);
-		modelProjeto = editarProjetoSetarImagem8(request, response, modelProjeto);
-		modelProjeto = editarProjetoSetarImagem9(request, response, modelProjeto);
-		return modelProjeto;
+	public void editarProjetoSetarRanking(HttpServletRequest request, ModelProjeto modelProjeto) throws SQLException {
+		modelProjeto.setRanking(ranking_projeto(request));
+		//daoprojetos.atualizarRanking(sqlprojeto.atualizacaoRanking(modelProjeto));
+	}
+	
+	public void editarProjetoSetarFotos(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
+		editarProjetoSetarImagemPrincipal(request, response, modelProjeto);
+		editarProjetoSetarImagem1(request, response, modelProjeto);
+		editarProjetoSetarImagem2(request, response, modelProjeto);
+		editarProjetoSetarImagem3(request, response, modelProjeto);
+		editarProjetoSetarImagem4(request, response, modelProjeto);
+		editarProjetoSetarImagem5(request, response, modelProjeto);
+		editarProjetoSetarImagem6(request, response, modelProjeto);
+		editarProjetoSetarImagem7(request, response, modelProjeto);
+		editarProjetoSetarImagem8(request, response, modelProjeto);
+		editarProjetoSetarImagem9(request, response, modelProjeto);
 	}
 	
 	public ModelProjeto editarProjetoSetarImagemPrincipal(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
@@ -246,6 +241,16 @@ public class ServletProjetos extends APIEntrada {
 	
 	public void acessarProjetos(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
 		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos(getUser(request).getId())));
+		for(int p = 1; p < 9; p++) {
+			System.out.println("option" + p);
+			if(daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(p)) != null){
+				System.out.println("option" + p + " está cheio");
+				request.setAttribute("option" + p, true);
+			}else{
+				System.out.println("option" + p + " está vazio");
+				request.setAttribute("option" + p, false);
+			}
+		}
 		request.getRequestDispatcher("aplicacao/principal/cadastrarProjeto.jsp").forward(request, response);
 	}
 }

@@ -127,7 +127,7 @@ public class SQL {
 		String sql = "SELECT * FROM projeto WHERE ranking = " + ranking;
 		return sql;
 	}
-	
+		
 	public String listaProjetos(Long login_pai_id) {
 		String sql = "SELECT * FROM projeto WHERE login_pai_id = " + login_pai_id + " ORDER BY ranking ASC";
 		return sql;
@@ -139,8 +139,7 @@ public class SQL {
 	}
 
 	public String atualizacaoValoresUniversais(ModelProjeto modelProjeto) {
-		String sql = "UPDATE projeto SET sobre = " + modelProjeto.getSobre() + ", nome = " + modelProjeto.getNome() + ", ranking = " + modelProjeto.getRanking() + 
-			" WHERE id = " + modelProjeto.getId() + ";";
+		String sql = "UPDATE projeto SET sobre = '" + modelProjeto.getSobre() + "', nome = '" + modelProjeto.getNome() + "' WHERE id = " + modelProjeto.getId() + ";";
 		return sql;
 	}
 }

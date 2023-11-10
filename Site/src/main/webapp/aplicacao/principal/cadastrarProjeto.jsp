@@ -75,16 +75,79 @@
 					</div>
 				</div>
 				<select name="ranking_projeto" class="custom-select" id="inputGroupSelect01">
-					<option value="1">Ranking 1</option>
-					<option value="2">Ranking 2</option>
-					<option value="3">Ranking 3</option>
-					<option value="4">Ranking 4</option>
-					<option value="5">Ranking 5</option>
-					<option value="6">Ranking 6</option>
-					<option value="7">Ranking 7</option>
-					<option value="8">Ranking 8</option>
-					<option value="9">Ranking 9</option>
-					<option value="0">Ranking 0</option>
+					<c:choose>
+						<c:when test="${!option1}">
+							<option id="option1" value="1">Ranking 1</option>
+						</c:when>
+						<c:otherwise>
+							<option id="option1" value="1">Ranking 1 (já em utilização)</option>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${!option2}">
+							<option id="option2" value="2">Ranking 2</option>
+						</c:when>
+						<c:otherwise>
+							<option id="option2" value="2">Ranking 2 (já em utilização)</option>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${!option3}">
+							<option id="option3" value="3">Ranking 3</option>
+						</c:when>
+						<c:otherwise>
+							<option id="option3" value="3">Ranking 3 (já em utilização)</option>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${!option4}">
+							<option id="option4" value="4">Ranking 4</option>
+						</c:when>
+						<c:otherwise>
+							<option id="option4" value="4">Ranking 4 (já em utilização)</option>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${!option5}">
+							<option id="option5" value="5">Ranking 5</option>
+						</c:when>
+						<c:otherwise>
+							<option id="option5" value="5">Ranking 5 (já em utilização)</option>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${!option6}">
+							<option id="option6" value="6">Ranking 6</option>
+						</c:when>
+						<c:otherwise>
+							<option id="option6" value="6">Ranking 6 (já em utilização)</option>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${!option7}">
+							<option id="option7" value="7">Ranking 7</option>
+						</c:when>
+						<c:otherwise>
+							<option id="option7" value="7">Ranking 7 (já em utilização)</option>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${!option8}">
+							<option id="option8" value="8">Ranking 8</option>
+						</c:when>
+						<c:otherwise>
+							<option id="option8" value="8">Ranking 8 (já em utilização)</option>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${!option9}">
+							<option id="option9" value="9">Ranking 9</option>
+						</c:when>
+						<c:otherwise>
+							<option id="option9" value="9">Ranking 9 (já em utilização)</option>
+						</c:otherwise>
+					</c:choose>
+					<option id="option0" value="0">Ranking 0</option>
 				</select>
 				<div class="form-group">
 					<label class="label" for="email">Foto principal:</label>
