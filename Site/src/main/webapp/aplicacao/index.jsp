@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,78 +50,96 @@
 		</div>
 		<div style="position: relative; top: 116vh;">
 			<ul class="da">
-				<li>
-					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=1">
-						<figure>
-							<img class="da" src='${projeto1.foto1}' alt='Volcano and lava field against a stormy sky'>
-							<figcaption>Casa cor | 2019</figcaption>
-						</figure>
-					</a>
-				</li>
-				<li>
-					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=2">
-						<figure>
-							<img class="da" src='${projeto2.foto1}' alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
-							<figcaption>Adventure getaways</figcaption>
-						</figure>
-					</a>
-				</li>
-				<li>
-					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=3">
-						<figure>
-							<img class="da" src='${projeto3.foto1}' alt='Person standing alone in a misty forest'>
-							<figcaption>Forest escapes</figcaption>
-						</figure>
-					</a>
-				</li>
-				<li>
-					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=4">
-						<figure>
-							<img class="da" src='${projeto4.foto1}' alt='Person hiking on a trail through mountains while taking a photo with phone'>
-							<figcaption>Hiking trails</figcaption>
-						</figure>
-					</a>
-				</li>
-				<li>
-					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=5">
-						<figure>
-							<img class="da" src='${projeto5.foto1}' alt='Street scene with person walking and others on motorbikes, all wearing masks'>
-							<figcaption>Street scenes</figcaption>
-						</figure>
-					</a>
-				</li>
-				<li>
-					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=6">
-						<figure>
-							<img class="da" src='${projeto6.foto1}' alt='Fashionable-looking girl with blond hair and pink sunglasses'>
-							<figcaption>Trending</figcaption>
-						</figure>
-					</a>
-				</li>
-				<li>
-					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=7">
-						<figure>
-							<img class="da" src='${projeto7.foto1}' alt='Volcano and lava field against a stormy sky'>
-							<figcaption>Mountains and volcanos</figcaption>
-						</figure>
-					</a>
-				</li>
-				<li>
-					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=8">
-						<figure>
-							<img class="da" src='${projeto8.foto1}' alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
-							<figcaption>Adventure getaways</figcaption>
-						</figure>
-					</a>
-				</li>
-				<li>
-					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=9">
-						<figure>
-							<img class="da" src='${projeto9.foto1}' alt='Person standing alone in a misty forest'>
-							<figcaption>Forest escapes</figcaption>
-						</figure>
-					</a>
-				</li>
+				<c:if test="${verificao1}">
+					<li>
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=1">
+							<figure>
+								<img class="da" src='${projeto1.foto1}' alt='1'>
+								<figcaption>1</figcaption>
+							</figure>
+						</a>
+					</li>
+				</c:if>
+				<c:if test="${verificao2}">
+					<li>
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=2">
+							<figure>
+								<img class="da" src='${projeto2.foto1}' alt='2'>
+								<figcaption>2</figcaption>
+							</figure>
+						</a>
+					</li>
+				</c:if>
+				<c:if test="${verificao3}">
+					<li>
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=3">
+							<figure>
+								<img class="da" src='${projeto3.foto1}' alt='3'>
+								<figcaption>3</figcaption>
+							</figure>
+						</a>
+					</li>
+				</c:if>
+				<c:if test="${verificao4}">
+					<li>
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=4">
+							<figure>
+								<img class="da" src='${projeto4.foto1}' alt='4'>
+								<figcaption>4</figcaption>
+							</figure>
+						</a>
+					</li>
+				</c:if>
+				<c:if test="${verificao5}">
+					<li>
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=5">
+							<figure>
+								<img class="da" src='${projeto5.foto1}' alt='5'>
+								<figcaption>5</figcaption>
+							</figure>
+						</a>
+					</li>
+				</c:if>
+				<c:if test="${verificao6}">
+					<li>
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=6">
+							<figure>
+								<img class="da" src='${projeto6.foto1}' alt='6'>
+								<figcaption>6</figcaption>
+							</figure>
+						</a>
+					</li>
+				</c:if>
+				<c:if test="${verificao7}">
+					<li>
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=7">
+							<figure>
+								<img class="da" src='${projeto7.foto1}' alt='7'>
+								<figcaption>7</figcaption>
+							</figure>
+						</a>
+					</li>
+				</c:if>
+				<c:if test="${verificao8}">
+					<li>
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=8">
+							<figure>
+								<img class="da" src='${projeto8.foto1}' alt='8'>
+								<figcaption>8</figcaption>
+							</figure>
+						</a>
+					</li>
+				</c:if>
+				<c:if test="${verificao9}">
+					<li>
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=9">
+							<figure>
+								<img class="da" src='${projeto9.foto1}' alt='9'>
+								<figcaption>9</figcaption>
+							</figure>
+						</a>
+					</li>
+				</c:if>
 			</ul>
 		</div>
 	</div>

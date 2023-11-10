@@ -19,7 +19,9 @@ import jakarta.servlet.http.HttpServletResponse;
 @MultipartConfig
 @WebServlet(urlPatterns = { "/ServletProjetos" })
 public class ServletProjetos extends APIEntrada {
+	
 	private static final long serialVersionUID = 1L;
+	
 	DAOProjetos daoprojetos = new DAOProjetos();
 	SQL sqlprojeto = new SQL();
 	
@@ -37,7 +39,6 @@ public class ServletProjetos extends APIEntrada {
 				excluirProjeto(request, response);
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -86,6 +87,8 @@ public class ServletProjetos extends APIEntrada {
 	
 	public void carregarTela(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		for(int p = 1; p < 10; p++) {
+			System.out.println(p + ": " + daoprojetos.verificarExistenciaDeProjeto(sqlprojeto.buscaProjetoPorRanking(p)));
+			request.setAttribute("verificao" + p, daoprojetos.verificarExistenciaDeProjeto(sqlprojeto.buscaProjetoPorRanking(p)));
 			request.setAttribute("projeto" + p, daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(p)));
 		}
 		request.getRequestDispatcher("aplicacao/index.jsp").forward(request, response);
