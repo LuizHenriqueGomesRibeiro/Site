@@ -143,4 +143,9 @@ public class SQL {
 			" WHERE id = " + modelProjeto.getId() + ";";
 		return sql;
 	}
+	
+	public String atualizacaoRanking(int ranking, Long id) {
+		String sql = "UPDATE projeto SET ranking = " + ranking + " WHERE id = " + id;
+		return sql;
+	}
 }
