@@ -21,45 +21,73 @@
   <script type="text/javascript" src="script/cadastrarProjeto.js"></script>
 </head>
 <body style="overflow-x: hidden;">
-	<section class="ftco-section">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-12">
-					<div class="wrapper">
-						</div>
-						<div class="row no-gutters">
-							<div class="col-md-7">
-								<div class="contact-wrap w-100 p-md-5 p-4">
-									<h3 class="mb-4">Escolha que projeto você deseja alterar:</h3>
-									<div>
-										<table class="table table-striped table-sm">
-											<thead>
-												<tr>
-													<th>Nome</th>
-													<th>Foto principal</th>
-													<th>Editar</th>
-													<th>Excluir</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach items="${projetos}" var="ml">
-													<tr>
-														<td><c:out value="${ml.nome}"></c:out></td>
-														<td><img width="70px;" height="70px;" alt="" src="${ml.fotoprojeto}"></td>
-														<td><a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoEditar&id_projeto=${ml.id}">Editar</a></td>
-														<td><a href="<%=request.getContextPath()%>/ServletProjetos?acao=excluirProjeto&id_projeto=${ml.id}">Excluir</a></td>
-													</tr>												
-												</c:forEach>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+	<div id="elemento" style="width: 100px; height: 100px; background-color: red; position: absolute;">Mova-me</div>
+	<div style="width: 100%; height: 300px;">
+		<div style="display: flex; width: 1000px; margin: auto; height: 250px;">
+			<div style="width: 540px; margin: 20px;">
+				<table class="table table-striped table-sm">
+					<thead>
+						<tr>
+							<th>Ranking</th>
+							<th>Nome</th>
+							<th>Foto principal</th>
+							<th>Editar</th>
+							<th>Excluir</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${projetos}" var="ml">
+							<tr>
+								<td><c:out value="${ml.ranking}"></c:out></td>
+								<td><c:out value="${ml.nome}"></c:out></td>
+								<td><img width="70px;" height="70px;" alt="" src="${ml.fotoprojeto}"></td>
+								<td><a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoEditar&id_projeto=${ml.id}">Editar</a></td>
+								<td><a href="<%=request.getContextPath()%>/ServletProjetos?acao=excluirProjeto&id_projeto=${ml.id}">Excluir</a></td>
+							</tr>												
+						</c:forEach>
+					</tbody>
+				</table>
 			</div>
-	</section>
+			<div style="width: 460px; margin: 20px;">
+				<table id="tabelaDesranqueada" class="table table-striped table-sm">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Foto principal</th>
+							<th>Editar</th>
+							<th>Excluir</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${projetosDesranqueados}" var="ml">
+							<tr>
+								<td><c:out value="${ml.nome}"></c:out></td>
+								<td><img width="70px;" height="70px;" alt="" src="${ml.fotoprojeto}"></td>
+								<td><a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoEditar&id_projeto=${ml.id}">
+									Editar</a></td>
+								<td><a href="<%=request.getContextPath()%>/ServletProjetos?acao=excluirProjeto&id_projeto=${ml.id}">
+									Excluir</a></td>
+							</tr>												
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div style="margin: auto; width: 100%;">
+		<div style="margin: auto; width: 80%; display: flex;">
+			<div style="width: 45%; height: 30%;">
+			</div>
+			<div style="width: 45%; height: 30%;">
+			</div>
+		</div>
+	</div>
+	<div style="display: flex;">
+		<div style="margin: 50px;">
+		</div>
+		<div style="margin: 50px;">
+		</div>
+	</div>
 	<div style="position: relative; width: 90vw; margin: auto;">
 		<div id="formulario">
 			<form enctype="multipart/form-data" method="post" action="<%=request.getContextPath()%>/ServletProjetos" id="projeto" name="contactForm"
@@ -69,7 +97,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label class="label" for="name">Nome do projeto:</label> <input
-								type="text" class="form-control" name="nome_cliente" id="name"
+								type="text" class="form-control" name="nome_projeto" id="name"
 								placeholder="Nome">
 						</div>
 					</div>
@@ -221,5 +249,32 @@
 			</form>
 		</div>
 	</div>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+	        var isDragging = false;
+	        var offset = {x: 0, y: 0};
+	
+	        jQuery('#elemento').mousedown(function(e) {
+	            isDragging = true;
+	            offset = {
+		            x: e.pageX - parseInt($(this).css('left'), 10),
+		            y: e.pageY - parseInt($(this).css('top'), 10)
+	            };
+	        });
+	
+	        jQuery(document).mousemove(function(e) {
+	            if (isDragging) {
+		            jQuery('#elemento').css({
+		                top: e.pageY - offset.y,
+		                left: e.pageX - offset.x
+		            });
+	            }
+	        });
+	
+	        jQuery(document).mouseup(function() {
+	            isDragging = false;
+	        });
+		});
+	</script>
 </body>
 </html>

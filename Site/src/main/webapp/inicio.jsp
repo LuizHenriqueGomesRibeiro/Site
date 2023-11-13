@@ -20,6 +20,6 @@
 </head>
 <body>
 	<h2>Studiouna</h2>
-	<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarTela">Iniciar portfólio</a>
+	<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarTelaIndex">Iniciar portfólio</a>
 </body>
 </html>

@@ -78,6 +78,7 @@ public class DAOProjetos {
 		modelProjeto.setFoto8(resultado.getString("foto8"));
 		modelProjeto.setFoto9(resultado.getString("foto9"));
 		modelProjeto.setRanking(resultado.getInt("ranking"));
+		modelProjeto.setNome(resultado.getString("nome"));
 		modelProjeto.setLogin_pai_id(daologin.buscarLogin(resultado.getLong("login_pai_id")));
 		return modelProjeto;
 	}

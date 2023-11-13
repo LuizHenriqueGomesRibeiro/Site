@@ -52,7 +52,7 @@
 			<ul class="da">
 				<c:if test="${verificao1}">
 					<li>
-						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=1">
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoIndex&ranking_projeto=1">
 							<figure>
 								<img class="da" src='${projeto1.foto1}' alt='1'>
 								<figcaption>1</figcaption>
@@ -62,7 +62,7 @@
 				</c:if>
 				<c:if test="${verificao2}">
 					<li>
-						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=2">
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoIndex&ranking_projeto=2">
 							<figure>
 								<img class="da" src='${projeto2.foto1}' alt='2'>
 								<figcaption>2</figcaption>
@@ -72,7 +72,7 @@
 				</c:if>
 				<c:if test="${verificao3}">
 					<li>
-						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=3">
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoIndex&ranking_projeto=3">
 							<figure>
 								<img class="da" src='${projeto3.foto1}' alt='3'>
 								<figcaption>3</figcaption>
@@ -82,7 +82,7 @@
 				</c:if>
 				<c:if test="${verificao4}">
 					<li>
-						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=4">
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoIndex&ranking_projeto=4">
 							<figure>
 								<img class="da" src='${projeto4.foto1}' alt='4'>
 								<figcaption>4</figcaption>
@@ -92,7 +92,7 @@
 				</c:if>
 				<c:if test="${verificao5}">
 					<li>
-						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=5">
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoIndex&ranking_projeto=5">
 							<figure>
 								<img class="da" src='${projeto5.foto1}' alt='5'>
 								<figcaption>5</figcaption>
@@ -102,7 +102,7 @@
 				</c:if>
 				<c:if test="${verificao6}">
 					<li>
-						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=6">
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoIndex&ranking_projeto=6">
 							<figure>
 								<img class="da" src='${projeto6.foto1}' alt='6'>
 								<figcaption>6</figcaption>
@@ -112,7 +112,7 @@
 				</c:if>
 				<c:if test="${verificao7}">
 					<li>
-						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=7">
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoIndex&ranking_projeto=7">
 							<figure>
 								<img class="da" src='${projeto7.foto1}' alt='7'>
 								<figcaption>7</figcaption>
@@ -122,7 +122,7 @@
 				</c:if>
 				<c:if test="${verificao8}">
 					<li>
-						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=8">
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoIndex&ranking_projeto=8">
 							<figure>
 								<img class="da" src='${projeto8.foto1}' alt='8'>
 								<figcaption>8</figcaption>
@@ -132,7 +132,7 @@
 				</c:if>
 				<c:if test="${verificao9}">
 					<li>
-						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoExibir&ranking_projeto=9">
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoIndex&ranking_projeto=9">
 							<figure>
 								<img class="da" src='${projeto9.foto1}' alt='9'>
 								<figcaption>9</figcaption>

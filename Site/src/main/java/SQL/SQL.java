@@ -124,7 +124,12 @@ public class SQL {
 	}
 		
 	public String listaProjetos(Long login_pai_id) {
-		String sql = "SELECT * FROM projeto WHERE login_pai_id = " + login_pai_id + " ORDER BY ranking ASC";
+		String sql = "SELECT * FROM projeto WHERE login_pai_id = " + login_pai_id + " AND NOT ranking = " + 0 + " ORDER BY ranking ASC";
+		return sql;
+	}
+	
+	public String listaProjetosDesranqueados(Long login_pai_id) {
+		String sql = "SELECT * FROM projeto WHERE login_pai_id = " + login_pai_id + " AND ranking = " + 0;
 		return sql;
 	}
 	

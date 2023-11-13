@@ -13,9 +13,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Projetos
- */
 @MultipartConfig
 @WebServlet(urlPatterns = { "/ServletProjetos" })
 public class ServletProjetos extends APIEntrada {
@@ -27,12 +24,12 @@ public class ServletProjetos extends APIEntrada {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			if(acao(request).equalsIgnoreCase("acessarProjetos")) {
-				acessarProjetos(request, response);
-			}else if(acao(request).equalsIgnoreCase("carregarTela")) {
-				carregarTela(request, response);
-			}else if(acao(request).equalsIgnoreCase("carregarProjetoExibir")) {
-				carregarProjetoExibir(request, response);
+			if(acao(request).equalsIgnoreCase("carregarTelaIndex")) {
+				carregarTelaIndex(request, response);
+			}else if(acao(request).equalsIgnoreCase("carregarProjetoIndex")) {
+				carregarProjetoIndex(request, response);
+			}else if(acao(request).equalsIgnoreCase("acessarProjetosServidor")) {
+				acessarProjetosServidor(request, response);
 			}else if(acao(request).equalsIgnoreCase("carregarProjetoEditar")) {
 				carregarProjetoEditar(request, response);
 			}else if(acao(request).equalsIgnoreCase("excluirProjeto")) {
@@ -82,19 +79,18 @@ public class ServletProjetos extends APIEntrada {
 		modelProjeto.setNome(nome_projeto(request));
 		modelProjeto.setSobre(sobre_projeto(request));
 		daoprojetos.persistirProjeto(sqlprojeto.persistenciaProjeto(modelProjeto));
-		acessarProjetos(request, response);
+		acessarProjetosServidor(request, response);
 	}
 	
-	public void carregarTela(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	public void carregarTelaIndex(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		for(int p = 1; p < 10; p++) {
-			System.out.println(p + ": " + daoprojetos.verificarExistenciaDeProjeto(sqlprojeto.buscaProjetoPorRanking(p)));
 			request.setAttribute("verificao" + p, daoprojetos.verificarExistenciaDeProjeto(sqlprojeto.buscaProjetoPorRanking(p)));
 			request.setAttribute("projeto" + p, daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(p)));
 		}
 		request.getRequestDispatcher("aplicacao/index.jsp").forward(request, response);
 	}
 	
-	public void carregarProjetoExibir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	public void carregarProjetoIndex(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		request.setAttribute("projeto", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(ranking_projeto(request))));
 		request.getRequestDispatcher("aplicacao/projeto.jsp").forward(request, response);
 	}
@@ -106,7 +102,7 @@ public class ServletProjetos extends APIEntrada {
 	
 	public void excluirProjeto(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
 		daoprojetos.excluirProjeto(sqlprojeto.excluiProjeto(id_projeto(request)));
-		acessarProjetos(request, response);
+		acessarProjetosServidor(request, response);
 	}
 	
 	/*
@@ -121,7 +117,7 @@ public class ServletProjetos extends APIEntrada {
 		ModelProjeto modelProjeto = new ModelProjeto();
 		editarProjetoSetarValoresUniversais(request, modelProjeto);
 		editarProjetoSetarFotos(request, response, modelProjeto);
-		acessarProjetos(request, response);
+		acessarProjetosServidor(request, response);
 	}
 	
 	public void editarProjetoSetarValoresUniversais(HttpServletRequest request, ModelProjeto modelProjeto) throws Exception  {
@@ -131,7 +127,6 @@ public class ServletProjetos extends APIEntrada {
 		modelProjeto.setId(id_projeto(request));
 		modelProjeto.setRanking(ranking_projeto(request));
 		daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoValoresUniversais(modelProjeto));
-		//editarProjetoSetarRanking(request, modelProjeto);
 	}
 	
 	public void editarProjetoSetarFotos(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
@@ -237,15 +232,20 @@ public class ServletProjetos extends APIEntrada {
 		return modelProjeto;
 	}
 	
-	public void acessarProjetos(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
+	public void acessarProjetosServidor(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
 		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos(getUser(request).getId())));
+		request.setAttribute("projetosDesranqueados", daoprojetos.listarProjetos(sqlprojeto.listaProjetosDesranqueados(getUser(request).getId())));
 		for(int p = 1; p < 10; p++) {
-			if(daoprojetos.verificarExistenciaDeProjeto(sqlprojeto.buscaProjetoPorRanking(p))){
-				request.setAttribute("option" + p, true);
-			}else{
-				request.setAttribute("option" + p, false);
-			}
+			acessarProjetosServidorAlternarOption(p, request);
 		}
 		request.getRequestDispatcher("aplicacao/principal/cadastrarProjeto.jsp").forward(request, response);
+	}
+	
+	public void acessarProjetosServidorAlternarOption(int p, HttpServletRequest request) throws SQLException {
+		if(daoprojetos.verificarExistenciaDeProjeto(sqlprojeto.buscaProjetoPorRanking(p))){
+			request.setAttribute("option" + p, true);
+		}else{
+			request.setAttribute("option" + p, false);
+		}
 	}
 }
