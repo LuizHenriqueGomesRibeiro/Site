@@ -27,7 +27,19 @@ public class APIEntrada extends ServletSessao {
 	}
 	
 	public Long id_projeto(HttpServletRequest request) {
-		return Long.parseLong(request.getParameter("id_projeto"));
+		if(request.getParameter("id_projeto") != null && !request.getParameter("id_projeto").isEmpty()) {
+			return Long.parseLong(request.getParameter("id_projeto"));
+		}else {
+			return null;
+		}
+	}
+	
+	public boolean projetoNovo(HttpServletRequest request) {
+		if(id_projeto(request) == null) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	public String nome_cliente(HttpServletRequest request) {

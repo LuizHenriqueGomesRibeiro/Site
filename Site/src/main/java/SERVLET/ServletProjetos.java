@@ -2,6 +2,7 @@ package SERVLET;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import DAO.DAOProjetos;
 import Model.ModelProjeto;
@@ -44,9 +45,9 @@ public class ServletProjetos extends APIEntrada {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		try {
-			if(acao(request).equalsIgnoreCase("persistirProjeto")) {
+			if(projetoNovo(request)) {
 				persistirProjeto(request, response);
-			}else if(acao(request).equalsIgnoreCase("editarProjeto")) {
+			}else {
 				editarProjeto(request, response);
 			}
 		} catch (Exception e) {
@@ -97,9 +98,12 @@ public class ServletProjetos extends APIEntrada {
 		request.getRequestDispatcher("aplicacao/projeto.jsp").forward(request, response);
 	}
 	
-	public void carregarProjetoEditar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+	public void carregarProjetoEditar(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("projeto", daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto(id_projeto(request))));
-		request.getRequestDispatcher("aplicacao/principal/carregarProjetoEditar.jsp").forward(request, response);
+		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos(getUser(request).getId())));
+		request.setAttribute("projetosDesranqueados", daoprojetos.listarProjetos(sqlprojeto.listaProjetosDesranqueados(getUser(request).getId())));
+		request.setAttribute("options", acessarProjetosServidorAlternarOption(request));
+		request.getRequestDispatcher("aplicacao/principal/cadastrarProjeto.jsp").forward(request, response);
 	}
 	
 	public void excluirProjeto(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
@@ -107,22 +111,14 @@ public class ServletProjetos extends APIEntrada {
 		acessarProjetosServidor(request, response);
 	}
 	
-	/*
-		                   *------------------------->setarValoresUniversais---------------------->setarRanking;
-						   |
-	   editarProjeto ------|------------>setarFotos------------>setarImagemPrincipal, 1, 2, 3, 4, 5, 6, 7, 8, 9;
-	   					   |
-	                       *--------------------------->acessarProjetos(redirecionar para cadastrarProjeto.jsp);
-	*/
-	
 	public void editarProjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelProjeto modelProjeto = new ModelProjeto();
-		editarProjetoSetarFotos(request, response, modelProjeto);
-		editarProjetoSetarValoresUniversais(request, modelProjeto);
+		modelProjeto = editarProjetoSetarValoresUniversais(request, modelProjeto);
+		modelProjeto = editarProjetoSetarFotos(request, response, modelProjeto);
 		acessarProjetosServidor(request, response);
 	}
 	
-	public void editarProjetoSetarFotos(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
+	public ModelProjeto editarProjetoSetarFotos(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
 		editarProjetoSetarImagemPrincipal(request, response, modelProjeto);
 		editarProjetoSetarImagem1(request, response, modelProjeto);
 		editarProjetoSetarImagem2(request, response, modelProjeto);
@@ -133,15 +129,17 @@ public class ServletProjetos extends APIEntrada {
 		editarProjetoSetarImagem7(request, response, modelProjeto);
 		editarProjetoSetarImagem8(request, response, modelProjeto);
 		editarProjetoSetarImagem9(request, response, modelProjeto);
+		return modelProjeto;
 	}
 	
-	public void editarProjetoSetarValoresUniversais(HttpServletRequest request, ModelProjeto modelProjeto) throws Exception  {
+	public ModelProjeto editarProjetoSetarValoresUniversais(HttpServletRequest request, ModelProjeto modelProjeto) throws Exception  {
 		modelProjeto.setSobre(sobre_projeto(request));
 		modelProjeto.setLogin_pai_id(getUser(request));
 		modelProjeto.setNome(nome_projeto(request));
 		modelProjeto.setId(id_projeto(request));
 		modelProjeto.setRanking(ranking_projeto(request));
 		daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoValoresUniversais(modelProjeto));
+		return modelProjeto;
 	}
 
 	public ModelProjeto editarProjetoSetarImagemPrincipal(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
@@ -243,17 +241,19 @@ public class ServletProjetos extends APIEntrada {
 	public void acessarProjetosServidor(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
 		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos(getUser(request).getId())));
 		request.setAttribute("projetosDesranqueados", daoprojetos.listarProjetos(sqlprojeto.listaProjetosDesranqueados(getUser(request).getId())));
-		for(int p = 1; p < 10; p++) {
-			acessarProjetosServidorAlternarOption(p, request);
-		}
+		request.setAttribute("options", acessarProjetosServidorAlternarOption(request));
 		request.getRequestDispatcher("aplicacao/principal/cadastrarProjeto.jsp").forward(request, response);
 	}
 	
-	public void acessarProjetosServidorAlternarOption(int p, HttpServletRequest request) throws SQLException {
-		if(daoprojetos.verificarExistenciaDeProjeto(sqlprojeto.buscaProjetoPorRanking(p))){
-			request.setAttribute("option" + p, true);
-		}else{
-			request.setAttribute("option" + p, false);
+	public ArrayList<Boolean> acessarProjetosServidorAlternarOption(HttpServletRequest request) throws SQLException {
+		ArrayList<Boolean> booleanos = new ArrayList<Boolean>();
+		for(int p = 1; p < 10; p++) {
+			if(daoprojetos.verificarExistenciaDeProjeto(sqlprojeto.buscaProjetoPorRanking(p))){
+				booleanos.add(true);
+			}else{
+				booleanos.add(false);
+			}
 		}
+		return booleanos;
 	}
 }
