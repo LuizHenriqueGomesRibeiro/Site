@@ -86,14 +86,15 @@ public class ServletProjetos extends APIEntrada {
 	}
 	
 	public void carregarTelaIndex(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos(getUser(request).getId())));
+		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos()));
+		
 		for(int p = 1; p < 10; p++) {
 			request.setAttribute("verificao" + p, daoprojetos.verificarExistenciaDeProjeto(sqlprojeto.buscaProjetoPorRanking(p)));
 			request.setAttribute("projeto" + p, daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(p)));
 		}
 		request.getRequestDispatcher("aplicacao/index.jsp").forward(request, response);
 	}
-	
+
 	public void carregarProjetoIndex(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		request.setAttribute("projeto", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(ranking_projeto(request))));
 		request.getRequestDispatcher("aplicacao/projeto.jsp").forward(request, response);

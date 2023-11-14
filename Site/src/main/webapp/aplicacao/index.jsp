@@ -41,14 +41,29 @@
 				</div>
 			</div>
 			<ul style="position: relative;" class="panes">
-				<li id="s1"><img src="${projeto1.fotoprojeto}"></li>
-				<li id="s2"><img src="${projeto2.fotoprojeto}"></li>
-				<li id="s3"><img src="${projeto3.fotoprojeto}"></li>
-				<li id="s4"><img src="${projeto4.fotoprojeto}"></li>
-				<li id="s5"><img src="${projeto5.fotoprojeto}"></li>
+				<c:forEach items="${projetos}" var="ml" varStatus="status">
+					<c:if test="${status.index < 5}">
+           				<li id="s1"><img src="${ml.fotoprojeto}"></li>
+        			</c:if>
+				</c:forEach>
 			</ul>
 		</div>
 		<div style="position: relative; top: 116vh;">
+			<ul class="da">
+				 <c:forEach items="${projetos}" var="ml" varStatus="status">
+				 	<c:if test="${ml.id != null}">
+				 		<li>
+							<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoIndex&ranking_projeto=${ml.ranking}">
+								<figure>
+									<img class="da" src='${ml.foto1}' alt='1'>
+									<figcaption>${ml.nome}</figcaption>
+								</figure>
+							</a>
+						</li>
+				 	</c:if>
+				 </c:forEach>
+			</ul>
+		<!--
 			<ul class="da">
 				<c:if test="${verificao1}">
 					<li>
@@ -141,6 +156,7 @@
 					</li>
 				</c:if>
 			</ul>
+		-->
 		</div>
 	</div>
 	<script type="text/javascript">

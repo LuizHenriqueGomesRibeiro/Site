@@ -4,10 +4,11 @@ import Model.ModelProjeto;
 
 public class SQL {
 	public String persistenciaProjeto(ModelProjeto modelProjeto) {
-		String sql = "INSERT INTO projeto(ranking, nome, login_pai_id, fotoprojeto, extensaofotoprojeto, foto1, extensaofoto1, foto2, extensaofoto2, foto3, extensaofoto3, " +
-				"foto4, extensaofoto4, foto5, extensaofoto5, foto6, extensaofoto6, foto7, extensaofoto7, foto8, extensaofoto8, foto9, extensaofoto9) VALUES ("  
+		String sql = "INSERT INTO projeto(sobre, ranking, nome, login_pai_id, fotoprojeto, extensaofotoprojeto, foto1, extensaofoto1, foto2, extensaofoto2, foto3, extensaofoto3, " +
+				"foto4, extensaofoto4, foto5, extensaofoto5, foto6, extensaofoto6, foto7, extensaofoto7, foto8, extensaofoto8, foto9, extensaofoto9) VALUES ('"
+			+ modelProjeto.getSobre()
 			+ modelProjeto.getRanking() 
-			+ ", '" + modelProjeto.getNome() 
+			+ "', '" + modelProjeto.getNome() 
 			+ "', '" + modelProjeto.getLogin_pai_id().getId() 
 			+ "', '" + modelProjeto.getFotoprojeto() 
 			+ "', '" + modelProjeto.getExtensaofotoprojeto()  
@@ -128,8 +129,13 @@ public class SQL {
 		return sql;
 	}
 	
+	public String listaProjetos() {
+		String sql = "SELECT * FROM projeto WHERE NOT ranking = " + 0 + " ORDER BY ranking ASC";
+		return sql;
+	}
+	
 	public String listaProjetosLIMIT5(Long login_pai_id) {
-		String sql = "SELECT * FROM projeto WHERE login_pai_id = " + login_pai_id + " AND NOT ranking = " + 0 + " ORDER BY ranking ASC LIMIT 5";
+		String sql = "SELECT * FROM projeto WHERE NOT ranking = " + 0 + " ORDER BY ranking ASC LIMIT 5";
 		return sql;
 	}
 	

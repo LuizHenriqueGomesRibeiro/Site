@@ -209,4 +209,8 @@ public class APIEntrada extends ServletSessao {
 		}
 		return modelProjeto;
 	}
+	
+	public String sobre(HttpServletRequest request) {
+		return request.getParameter("sobre");
+	}
 }

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +53,7 @@
 			<p></p>
 
 			<p>Sobre:</p>
-			<p></p>
+			<p><c:out value="${projeto.sobre}"></c:out></p>
 		</div>
 		<div style="position: relative; float: right; width: 70%;">
 			<ul class="da">
