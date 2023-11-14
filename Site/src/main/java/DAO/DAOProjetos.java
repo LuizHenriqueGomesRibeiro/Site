@@ -26,6 +26,19 @@ public class DAOProjetos {
 		connection.commit();
 	}
 	
+	public List<Boolean> alternarVerificarExistenciaDeProjeto() throws SQLException{
+		ArrayList<Boolean> booleanos = new ArrayList<Boolean>();
+		for(int p = 1; p < 10; p++) {
+			if(verificarExistenciaDeProjeto(sql.buscaProjetoPorRanking(p))){
+				booleanos.add(true);
+			}else{
+				booleanos.add(false);
+			}
+		}
+		return booleanos;
+	}
+	
+	
 	public ModelProjeto buscarProjeto(String sql) throws SQLException {
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet resultado = statement.executeQuery();

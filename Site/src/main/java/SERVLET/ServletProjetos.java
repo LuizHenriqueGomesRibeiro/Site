@@ -87,11 +87,6 @@ public class ServletProjetos extends APIEntrada {
 	
 	public void carregarTelaIndex(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos()));
-		
-		for(int p = 1; p < 10; p++) {
-			request.setAttribute("verificao" + p, daoprojetos.verificarExistenciaDeProjeto(sqlprojeto.buscaProjetoPorRanking(p)));
-			request.setAttribute("projeto" + p, daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(p)));
-		}
 		request.getRequestDispatcher("aplicacao/index.jsp").forward(request, response);
 	}
 
@@ -104,7 +99,7 @@ public class ServletProjetos extends APIEntrada {
 		request.setAttribute("projeto", daoprojetos.buscarProjeto(sqlprojeto.buscaProjeto(id_projeto(request))));
 		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos(getUser(request).getId())));
 		request.setAttribute("projetosDesranqueados", daoprojetos.listarProjetos(sqlprojeto.listaProjetosDesranqueados(getUser(request).getId())));
-		request.setAttribute("options", acessarProjetosServidorAlternarOption(request));
+		request.setAttribute("options", daoprojetos.alternarVerificarExistenciaDeProjeto());
 		request.getRequestDispatcher("aplicacao/principal/cadastrarProjeto.jsp").forward(request, response);
 	}
 	
@@ -243,19 +238,7 @@ public class ServletProjetos extends APIEntrada {
 	public void acessarProjetosServidor(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
 		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos(getUser(request).getId())));
 		request.setAttribute("projetosDesranqueados", daoprojetos.listarProjetos(sqlprojeto.listaProjetosDesranqueados(getUser(request).getId())));
-		request.setAttribute("options", acessarProjetosServidorAlternarOption(request));
+		request.setAttribute("options", daoprojetos.alternarVerificarExistenciaDeProjeto());
 		request.getRequestDispatcher("aplicacao/principal/cadastrarProjeto.jsp").forward(request, response);
-	}
-	
-	public ArrayList<Boolean> acessarProjetosServidorAlternarOption(HttpServletRequest request) throws SQLException {
-		ArrayList<Boolean> booleanos = new ArrayList<Boolean>();
-		for(int p = 1; p < 10; p++) {
-			if(daoprojetos.verificarExistenciaDeProjeto(sqlprojeto.buscaProjetoPorRanking(p))){
-				booleanos.add(true);
-			}else{
-				booleanos.add(false);
-			}
-		}
-		return booleanos;
 	}
 }
