@@ -40,15 +40,11 @@
 				<tbody>
 					<c:forEach items="${projetosDesranqueados}" var="ml">
 						<tr>
-							<td>
-								<button id="botao" data-toggle="modal" data-target="#exampleModal" onclick="putId(${ml.id})">Ranquear</button>
-							</td>
+							<td><button id="botao" data-toggle="modal" data-target="#exampleModal" onclick="putId(${ml.id})">Ranquear</button></td>
 							<td><c:out value="${ml.nome}"></c:out></td>
 							<td><img width="70px;" height="70px;" alt="" src="${ml.fotoprojeto}"></td>
-							<td><a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoEditar&id_projeto=${ml.id}">
-								Editar</a></td>
-							<td><a href="<%=request.getContextPath()%>/ServletProjetos?acao=excluirProjeto&id_projeto=${ml.id}">
-								Excluir</a></td>
+							<td><a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoEditar&id_projeto=${ml.id}">Editar</a></td>
+							<td><a href="<%=request.getContextPath()%>/ServletProjetos?acao=excluirProjeto&id_projeto=${ml.id}">Excluir</a></td>
 						</tr>												
 					</c:forEach>
 				</tbody>

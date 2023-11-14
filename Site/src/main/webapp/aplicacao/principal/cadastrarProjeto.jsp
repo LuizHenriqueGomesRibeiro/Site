@@ -24,10 +24,5 @@
 	<jsp:include page="includes/tabelasProjetos.jsp"></jsp:include>
 	<jsp:include page="includes/formularioPersistirProjeto.jsp"></jsp:include>
 	<jsp:include page="includes/modalRanking.jsp"></jsp:include>
-	<script type="text/javascript">
-		function putId(id){
-			jQuery("#id_projeto").val(id);
-		}
-	</script>
 </body>
 </html>
