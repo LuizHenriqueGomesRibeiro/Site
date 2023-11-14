@@ -85,7 +85,8 @@ public class ServletProjetos extends APIEntrada {
 		acessarProjetosServidor(request, response);
 	}
 	
-	public void carregarTelaIndex(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	public void carregarTelaIndex(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos(getUser(request).getId())));
 		for(int p = 1; p < 10; p++) {
 			request.setAttribute("verificao" + p, daoprojetos.verificarExistenciaDeProjeto(sqlprojeto.buscaProjetoPorRanking(p)));
 			request.setAttribute("projeto" + p, daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(p)));

@@ -128,6 +128,11 @@ public class SQL {
 		return sql;
 	}
 	
+	public String listaProjetosLIMIT5(Long login_pai_id) {
+		String sql = "SELECT * FROM projeto WHERE login_pai_id = " + login_pai_id + " AND NOT ranking = " + 0 + " ORDER BY ranking ASC LIMIT 5";
+		return sql;
+	}
+	
 	public String listaProjetosDesranqueados(Long login_pai_id) {
 		String sql = "SELECT * FROM projeto WHERE login_pai_id = " + login_pai_id + " AND ranking = " + 0;
 		return sql;
