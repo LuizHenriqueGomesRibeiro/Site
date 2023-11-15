@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 
 public class Conexao {
 	
-	private static String banco="jdbc:postgresql://localhost:5432/Site?autoReconnect=true";
-	private static String user="postgres";
-	private static String senha="MySQL";
-	private static Connection connection=null;
+	private static String banco = "jdbc:postgresql://localhost:5432/Site?autoReconnect=true";
+	private static String user = "postgres";
+	private static String senha = "MySQL";
+	private static Connection connection = null;
 	
 	public static Connection getConnection() {
 		return connection;
@@ -25,13 +25,12 @@ public class Conexao {
 	
 	private static void conectar() {
 		try {
-			if(connection==null) {
+			if(connection == null) {
 				Class.forName("org.postgresql.Driver");
 				connection = DriverManager.getConnection(banco, user, senha);
 				connection.setAutoCommit(false);	
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}

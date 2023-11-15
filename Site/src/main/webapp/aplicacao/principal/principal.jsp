@@ -20,7 +20,7 @@
 </head>
 <body>
 	<h4>Você está dentro da área restrita. Qual sistema deseja acessar?</h4>
-	<button type="button" class="btn btn-primary">Visualizar comentários</button>
+	<a href="<%=request.getContextPath()%>/ServletFormulario?acao=listarPerguntas"><button type="button" class="btn btn-primary">Visualizar comentários</button></a>
 	<a href="<%=request.getContextPath()%>/ServletProjetos?acao=acessarProjetosServidor"><button type="button" class="btn btn-secondary">Configurações de projetos</button></a>
 	<button type="button" class="btn btn-success">Configurações de perfil</button>
 	<button type="button" class="btn btn-danger">Configurações gerais</button>

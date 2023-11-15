@@ -1,10 +1,20 @@
 package Model;
 
-public class ModelCliente {
+public class ModelPergunta {
 	private Long id;
 	private String nome;
 	private String email;
 	private String mensagem;
+	
+	public ModelPergunta() {
+		
+	}
+	
+	public ModelPergunta(String nome, String email, String mensagem) {
+		this.nome = nome;
+		this.email = email;
+		this.mensagem = mensagem;
+	}
 	
 	public Long getId() {
 		return id;

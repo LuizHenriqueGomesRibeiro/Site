@@ -97,7 +97,7 @@
 									<h3 class="mb-4">Entre em contato:</h3>
 									<div id="form-message-warning" class="mb-4"></div> 
 				      				<div id="form-message-success" class="mb-4">Your message was sent, thank you!</div>
-									<form method="get" action="<%=request.getContextPath()%>/ServletFormulario" id="contactForm" name="contactForm" class="contactForm">
+									<form method="post" action="<%=request.getContextPath()%>/ServletFormulario" id="contactForm" name="contactForm" class="contactForm">
 										<input type="hidden" name="acao" value="cadastrarPergunta"/>
 										<div class="row">
 											<div class="col-md-6">

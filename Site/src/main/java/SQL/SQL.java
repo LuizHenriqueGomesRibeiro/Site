@@ -1,5 +1,6 @@
 package SQL;
 
+import Model.ModelPergunta;
 import Model.ModelProjeto;
 
 public class SQL {
@@ -33,7 +34,18 @@ public class SQL {
 			+ "')";
 		return sql;
 	}
-	// posteriormente: colocar ranking em todas as atualizações (ou criar uma atualização somente para as variaveis globais);
+	
+	public String persistenciaPergunta(ModelPergunta modelPergunta) {
+		String sql = "INSERT INTO pergunta(nome, email, mensagem) VALUES ('" 
+			+ modelPergunta.getNome() + "', '" + modelPergunta.getEmail() + "', '" + modelPergunta.getMensagem() + "')";
+		return sql;
+	}
+	
+	public String listaPerguntas() {
+		String sql = "SELECT * FROM pergunta";
+		return sql;
+	}
+	
 	public String atualizacaoFotoProjeto(ModelProjeto modelProjeto) {
 		String sql = "UPDATE projeto SET nome = '" + modelProjeto.getNome() + "', " + 
 		"login_pai_id = " + modelProjeto.getLogin_pai_id().getId() + ", " + 
