@@ -19,23 +19,51 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 	<body>
-		<table>
-			<thead>
-				<tr>
-					<th>nome</th>
-					<th>mensagem</th>
-					<th>email</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${perguntas}" var="ml">
-					<tr>
-						<td><c:out value="${ml.nome}"></c:out></td>
-						<td><c:out value="${ml.mensagem}"></c:out></td>
-						<td><c:out value="${ml.email}"></c:out></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+		<div style="display: flex;">
+			<div style="height: 100vw; width: 225px; position: fixed; background-color: #E6E6E6">
+				<div style="margin: 6px;">
+					<div style="margin-bottom: 10px; top: 2px; left: 12px; position: relative;">
+						<a href="<%=request.getContextPath()%>/ServletFormulario?acao=listarPerguntas">
+							<button type="button" class="btn btn-primary">Visualizar comentários</button>
+						</a>
+					</div>
+					<div style="margin-bottom: 10px;">
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=acessarProjetosServidor">
+							<button type="button" class="btn btn-success">Configurações de projetos</button>
+						</a>
+					</div>
+					<div style="margin-bottom: 10px;">
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=acessarProjetosServidor">
+							<button type="button" class="btn btn-warning">Configurações de projetos</button>
+						</a>
+					</div>
+					<div style="margin-bottom: 10px;">
+						<a href="<%=request.getContextPath()%>/ServletProjetos?acao=acessarProjetosServidor">
+							<button type="button" class="btn btn-secondary">Configurações de projetos</button>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div style="width: calc(100% - 225px); position: relative; left: 225px;">
+				<table class="table table-striped table-sm">
+					<thead>
+						<tr>
+							<th>nome</th>
+							<th>mensagem</th>
+							<th>email</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${perguntas}" var="ml">
+							<tr>
+								<td><c:out value="${ml.nome}"></c:out></td>
+								<td><c:out value="${ml.mensagem}"></c:out></td>
+								<td><c:out value="${ml.email}"></c:out></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</body>
 </html>

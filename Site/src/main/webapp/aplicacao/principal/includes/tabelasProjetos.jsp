@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<div style="width: 100%;">
-	<div style="display: flex; width: 1100px; margin: auto;">
-		<div style="width: 540px; margin: 20px;">
+<div style="position: relative; margin: auto;">
+	<div>
+		<div style="width: 520px; margin: 10px; position: relative; margin: auto;">
 			<table class="table table-striped table-sm">
 				<thead>
 					<tr>
@@ -26,7 +26,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div style="width: 500px; margin: 20px;">
+		<div style="width: 490px; margin: 10px; position: relative; margin: auto;">
 			<table id="tabelaDesranqueada" class="table table-striped table-sm">
 				<thead>
 					<tr>

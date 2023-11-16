@@ -19,10 +19,34 @@
   <link rel="stylesheet" href="estilos/restritoPersonalizado.css">
 </head>
 <body>
-	<h4>Você está dentro da área restrita. Qual sistema deseja acessar?</h4>
-	<a href="<%=request.getContextPath()%>/ServletFormulario?acao=listarPerguntas"><button type="button" class="btn btn-primary">Visualizar comentários</button></a>
-	<a href="<%=request.getContextPath()%>/ServletProjetos?acao=acessarProjetosServidor"><button type="button" class="btn btn-secondary">Configurações de projetos</button></a>
-	<button type="button" class="btn btn-success">Configurações de perfil</button>
-	<button type="button" class="btn btn-danger">Configurações gerais</button>
+	<div style="display: flex;">
+		<div style="height: 100vw; width: 225px; position: fixed; background-color: #E6E6E6">
+			<div style="margin: 6px;">
+				<div style="margin-bottom: 10px; top: 2px; left: 12px; position: relative;">
+					<a href="<%=request.getContextPath()%>/ServletFormulario?acao=listarPerguntas">
+						<button type="button" class="btn btn-primary">Visualizar comentários</button>
+					</a>
+				</div>
+				<div style="margin-bottom: 10px;">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=acessarProjetosServidor">
+						<button type="button" class="btn btn-success">Configurações de projetos</button>
+					</a>
+				</div>
+				<div style="margin-bottom: 10px;">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=acessarProjetosServidor">
+						<button type="button" class="btn btn-warning">Configurações de projetos</button>
+					</a>
+				</div>
+				<div style="margin-bottom: 10px;">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=acessarProjetosServidor">
+						<button type="button" class="btn btn-secondary">Configurações de projetos</button>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div style="width: calc(100% - 225px); position: relative; left: 225px;">
+		<h4>Você está dentro da área restrita. Qual sistema deseja acessar?</h4>
+		</div>
+	</div>
 </body>
 </html>

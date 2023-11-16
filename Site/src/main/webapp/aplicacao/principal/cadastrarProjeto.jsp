@@ -21,8 +21,36 @@
   <script type="text/javascript" src="script/cadastrarProjeto.js"></script>
 </head>
 <body style="overflow-x: hidden;">
-	<jsp:include page="includes/tabelasProjetos.jsp"></jsp:include>
-	<jsp:include page="includes/formularioPersistirProjeto.jsp"></jsp:include>
-	<jsp:include page="includes/modalRanking.jsp"></jsp:include>
+	<div style="display: flex;">
+		<div style="height: 100vw; width: 225px; position: fixed; background-color: #E6E6E6">
+			<div style="margin: 6px;">
+				<div style="margin-bottom: 10px; top: 2px; left: 12px; position: relative;">
+					<a href="<%=request.getContextPath()%>/ServletFormulario?acao=listarPerguntas">
+						<button type="button" class="btn btn-primary">Visualizar comentários</button>
+					</a>
+				</div>
+				<div style="margin-bottom: 10px;">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=acessarProjetosServidor">
+						<button type="button" class="btn btn-success">Configurações de projetos</button>
+					</a>
+				</div>
+				<div style="margin-bottom: 10px;">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=acessarProjetosServidor">
+						<button type="button" class="btn btn-warning">Configurações de projetos</button>
+					</a>
+				</div>
+				<div style="margin-bottom: 10px;">
+					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=acessarProjetosServidor">
+						<button type="button" class="btn btn-secondary">Configurações de projetos</button>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div style="width: calc(100% - 225px); position: relative; left: 225px;">
+			<jsp:include page="includes/tabelasProjetos.jsp"></jsp:include>
+			<jsp:include page="includes/formularioPersistirProjeto.jsp"></jsp:include>
+			<jsp:include page="includes/modalRanking.jsp"></jsp:include>
+		</div>
+	</div>
 </body>
 </html>
