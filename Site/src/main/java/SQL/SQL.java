@@ -36,8 +36,13 @@ public class SQL {
 	}
 	
 	public String persistenciaPergunta(ModelPergunta modelPergunta) {
-		String sql = "INSERT INTO pergunta(nome, email, mensagem) VALUES ('" 
-			+ modelPergunta.getNome() + "', '" + modelPergunta.getEmail() + "', '" + modelPergunta.getMensagem() + "')";
+		String sql = "INSERT INTO pergunta(nome, email, mensagem, data) VALUES ('" 
+			+ modelPergunta.getNome() + "', '" + modelPergunta.getEmail() + "', '" + modelPergunta.getMensagem() + "', '" + modelPergunta.getData() + "')";
+		return sql;
+	}
+	
+	public String buscaPergunta(Long id_mensagem) {
+		String sql = "SELECT * FROM pergunta WHERE id = " + id_mensagem;
 		return sql;
 	}
 	

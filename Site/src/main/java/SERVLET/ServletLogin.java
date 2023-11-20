@@ -25,17 +25,11 @@ public class ServletLogin extends APIEntrada {
 	
 	DaoLogin daoLogin = new DaoLogin();
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public ServletLogin() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String acao = request.getParameter("acao");
 		
@@ -73,7 +67,6 @@ public class ServletLogin extends APIEntrada {
 					}
 					
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -84,9 +77,6 @@ public class ServletLogin extends APIEntrada {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 

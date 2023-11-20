@@ -21,6 +21,7 @@
 <body>
 	<div class="login-form">
 	  <form action="<%=request.getContextPath()%>/ServletLogin" method="get" name="formularioLogin">
+	  	<input type="hidden" value="<%= request.getAttribute("url") %>" name="url">
 	    <h1>Login</h1>
 	    <input type="hidden" value="<%=request.getParameter("url")%>" name="url">
 	    <input type="hidden" name="acao" value="validar">

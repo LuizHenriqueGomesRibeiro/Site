@@ -18,8 +18,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
-	<body>
-		<div style="display: flex;">
+	<body style="height: 100vh;">
+		<div style="display: flex; height: 100%;">
 			<div style="height: 100vw; width: 225px; position: fixed; background-color: #E6E6E6">
 				<div style="margin: 6px;">
 					<div style="margin-bottom: 10px; top: 2px; left: 12px; position: relative;">
@@ -44,26 +44,42 @@
 					</div>
 				</div>
 			</div>
-			<div style="width: calc(100% - 225px); position: relative; left: 225px;">
-				<table class="table table-striped table-sm">
-					<thead>
-						<tr>
-							<th>nome</th>
-							<th>mensagem</th>
-							<th>email</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${perguntas}" var="ml">
+			<div style="width: calc(100% - 225px); position: relative; left: 225px; height: 100%;">
+				<div style="width: 90%; position: relative; margin: auto; top: 45px; height: 300px; overflow: auto;">
+					<table class="table table-striped table-sm">
+						<thead>
 							<tr>
-								<td><c:out value="${ml.nome}"></c:out></td>
-								<td><c:out value="${ml.mensagem}"></c:out></td>
-								<td><c:out value="${ml.email}"></c:out></td>
+								<th>nome</th>
+								<th>mensagem</th>
+								<th>email</th>
+								<th>Selecionar para ler</th>
 							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							<c:forEach items="${perguntas}" var="ml">
+								<tr>
+									<td><c:out value="${ml.nome}"></c:out></td>
+									<td><c:out value="${ml.mensagem}"></c:out></td>
+									<td><c:out value="${ml.email}"></c:out></td>
+									<td>
+										<button>
+											<a href="<%=request.getContextPath()%>/ServletFormulario?acao=imprimirPerguntaTela&id_mensagem=${ml.id}">Selecionar</a>
+										</button>
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+				<div style="width: 90%; position: relative; margin: auto; height: calc(100% - 300px); top: 45px;">
+					<p>${pergunta.mensagem}</p>
+				</div>
 			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+		function selecionarPerguntaVer(id){
+			
+		}
+	</script>
 </html>

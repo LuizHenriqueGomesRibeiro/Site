@@ -1,6 +1,8 @@
 package SERVLET.API;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.tomcat.jakartaee.commons.compress.utils.IOUtils;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -40,6 +42,10 @@ public class APIEntrada extends ServletSessao {
 		}else {
 			return false;
 		}
+	}
+	
+	public Long id_mensagem(HttpServletRequest request) {
+		return Long.parseLong(request.getParameter("id_mensagem"));
 	}
 
 	public String nome_cliente(HttpServletRequest request) {
@@ -213,4 +219,12 @@ public class APIEntrada extends ServletSessao {
 	public String sobre(HttpServletRequest request) {
 		return request.getParameter("sobre");
 	}
+	
+	public String dataAtual() {
+		Date dataAtual = new Date();
+		SimpleDateFormat formatoData = new SimpleDateFormat("yyyy-MM-dd");
+		String dataFormatada = formatoData.format(dataAtual);
+		return dataFormatada;
+	}
+	
 }

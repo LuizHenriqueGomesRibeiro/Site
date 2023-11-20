@@ -17,8 +17,8 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="estilos/restritoPersonalizado.css">
-  <script type="text/javascript" src="script/cadastrarProjeto.js"></script>
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/estilos/restritoPersonalizado.css">
+  <script type="text/javascript" src="<%=request.getContextPath()%>/script/cadastrarProjeto.js"></script>
 </head>
 <body style="overflow-x: hidden;">
 	<div style="display: flex;">

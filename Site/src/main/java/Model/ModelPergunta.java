@@ -5,15 +5,25 @@ public class ModelPergunta {
 	private String nome;
 	private String email;
 	private String mensagem;
+	private String data;
 	
 	public ModelPergunta() {
 		
 	}
 	
-	public ModelPergunta(String nome, String email, String mensagem) {
+	public ModelPergunta(String nome, String email, String mensagem, String data) {
 		this.nome = nome;
 		this.email = email;
 		this.mensagem = mensagem;
+		this.data = data;
+	}
+	
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
 	}
 	
 	public Long getId() {

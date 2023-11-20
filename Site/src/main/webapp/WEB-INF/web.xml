@@ -79,4 +79,13 @@
     <servlet-name>ServletFormulario</servlet-name>
     <url-pattern>/ServletFormulario</url-pattern>
   </servlet-mapping>
+  <filter>
+    <display-name>FiltroLogin</display-name>
+    <filter-name>FiltroLogin</filter-name>
+    <filter-class>FILTER.FiltroLogin</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FiltroLogin</filter-name>
+    <url-pattern>/FiltroLogin</url-pattern>
+  </filter-mapping>
 </web-app>
