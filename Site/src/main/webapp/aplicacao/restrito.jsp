@@ -40,6 +40,7 @@
 	  </form>
 	</div>
 	<script type="text/javascript">
+	
 	let form = document.querySelecter('form');
 
 	form.addEventListener('submit', (e) => {

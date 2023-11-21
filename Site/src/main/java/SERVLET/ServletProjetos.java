@@ -37,6 +37,8 @@ public class ServletProjetos extends APIEntrada {
 				excluirProjeto(request, response);
 			}else if(acao(request).equalsIgnoreCase("alternarRankingProjetos")) {
 				alternarRankingProjetos(request, response);
+			}else if(acao(request).equalsIgnoreCase("contato")) {
+				contato(request, response);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -86,6 +88,7 @@ public class ServletProjetos extends APIEntrada {
 	}
 	
 	public void carregarTelaIndex(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.setAttribute("filtrarCarregamento", request.getParameter("filtrarCarregamento"));
 		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos()));
 		request.getRequestDispatcher("aplicacao/index.jsp").forward(request, response);
 	}
@@ -240,5 +243,9 @@ public class ServletProjetos extends APIEntrada {
 		request.setAttribute("projetosDesranqueados", daoprojetos.listarProjetos(sqlprojeto.listaProjetosDesranqueados(getUser(request).getId())));
 		request.setAttribute("options", daoprojetos.alternarVerificarExistenciaDeProjeto());
 		request.getRequestDispatcher("aplicacao/principal/cadastrarProjeto.jsp").forward(request, response);
+	}
+	
+	public void contato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("aplicacao/contato.jsp").forward(request, response);
 	}
 }

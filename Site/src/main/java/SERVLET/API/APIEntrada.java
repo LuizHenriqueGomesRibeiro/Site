@@ -15,13 +15,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.Part;
 
-/**
- * Servlet implementation class APIServletsClientes
- */
 public class APIEntrada extends ServletSessao {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	public String acao(HttpServletRequest request) {

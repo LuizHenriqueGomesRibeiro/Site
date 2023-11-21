@@ -35,7 +35,7 @@
 						<a class="navbar-brand" href="#">Projetos</a>
 						<a class="navbar-brand" href="#">Escritório</a>
 						<a class="navbar-brand" href="#">Mídia</a>
-						<a class="navbar-brand" href="aplicacao/contato.jsp">Contato</a>
+						<a class="navbar-brand" href="<%=request.getContextPath()%>/ServletProjetos?acao=contato&filtrarCarregamento=carregados">Contato</a>
 						<a class="navbar-brand" href="aplicacao/restrito.jsp">Área restrita</a>
 					</div>
 				</div>

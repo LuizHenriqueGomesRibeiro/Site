@@ -17,8 +17,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="estilos/style.css">
-  <link rel="stylesheet" href="estilos/contato.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/estilos/style.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/estilos/contato.css">
 </head>
 <body style="background-color: #fff;">
 	<nav style="position: fixed; background-color: white; height: 130px; box-shadow: none; color: black;" class="navbar navbar-expand-lg navbar-dark shadow-5-strong">

@@ -106,4 +106,13 @@
     <filter-name>FiltroProjetos</filter-name>
     <url-pattern>/FiltroProjetos</url-pattern>
   </filter-mapping>
+  <filter>
+    <display-name>FiltroCarregarIndex</display-name>
+    <filter-name>FiltroCarregarIndex</filter-name>
+    <filter-class>FILTER.FiltroCarregarIndex</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FiltroCarregarIndex</filter-name>
+    <url-pattern>/FiltroCarregarIndex</url-pattern>
+  </filter-mapping>
 </web-app>
