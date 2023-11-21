@@ -1,6 +1,8 @@
 package SERVLET;
 
+import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -13,6 +15,7 @@ import Model.ModelPergunta;
 import SERVLET.API.APIEntrada;
 import SQL.SQL;
 
+//@WebFilter(urlPatterns = {"/aplicacao/principal/*"})
 public class ServletFormulario extends APIEntrada {
 	DAOFormulario daoformulario = new DAOFormulario();
 	SQL sql = new SQL();
@@ -45,6 +48,15 @@ public class ServletFormulario extends APIEntrada {
 		}
 	}
 	
+	/*
+	protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
+		String comentarios = (String) request.getAttribute("perguntas");
+		if(comentarios.isEmpty() && comentarios == null) {
+			
+		}
+		chain.doFilter(request, response);
+	}
+	*/
 	protected void listarPerguntas(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("perguntas", daoformulario.listarPerguntas(sql.listaPerguntas()));
 		request.getRequestDispatcher("aplicacao/principal/perguntas.jsp").forward(request, response);

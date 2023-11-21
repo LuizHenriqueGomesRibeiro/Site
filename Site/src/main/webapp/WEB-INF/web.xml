@@ -88,4 +88,22 @@
     <filter-name>FiltroLogin</filter-name>
     <url-pattern>/FiltroLogin</url-pattern>
   </filter-mapping>
+  <filter>
+    <display-name>FiltroComentarios</display-name>
+    <filter-name>FiltroComentarios</filter-name>
+    <filter-class>FILTER.FiltroComentarios</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FiltroComentarios</filter-name>
+    <url-pattern>/FiltroComentarios</url-pattern>
+  </filter-mapping>
+  <filter>
+    <display-name>FiltroProjetos</display-name>
+    <filter-name>FiltroProjetos</filter-name>
+    <filter-class>FILTER.FiltroProjetos</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FiltroProjetos</filter-name>
+    <url-pattern>/FiltroProjetos</url-pattern>
+  </filter-mapping>
 </web-app>

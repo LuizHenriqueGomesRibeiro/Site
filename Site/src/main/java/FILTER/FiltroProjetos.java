@@ -3,7 +3,6 @@ package FILTER;
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.FilterConfig;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
@@ -15,23 +14,21 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebFilter(urlPatterns = {"/aplicacao/principal/*"})
-public class FiltroLogin implements Filter {
+public class FiltroProjetos implements Filter {
        
-    public FiltroLogin() {
+    public FiltroProjetos() {
         super();
     }
 
 	public void destroy() {
-	
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest requestSession = (HttpServletRequest) request;
 		HttpSession session = requestSession.getSession();
-		String usuarioLogado = (String) session.getAttribute("senha");
-		if(usuarioLogado == null || (usuarioLogado.isEmpty() && usuarioLogado == null)) {
-			request.setAttribute("mensagem", "Realize o login");
-			request.getRequestDispatcher("/aplicacao/restrito.jsp").forward(request, response);
+		String projetos = (String) session.getAttribute("projetos");
+		if(projetos == null || (projetos.isEmpty() && projetos == null)) {
+			request.getRequestDispatcher("/aplicacao/principal/principal.jsp").forward(request, response);
 			return;
 		}else {
 			chain.doFilter(request, response);
@@ -39,7 +36,6 @@ public class FiltroLogin implements Filter {
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {
-
 	}
 
 }
