@@ -17,7 +17,6 @@ import java.io.IOException;
 public class FiltroCarregamentoIndex implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
-		HttpSession session = httpRequest.getSession();
 		String filtrarCarregamento = httpRequest.getParameter("filtrarCarregamento");
 		if(filtrarCarregamento == null) {
 			request.getRequestDispatcher("../inicio.jsp?filtrarCarregamento=filtrarCarregamento").forward(httpRequest, response);

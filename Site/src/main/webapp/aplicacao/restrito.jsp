@@ -16,13 +16,13 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../estilos/restrito.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/estilos/restrito.css">
 </head>
 <body>
 	<div class="login-form">
 	  <form action="<%=request.getContextPath()%>/ServletLogin" method="post" name="formularioLogin">
 	    <h1>Login</h1>
-	    <input value="<%=request.getParameter("validarLogin") %>" name="validarLogin">
+	    <input type="hidden" value="<%=request.getParameter("validarLogin") %>" name="validarLogin">
 	    <input type="hidden" value="<%=request.getParameter("url")%>" name="url">
 	    <input type="hidden" name="acao" value="validar">
 	    <div class="content">
