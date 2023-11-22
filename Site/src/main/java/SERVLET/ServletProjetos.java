@@ -88,7 +88,6 @@ public class ServletProjetos extends APIEntrada {
 	}
 	
 	public void carregarTelaIndex(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setAttribute("filtrarCarregamento", request.getParameter("filtrarCarregamento"));
 		request.setAttribute("projetos", daoprojetos.listarProjetos(sqlprojeto.listaProjetos()));
 		request.getRequestDispatcher("aplicacao/index.jsp").forward(request, response);
 	}

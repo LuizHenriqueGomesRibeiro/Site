@@ -15,9 +15,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class Login
- */
 @MultipartConfig
 @WebServlet(urlPatterns = { "/ServletLogin" })
 public class ServletLogin extends APIEntrada {
@@ -30,7 +27,7 @@ public class ServletLogin extends APIEntrada {
         // TODO Auto-generated constructor stub
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String acao = request.getParameter("acao");
 		
 		if(acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("validar")) {
@@ -76,8 +73,4 @@ public class ServletLogin extends APIEntrada {
 			redirecionar.forward(request, response);
 		}
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
-
 }

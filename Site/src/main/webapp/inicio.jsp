@@ -20,6 +20,7 @@
 </head>
 <body>
 	<h2>Studiouna</h2>
-	<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarTelaIndex&filtrarCarregamento=carregados">Iniciar portfólio</a>
+	<input value="<%= request.getParameter("filtrarCarregamento")%>" name="filtrarCarregamento">
+	<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarTelaIndex">Iniciar portfólio</a>
 </body>
 </html>

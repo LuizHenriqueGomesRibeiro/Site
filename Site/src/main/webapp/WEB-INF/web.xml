@@ -80,39 +80,12 @@
     <url-pattern>/ServletFormulario</url-pattern>
   </servlet-mapping>
   <filter>
-    <display-name>FiltroLogin</display-name>
-    <filter-name>FiltroLogin</filter-name>
-    <filter-class>FILTER.FiltroLogin</filter-class>
+    <display-name>FiltroCarregamentoIndex</display-name>
+    <filter-name>FiltroCarregamentoIndex</filter-name>
+    <filter-class>FILTER.FiltroCarregamentoIndex</filter-class>
   </filter>
   <filter-mapping>
-    <filter-name>FiltroLogin</filter-name>
-    <url-pattern>/FiltroLogin</url-pattern>
-  </filter-mapping>
-  <filter>
-    <display-name>FiltroComentarios</display-name>
-    <filter-name>FiltroComentarios</filter-name>
-    <filter-class>FILTER.FiltroComentarios</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>FiltroComentarios</filter-name>
-    <url-pattern>/FiltroComentarios</url-pattern>
-  </filter-mapping>
-  <filter>
-    <display-name>FiltroProjetos</display-name>
-    <filter-name>FiltroProjetos</filter-name>
-    <filter-class>FILTER.FiltroProjetos</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>FiltroProjetos</filter-name>
-    <url-pattern>/FiltroProjetos</url-pattern>
-  </filter-mapping>
-  <filter>
-    <display-name>FiltroCarregarIndex</display-name>
-    <filter-name>FiltroCarregarIndex</filter-name>
-    <filter-class>FILTER.FiltroCarregarIndex</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>FiltroCarregarIndex</filter-name>
-    <url-pattern>/FiltroCarregarIndex</url-pattern>
+    <filter-name>FiltroCarregamentoIndex</filter-name>
+    <url-pattern>/FiltroCarregamentoIndex</url-pattern>
   </filter-mapping>
 </web-app>
