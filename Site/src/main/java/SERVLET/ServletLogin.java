@@ -26,51 +26,92 @@ public class ServletLogin extends APIEntrada {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	try {
+	    	if(acao(request) != null && !acao(request).isEmpty() && acao(request).equalsIgnoreCase("acessarConfiguracoesUsuario")) {
+				redirecionarConfiguracoesUsuario(request, response);
+	    	}
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String acao = request.getParameter("acao");
-		
-		if(acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("validar")) {
-			String email = request.getParameter("email");
-			String senha = request.getParameter("senha");
-			String url = request.getParameter("url");
-			
-			if(email != null && !email.isEmpty() && senha != null && !senha.isEmpty()) {
-				ModelLogin modelLogin = new ModelLogin();
-				modelLogin.setEmail(email);
-				modelLogin.setSenha(senha);
-				
-				try {
-					if(daoLogin.validarLogin(modelLogin)) {
-						modelLogin = daoLogin.buscarLogin(modelLogin);
-						HttpSession session = request.getSession();
-
-						session.setAttribute("email", modelLogin.getEmail());
-						session.setAttribute("senha", modelLogin.getSenha());
-						session.setAttribute("nome", modelLogin.getNome());
-						session.setAttribute("login", modelLogin);
-						
-						if (url == null || url.equals("null")) {
-							url = "aplicacao/principal/principal.jsp";
-						}
-
-						RequestDispatcher redirecionar = request.getRequestDispatcher(url);
-						redirecionar.forward(request, response);
-						
-					}else {
-						RequestDispatcher redirecionar = request.getRequestDispatcher("aplicacao/restrito.jsp");
-						request.setAttribute("mensagem", "Informe o login e senha corretamente.");
-						redirecionar.forward(request, response);
-					}
-					
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+		try {
+			if(acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("validar")) {
+				validarLogin(request, response);
+			}else if(acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("validarAcessoConfiguracoesUsuario")) {
+				validarAcessoConfiguracoesUsuario(request, response);
+			}else if(acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("redefinirSenha")) {
+				redefinirSenha(request, response);
 			}
-		}else {
-			RequestDispatcher redirecionar = request.getRequestDispatcher("aplicacao/restrito.jsp");
-			request.setAttribute("mensagem", "Ocorreu algum erro. Contacte a equipe de suporte.");
-			redirecionar.forward(request, response);
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
+    
+    protected void validarLogin(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    	String email = request.getParameter("email");
+		String senha = request.getParameter("senha");
+		String url = request.getParameter("url");
+		
+		if(email != null && !email.isEmpty() && senha != null && !senha.isEmpty()) {
+			ModelLogin modelLogin = new ModelLogin(email, senha);
+			
+			if(daoLogin.validarLogin(modelLogin)) {
+				modelLogin = daoLogin.buscarLogin(modelLogin);
+				HttpSession session = request.getSession();
+
+				session.setAttribute("email", modelLogin.getEmail());
+				session.setAttribute("senha", modelLogin.getSenha());
+				session.setAttribute("nome", modelLogin.getNome());
+				session.setAttribute("login", modelLogin);
+				
+				if (url == null || url.equals("null")) {
+					url = "aplicacao/principal/principal.jsp";
+				}
+
+				RequestDispatcher redirecionar = request.getRequestDispatcher(url);
+				redirecionar.forward(request, response);
+				
+			}else {
+				request.setAttribute("mensagem", "Informe o login e senha corretamente.");
+				request.getRequestDispatcher("aplicacao/restrito.jsp").forward(request, response);
+			}
+		}
+    }
+    
+    protected void redirecionarConfiguracoesUsuario(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    	request.getRequestDispatcher("aplicacao/principal/configuracoesUsuario.jsp").forward(request, response);
+    }
+    
+    protected void validarAcessoConfiguracoesUsuario(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	ModelLogin modelLogin = new ModelLogin(email(request), senha(request));
+		if(daoLogin.validarLogin(modelLogin)) {
+			setarAtributosEDespachar(request, response, null, true);
+		}else {
+			String mensagem = "Digite um E-mail e senha validos.";
+			setarAtributosEDespachar(request, response, mensagem, false);
+		}
+    }
+    
+    protected void redefinirSenha(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	if(senhaAntiga(request).equals(senhaAntigaRepeticao(request)) && senhaNova(request).equals(senhaNovaRepeticao(request))) {
+			daoLogin.atualizarLogin(senhaNova(request), id(request));
+			String mensagem = "Senha atualizada com sucesso.";
+			setarAtributosEDespachar(request, response, mensagem, true);
+		}else {
+			String mensagem = "As senhas não batem ou estão incorretas. Tente novamente.";
+			setarAtributosEDespachar(request, response, mensagem, true);
+		}
+    }
+    
+    protected void setarAtributosEDespachar(HttpServletRequest request, HttpServletResponse response, String mensagem, boolean booleano) throws Exception {
+    	request.setAttribute("alternarSistema", booleano);
+		request.setAttribute("mensagem", mensagem);
+		request.setAttribute("usuario", daoLogin.buscarLogin(new ModelLogin(email(request), senha(request))));
+		request.getRequestDispatcher("aplicacao/principal/configuracoesUsuario.jsp").forward(request, response);
+    }
 }

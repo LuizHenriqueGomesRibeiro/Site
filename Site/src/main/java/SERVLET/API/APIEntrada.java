@@ -23,6 +23,26 @@ public class APIEntrada extends ServletSessao {
 		return request.getParameter("acao");
 	}
 	
+	public String senhaAntiga(HttpServletRequest request) {
+		return request.getParameter("senhaAntiga");
+	}
+	
+	public String senhaAntigaRepeticao(HttpServletRequest request) {
+		return request.getParameter("senhaAntigaRepeticao");
+	}
+	
+	public String senhaNova(HttpServletRequest request) {
+		return request.getParameter("senhaNova");
+	}
+	
+	public String senhaNovaRepeticao(HttpServletRequest request) {
+		return request.getParameter("senhaNovaRepeticao");
+	}
+	
+	public Long id(HttpServletRequest request) {
+		return Long.parseLong(request.getParameter("id"));
+	}
+	
 	public Long id_projeto(HttpServletRequest request) {
 		if(request.getParameter("id_projeto") != null && !request.getParameter("id_projeto").isEmpty()) {
 			return Long.parseLong(request.getParameter("id_projeto"));
@@ -48,7 +68,11 @@ public class APIEntrada extends ServletSessao {
 	}
 	
 	public String email(HttpServletRequest request) {
-		return request.getParameter("email_cliente");
+		return request.getParameter("email");
+	}
+	
+	public String senha(HttpServletRequest request) {
+		return request.getParameter("senha");
 	}
 	
 	public String mensagem(HttpServletRequest request) {

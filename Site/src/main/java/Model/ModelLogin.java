@@ -6,6 +6,15 @@ public class ModelLogin {
 	private String senha;
 	private Long id;
 	
+	public ModelLogin() {
+		
+	}
+	
+	public ModelLogin(String email, String senha) {
+		this.email = email;
+		this.senha = senha;
+	}
+	
 	public String getNome() {
 		return nome;
 	}

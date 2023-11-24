@@ -23,25 +23,15 @@
 <body style="overflow-x: hidden;">
 	<div style="display: flex;">
 		<div style="height: 100vw; width: 225px; position: fixed; background-color: #E6E6E6">
-			<div style="margin: 6px;">
-				<div style="margin-bottom: 10px; top: 2px; left: 12px; position: relative;">
+			<div style="margin: 10px;">
+				<div style="margin-bottom: 10px;">
 					<a href="<%=request.getContextPath()%>/ServletFormulario?acao=listarPerguntas">
 						<button type="button" class="btn btn-primary">Visualizar comentários</button>
 					</a>
 				</div>
 				<div style="margin-bottom: 10px;">
-					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=acessarProjetosServidor">
-						<button type="button" class="btn btn-success">Configurações de projetos</button>
-					</a>
-				</div>
-				<div style="margin-bottom: 10px;">
-					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=acessarProjetosServidor">
-						<button type="button" class="btn btn-warning">Configurações de projetos</button>
-					</a>
-				</div>
-				<div style="margin-bottom: 10px;">
-					<a href="<%=request.getContextPath()%>/ServletProjetos?acao=acessarProjetosServidor">
-						<button type="button" class="btn btn-secondary">Configurações de projetos</button>
+					<a href="<%=request.getContextPath()%>/ServletLogin?acao=acessarConfiguracoesUsuario">
+						<button type="button" class="btn btn btn-warning">Configurações do usuário</button>
 					</a>
 				</div>
 			</div>

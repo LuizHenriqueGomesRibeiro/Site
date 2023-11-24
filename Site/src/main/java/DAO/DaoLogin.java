@@ -68,4 +68,11 @@ private Connection connection;
 		}
 		return modelLogin;
 	}
+	
+	public void atualizarLogin(String senha, Long id) throws Exception {
+		String sql = "UPDATE login SET senha = '" + senha + "' WHERE id = " + id;
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.executeUpdate();
+		connection.commit();
+	}
 }
