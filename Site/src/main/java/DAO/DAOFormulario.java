@@ -24,6 +24,12 @@ public class DAOFormulario {
 		connection.commit();
 	}
 	
+	public void deletarMensagem(String sql) throws Exception{
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.executeUpdate();
+		connection.commit();
+	}
+	
 	public List<ModelPergunta> listarPerguntas(String sql) throws Exception{
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet resultado = statement.executeQuery();

@@ -51,6 +51,11 @@ public class SQL {
 		return sql;
 	}
 	
+	public String deletarMensagem(Long id) {
+		String sql = "DELETE FROM pergunta WHERE id = " + id;
+		return sql;
+	}
+	
 	public String atualizacaoFotoProjeto(ModelProjeto modelProjeto) {
 		String sql = "UPDATE projeto SET nome = '" + modelProjeto.getNome() + "', " + 
 		"login_pai_id = " + modelProjeto.getLogin_pai_id().getId() + ", " + 
