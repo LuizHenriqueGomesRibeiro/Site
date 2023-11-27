@@ -92,7 +92,7 @@ public class ServletProjetos extends APIEntrada {
 		request.getRequestDispatcher("aplicacao/index.jsp").forward(request, response);
 	}
 
-	public void carregarProjetoIndex(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	public void carregarProjetoIndex(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("projeto", daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(ranking_projeto(request))));
 		request.getRequestDispatcher("aplicacao/projeto.jsp").forward(request, response);
 	}

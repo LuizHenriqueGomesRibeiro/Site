@@ -23,37 +23,13 @@ private Connection connection;
 		return result.getBoolean("existe");
 	}
 	
-	public ModelLogin buscarLogin(ModelLogin modelLogin) throws SQLException{
-		String sql = "SELECT * FROM login WHERE email = '" + modelLogin.getEmail() + "' AND senha = '" + modelLogin.getSenha() + "'";
+	public ModelLogin buscarLogin(String sql) throws Exception{
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet result = statement.executeQuery();
-		while(result.next()) {
-			modelLogin.setId(result.getLong("id"));
-			modelLogin.setEmail(result.getString("email"));
-			modelLogin.setNome(result.getString("nome"));
-			modelLogin.setSenha(result.getString("senha"));
-		}
-		return modelLogin;
+		return resultadoBuscarLogin(result);
 	}
 	
-	public ModelLogin buscarLogin(String login, String senha) throws SQLException{
-		String sql = "SELECT * FROM login WHERE login = '" + login + "' AND senha = '" + senha + "'";
-		PreparedStatement statement = connection.prepareStatement(sql);
-		ResultSet result = statement.executeQuery();
-		ModelLogin modelLogin = new ModelLogin();
-		while(result.next()) {
-			modelLogin.setId(result.getLong("id"));
-			modelLogin.setEmail(result.getString("email"));
-			modelLogin.setNome(result.getString("nome"));
-			modelLogin.setSenha(result.getString("senha"));
-		}
-		return modelLogin;
-	}
-	
-	public ModelLogin buscarLogin(Long id) throws SQLException{
-		String sql = "SELECT * FROM login WHERE id = " + id;
-		PreparedStatement statement = connection.prepareStatement(sql);
-		ResultSet result = statement.executeQuery();
+	public ModelLogin resultadoBuscarLogin(ResultSet result) throws Exception {
 		ModelLogin modelLogin = new ModelLogin();
 		while(result.next()) {
 			modelLogin.setId(result.getLong("id"));

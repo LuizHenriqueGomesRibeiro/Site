@@ -4,6 +4,7 @@ public class ModelLogin {
 	private String nome;
 	private String email;
 	private String senha;
+	private String login;
 	private Long id;
 	
 	public ModelLogin() {
@@ -15,6 +16,12 @@ public class ModelLogin {
 		this.senha = senha;
 	}
 	
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
 	public String getNome() {
 		return nome;
 	}

@@ -1,7 +1,6 @@
 package SERVLET;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import DAO.DaoLogin;
 import Model.ModelLogin;
@@ -58,7 +57,7 @@ public class ServletLogin extends APIEntrada {
 		}
 	}
     
-    protected void validarLogin(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    protected void validarLogin(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		String url = request.getParameter("url");
@@ -67,7 +66,7 @@ public class ServletLogin extends APIEntrada {
 			ModelLogin modelLogin = new ModelLogin(email, senha);
 			
 			if(daoLogin.validarLogin(modelLogin)) {
-				modelLogin = daoLogin.buscarLogin(modelLogin);
+				modelLogin = daoLogin.buscarLogin(sql.buscaDeLoginPorEmailSenha(modelLogin));
 				HttpSession session = request.getSession();
 
 				session.setAttribute("email", modelLogin.getEmail());
@@ -106,7 +105,7 @@ public class ServletLogin extends APIEntrada {
     protected void redefinirSenha(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	if(senhaAntiga(request).equals(senhaAntigaRepeticao(request)) && senhaNova(request).equals(senhaNovaRepeticao(request))) {
 			daoLogin.atualizarLogin(sql.atualizacaoSenha(id(request), senhaNova(request)));
-			String mensagem = "Senha atualizada com sucesso.";
+			String mensagem = "Senha atualizada com sucesso!";
 			setarAtributosEDespachar(request, response, mensagem, true);
 		}else {
 			String mensagem = "As senhas não batem ou estão incorretas. Tente novamente.";
@@ -116,13 +115,13 @@ public class ServletLogin extends APIEntrada {
     
     protected void redefinirEmail(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	daoLogin.atualizarLogin(sql.atualizacaoEmail(id(request), email(request)));
-    	String mensagem = "E-mail atualizado com sucesso.";
+    	String mensagem = "E-mail atualizado com sucesso!";
     	setarAtributosEDespachar(request, response, mensagem, true);
     }
     
     protected void redefinirNome(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	daoLogin.atualizarLogin(sql.atualizacaoNome(id(request), nome(request)));
-    	String mensagem = "Nome atualizado com sucesso.";
+    	String mensagem = "Nome atualizado com sucesso!";
     	setarAtributosEDespachar(request, response, mensagem, true);
     }
 
@@ -135,9 +134,9 @@ public class ServletLogin extends APIEntrada {
     
     protected void setarAtributosAlternarBuscaUsuario(HttpServletRequest request) throws Exception {
     	if(email(request) != null && senha(request) != null) {
-    		request.setAttribute("usuario", daoLogin.buscarLogin(new ModelLogin(email(request), senha(request))));
+    		request.setAttribute("usuario", daoLogin.buscarLogin(sql.buscaDeLoginPorEmailSenha(new ModelLogin(email(request), senha(request)))));
     	}else {
-    		request.setAttribute("usuario", daoLogin.buscarLogin(id(request)));
+    		request.setAttribute("usuario", daoLogin.buscarLogin(sql.buscaDeLoginPorId(id(request))));
     	}
     }
 }

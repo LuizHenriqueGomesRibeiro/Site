@@ -34,94 +34,132 @@
 				</div>
 			</div>
 		</div>
-		<div style="width: calc(100% - 225px); position: relative; left: 225px;">
+		<div style="width: calc(100% - 225px); position: relative; left: 225px; height: 100vh;">
 			<c:choose>
 				<c:when test="${alternarSistema == null}">
-					<h4>Entre novamente com seus dados para ter acesso às configurações do usuário</h4>
-					<div class="login-form">
-						<form action="<%=request.getContextPath()%>/ServletLogin" method="post" name="formularioLogin">
-							<h1>Login</h1>
-							<input type="hidden" name="acao" value="validarAcessoConfiguracoesUsuario">
-							<div class="content">
-								<div class="input-field">
-									<input id="email" name="email" type="email" placeholder="Email" autocomplete="nope">
+					<div style="position: relative; padding: 20px;">
+						<h4>Entre novamente com seus dados para ter acesso às configurações do usuário:</h4>
+						<div style="width: 400px; margin: auto; position: relative; margin-top: 20px;" class="login-form">
+							<form action="<%=request.getContextPath()%>/ServletLogin" method="post" name="formularioLogin">
+								<input type="hidden" name="acao" value="validarAcessoConfiguracoesUsuario">
+								<div class="content">
+									<div class="input-field">
+										<input style="width: 400px;" id="email" name="email" type="email" placeholder="Email" autocomplete="nope">
+									</div>
+									<div style="position: relative; margin-top: 20px;" class="input-field">
+										<input style="width: 400px;" id="senha" name="senha" type="password" placeholder="Senha" autocomplete="new-password">
+									</div>
 								</div>
-								<div class="input-field">
-									<input id="senha" name="senha" type="password" placeholder="Senha" autocomplete="new-password">
+								<div class="action">
+									<div style="position: relative; margin: auto; width: 59px; top: 10px;">
+										<button>Entrar</button>
+									</div>
 								</div>
+							</form>
+							<div>
+								<p>${mensagem}</p>
 							</div>
-							<div class="action">
-								<button>Entrar</button>
-							</div>
-						</form>
-						<div>
-						<p>${mensagem}</p>
-					</div>
+						</div>
 					</div>
 				</c:when>
 				<c:otherwise>
-					<h4>Usuário em alteração: ${usuario.nome}</h4>
-					<p>Escolha os campos para redefinir:</p>
-
-					<form action="<%=request.getContextPath()%>/ServletLogin" method="post" name="formularioLogin">
-						
-						<input type="hidden" name="acao" value="redefinirEmail">
-						
-						<input type="hidden" name="id" value="${usuario.id}">
-						
-						<p>E-mail atual:</p>
-						<input value="${usuario.email}" readonly="readonly">
-						
-						<p>Digite o seu novo E-mail:</p>
-						<input id="email" name="email" placeholder="Novo E-mail">
-						<button>Mudar E-mail</button>
-						<p>${mensagem}</p>
-					</form>
-					<p>*O E-mail só será alterado se todos os campos forem preenchidos</p>
-
-
-					<form action="<%=request.getContextPath()%>/ServletLogin" method="post" name="formularioLogin">
-						
-						<input type="hidden" name="acao" value="redefinirNome">
-						
-						<input type="hidden" name="id" value="${usuario.id}">
-						
-						<p>Nome atual:</p>
-						<input value="${usuario.nome}" readonly="readonly">
-						
-						<p>Digite o seu novo nome:</p>
-						<input id="nome" name="nome" placeholder="Novo nome">
-						<button>Mudar nome</button>
-						<p>${mensagem}</p>
-					</form>
-					<p>*O nome só será alterado se todos os campos forem preenchidos</p>
-
-					
-					<p>*A senha só será alterada se todos os campos forem preenchidos</p>
-					<form action="<%=request.getContextPath()%>/ServletLogin" method="post" name="formularioLogin">
-						
-						<input type="hidden" name="acao" value="redefinirSenha">
-						
-						<input type="hidden" name="id" value="${usuario.id}">
-						
-						<p>Digite a senha atual:</p>
-						<input id="senha" name="senhaAntiga" type="password" placeholder="Senha" autocomplete="new-password">
-						
-						<p>Digite novamente a senha atual:</p>
-						<input id="senha" name="senhaAntigaRepeticao" type="password" placeholder="Senha" autocomplete="new-password">
-						
-						<p>Digite a nova senha:</p>
-						<input id="senha" name="senhaNova" type="password" placeholder="Senha" autocomplete="new-password">
-						
-						<p>Digite novamente a nova senha:</p>
-						<input id="senha" name="senhaNovaRepeticao" type="password" placeholder="Senha" autocomplete="new-password">
-						<button>Mudar senha</button>
-						
-						<p>${mensagem}</p>
-					</form>
+					<div style="padding: 20px;">
+						<h4>Usuário em alteração: ${usuario.nome}.</h4>
+						<h4>${mensagem}</h4>
+						<div style="position: relative; margin: auto; width: 500px;">
+							<form action="<%=request.getContextPath()%>/ServletLogin" method="post" name="formularioLogin">
+								
+								<input type="hidden" name="acao" value="redefinirEmail">
+								
+								<input type="hidden" name="id" value="${usuario.id}">
+								
+								<p>E-mail atual:</p>
+								<input style="width: 500px;" value="${usuario.email}" readonly="readonly">
+								
+								<p>Digite o seu novo E-mail:</p>
+								<input style="width: 500px; margin-bottom: 10px;" id="email" name="email" placeholder="Novo E-mail">
+								<button type="button" id="botaoMudarEmail" onclick="verificarInputEmail();">Mudar E-mail</button>
+							</form>
+		
+							<form action="<%=request.getContextPath()%>/ServletLogin" method="post" name="formularioLogin">
+								
+								<input type="hidden" name="acao" value="redefinirNome">
+								
+								<input type="hidden" name="id" value="${usuario.id}">
+								
+								<p>Nome atual:</p>
+								<input style="width: 500px;" value="${usuario.nome}" readonly="readonly">
+								
+								<p>Digite o seu novo nome:</p>
+								<input style="width: 500px; margin-bottom: 10px;" id="nome" name="nome" placeholder="Novo nome">
+								<button type="button" id="botaoMudarNome" onclick="verificarInputNome();">Mudar nome</button>
+							</form>
+							
+							<form action="<%=request.getContextPath()%>/ServletLogin" method="post" name="formularioLogin">
+								
+								<input type="hidden" name="acao" value="redefinirSenha">
+								
+								<input type="hidden" name="id" value="${usuario.id}">
+								
+								<p>Digite a senha atual:</p>
+								<input style="width: 500px;" id="senhaAntiga" name="senhaAntiga" type="password" placeholder="Senha" autocomplete="new-password">
+								
+								<p>Digite novamente a senha atual:</p>
+								<input style="width: 500px;" id="senhaAntigaRepeticao" name="senhaAntigaRepeticao" type="password" placeholder="Senha">
+								
+								<p>Digite a nova senha:</p>
+								<input style="width: 500px;" id="senhaNova" name="senhaNova" type="password" placeholder="Senha" autocomplete="new-password">
+								
+								<p>Digite novamente a nova senha:</p>
+								<input style="width: 500px; margin-bottom: 10px;" id="senhaNovaRepeticao" name="senhaNovaRepeticao" type="password" placeholder="Senha">
+								<button type="button" id="botaoMudarSenha" onclick="verificarInputSenha();">Mudar senha</button>
+							</form>
+						</div>
+					</div>
 				</c:otherwise>
 			</c:choose>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function verificarInputEmail() {
+			var input = document.getElementById("email").value;
+			var botao = document.getElementById("botaoMudarEmail");
+			if (input === "") {
+				alert("O novo E-mail não pode ser vazio.");
+			}else{
+				botao.type = 'submit';
+			}
+		}
+		
+		function verificarInputNome() {
+			var valorInput = document.getElementById("nome").value;
+			var botao = document.getElementById("botaoMudarNome");
+			if (valorInput === "") {
+				alert("O novo nome não pode ser vazio.");
+			}else{
+				botao.type = 'submit';
+			}
+		}
+		
+		function verificarInputSenha() {
+			var senhaAntiga = document.getElementById("senhaAntiga").value;
+			var senhaAntigaRepeticao = document.getElementById("senhaAntigaRepeticao").value;
+			var senhaNova = document.getElementById("senhaNova").value;
+			var senhaNovaRepeticao = document.getElementById("senhaNovaRepeticao").value;
+			
+			var botao = document.getElementById("botaoMudarSenha");
+			if (senhaAntiga === "") {
+				alert("Todos os campos de senha precisam ser preenchidos.");
+			}else if(senhaAntigaRepeticao === ""){
+				alert("Todos os campos de senha precisam ser preenchidos.");
+			}else if(senhaNova === ""){
+				alert("Todos os campos de senha precisam ser preenchidos.");
+			}else if(senhaNovaRepeticao === ""){
+				alert("Todos os campos de senha precisam ser preenchidos.");
+			}else{
+				botao.type = 'submit';
+			}
+		}
+	</script>
 </body>
 </html>

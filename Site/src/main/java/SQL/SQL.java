@@ -1,5 +1,6 @@
 package SQL;
 
+import Model.ModelLogin;
 import Model.ModelPergunta;
 import Model.ModelProjeto;
 
@@ -194,6 +195,21 @@ public class SQL {
 	
 	public String atualizacaoNome(Long id, String nome) {
 		String sql = "UPDATE login SET nome = '" + nome + "' WHERE id = " + id;
+		return sql;
+	}
+	
+	public String buscaDeLoginPorEmailSenha(ModelLogin modelLogin) {
+		String sql = "SELECT * FROM login WHERE email = '" + modelLogin.getEmail() + "' AND senha = '" + modelLogin.getSenha() + "'";
+		return sql;
+	}
+	
+	public String buscaDeLoginPorLoginSenha(ModelLogin modelLogin) {
+		String sql = "SELECT * FROM login WHERE login = '" + modelLogin.getLogin() + "' AND senha = '" + modelLogin.getSenha() + "'";
+		return sql;
+	}
+	
+	public String buscaDeLoginPorId(Long id) {
+		String sql = "SELECT * FROM login WHERE id = " + id;
 		return sql;
 	}
 }

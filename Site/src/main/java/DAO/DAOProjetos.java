@@ -39,7 +39,7 @@ public class DAOProjetos {
 	}
 	
 	
-	public ModelProjeto buscarProjeto(String sql) throws SQLException {
+	public ModelProjeto buscarProjeto(String sql) throws Exception {
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet resultado = statement.executeQuery();
 		return resultadoBusca(resultado);
@@ -55,7 +55,7 @@ public class DAOProjetos {
 		}
 	}
 	
-	public ModelProjeto resultadoBusca(ResultSet resultado) throws SQLException {
+	public ModelProjeto resultadoBusca(ResultSet resultado) throws Exception {
 		ModelProjeto modelProjeto = new ModelProjeto();
 		while(resultado.next()) {
 			setModelProjeto(resultado, modelProjeto);
@@ -63,13 +63,13 @@ public class DAOProjetos {
 		return modelProjeto;
 	}
 	
-	public List<ModelProjeto> listarProjetos(String sql) throws SQLException{
+	public List<ModelProjeto> listarProjetos(String sql) throws Exception{
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet resultado = statement.executeQuery();
 		return resultadoListagem(resultado);
 	}
 	
-	public List<ModelProjeto> resultadoListagem(ResultSet resultado) throws SQLException{
+	public List<ModelProjeto> resultadoListagem(ResultSet resultado) throws Exception{
 		List<ModelProjeto> retorno = new ArrayList<ModelProjeto>();
 		while(resultado.next()) {
 			ModelProjeto modelProjeto = new ModelProjeto();
@@ -78,7 +78,7 @@ public class DAOProjetos {
 		return retorno;
 	}
 	
-	public ModelProjeto setModelProjeto(ResultSet resultado, ModelProjeto modelProjeto) throws SQLException {	
+	public ModelProjeto setModelProjeto(ResultSet resultado, ModelProjeto modelProjeto) throws Exception {	
 		modelProjeto.setFotoprojeto(resultado.getString("fotoprojeto"));
 		modelProjeto.setId(resultado.getLong("id"));
 		modelProjeto.setFoto1(resultado.getString("foto1"));
@@ -93,7 +93,7 @@ public class DAOProjetos {
 		modelProjeto.setRanking(resultado.getInt("ranking"));
 		modelProjeto.setNome(resultado.getString("nome"));
 		modelProjeto.setSobre(resultado.getString("sobre"));
-		modelProjeto.setLogin_pai_id(daologin.buscarLogin(resultado.getLong("login_pai_id")));
+		modelProjeto.setLogin_pai_id(daologin.buscarLogin(sql.buscaDeLoginPorId(resultado.getLong("login_pai_id"))));
 		return modelProjeto;
 	}
 	
