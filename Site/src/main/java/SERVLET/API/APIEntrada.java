@@ -67,6 +67,10 @@ public class APIEntrada extends ServletSessao {
 		return request.getParameter("nome_cliente");
 	}
 	
+	public String nome(HttpServletRequest request) {
+		return request.getParameter("nome");
+	}
+	
 	public String email(HttpServletRequest request) {
 		return request.getParameter("email");
 	}

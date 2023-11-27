@@ -18,7 +18,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
-	<body style="height: 100vh;">
+	<body style="height: 100vh; overflow-x: hidden;">
 		<div style="display: flex; height: 100%;">
 			<div style="height: 100vw; width: 225px; position: fixed; background-color: #E6E6E6">
 				<div style="margin: 6px;">
@@ -64,7 +64,7 @@
 				</div>
 				<c:if test="${abrirCaixaPergunta == true}">
 					<div style="width: 90%; position: relative; margin: auto; height: calc(100% - 300px); top: 45px;">
-						<div class="card" style="width: 100%;">
+						<div class="card" style="width: 100%; margin-top: 20px;">
 							<div class="card-header">Pergunta</div>
 							<ul class="list-group list-group-flush">
 								<li class="list-group-item">${pergunta.nome}</li>
@@ -79,7 +79,7 @@
 						</div>
 					</div>
 				</c:if>
-				<div>
+				<div style="position: relative; top: 50px; left: 28px;">
 					<p>${mensagem}</p>
 				</div>
 			</div>

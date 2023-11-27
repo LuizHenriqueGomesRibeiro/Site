@@ -62,9 +62,40 @@
 				<c:otherwise>
 					<h4>Usuário em alteração: ${usuario.nome}</h4>
 					<p>Escolha os campos para redefinir:</p>
-					<p>*Os campos vazios não serão alterados.</p>
-					<input name="nome" id="nome" value="${usuario.nome}">
-					<input name="email" id="email" value="${usuario.email}">
+
+					<form action="<%=request.getContextPath()%>/ServletLogin" method="post" name="formularioLogin">
+						
+						<input type="hidden" name="acao" value="redefinirEmail">
+						
+						<input type="hidden" name="id" value="${usuario.id}">
+						
+						<p>E-mail atual:</p>
+						<input value="${usuario.email}" readonly="readonly">
+						
+						<p>Digite o seu novo E-mail:</p>
+						<input id="email" name="email" placeholder="Novo E-mail">
+						<button>Mudar E-mail</button>
+						<p>${mensagem}</p>
+					</form>
+					<p>*O E-mail só será alterado se todos os campos forem preenchidos</p>
+
+
+					<form action="<%=request.getContextPath()%>/ServletLogin" method="post" name="formularioLogin">
+						
+						<input type="hidden" name="acao" value="redefinirNome">
+						
+						<input type="hidden" name="id" value="${usuario.id}">
+						
+						<p>Nome atual:</p>
+						<input value="${usuario.nome}" readonly="readonly">
+						
+						<p>Digite o seu novo nome:</p>
+						<input id="nome" name="nome" placeholder="Novo nome">
+						<button>Mudar nome</button>
+						<p>${mensagem}</p>
+					</form>
+					<p>*O nome só será alterado se todos os campos forem preenchidos</p>
+
 					
 					<p>*A senha só será alterada se todos os campos forem preenchidos</p>
 					<form action="<%=request.getContextPath()%>/ServletLogin" method="post" name="formularioLogin">

@@ -20,24 +20,25 @@
 </head>
 <body>
 	<div class="login-form">
-	  <form action="<%=request.getContextPath()%>/ServletLogin" method="post" name="formularioLogin">
-	    <h1>Login</h1>
-	    <input type="hidden" value="<%=request.getParameter("validarLogin") %>" name="validarLogin">
-	    <input type="hidden" value="<%=request.getParameter("url")%>" name="url">
-	    <input type="hidden" name="acao" value="validar">
-	    <div class="content">
-	      <div class="input-field">
-	        <input id="email" name="email" type="email" placeholder="Email" autocomplete="nope">
-	      </div>
-	      <div class="input-field">
-	        <input id="senha" name="senha" type="password" placeholder="Senha" autocomplete="new-password">
-	      </div>
-	    </div>
-	    <div class="action">
-	      <button>Entrar</button>
-	    </div>
-	    <p>${mensagem}</p>
-	  </form>
+		<form action="<%=request.getContextPath()%>/ServletLogin"
+			method="post" name="formularioLogin">
+			<h1>Login</h1>
+			<input type="hidden" value="<%=request.getParameter("validarLogin")%>" name="validarLogin"> 
+			<input type="hidden" value="<%=request.getParameter("url")%>" name="url"> 
+			<input type="hidden" name="acao" value="validar">
+			<div class="content">
+				<div class="input-field">
+					<input id="email" name="email" type="email" placeholder="Email" autocomplete="nope">
+				</div>
+				<div class="input-field">
+					<input id="senha" name="senha" type="password" placeholder="Senha" autocomplete="new-password">
+				</div>
+			</div>
+			<div class="action">
+				<button>Entrar</button>
+			</div>
+			<p>${mensagem}</p>
+		</form>
 	</div>
 	<script type="text/javascript">
 	

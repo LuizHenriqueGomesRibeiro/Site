@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import DAO.DaoLogin;
 import Model.ModelLogin;
 import SERVLET.API.APIEntrada;
+import SQL.SQL;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -21,6 +22,7 @@ public class ServletLogin extends APIEntrada {
 	private static final long serialVersionUID = 1L;
 	
 	DaoLogin daoLogin = new DaoLogin();
+	SQL sql = new SQL();
        
     public ServletLogin() {
         super();
@@ -46,6 +48,10 @@ public class ServletLogin extends APIEntrada {
 				validarAcessoConfiguracoesUsuario(request, response);
 			}else if(acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("redefinirSenha")) {
 				redefinirSenha(request, response);
+			}else if(acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("redefinirEmail")) {
+				redefinirEmail(request, response);
+			}else if(acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("redefinirNome")) {
+				redefinirNome(request, response);
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -99,7 +105,7 @@ public class ServletLogin extends APIEntrada {
     
     protected void redefinirSenha(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	if(senhaAntiga(request).equals(senhaAntigaRepeticao(request)) && senhaNova(request).equals(senhaNovaRepeticao(request))) {
-			daoLogin.atualizarLogin(senhaNova(request), id(request));
+			daoLogin.atualizarLogin(sql.atualizacaoSenha(id(request), senhaNova(request)));
 			String mensagem = "Senha atualizada com sucesso.";
 			setarAtributosEDespachar(request, response, mensagem, true);
 		}else {
@@ -108,10 +114,30 @@ public class ServletLogin extends APIEntrada {
 		}
     }
     
+    protected void redefinirEmail(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	daoLogin.atualizarLogin(sql.atualizacaoEmail(id(request), email(request)));
+    	String mensagem = "E-mail atualizado com sucesso.";
+    	setarAtributosEDespachar(request, response, mensagem, true);
+    }
+    
+    protected void redefinirNome(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	daoLogin.atualizarLogin(sql.atualizacaoNome(id(request), nome(request)));
+    	String mensagem = "Nome atualizado com sucesso.";
+    	setarAtributosEDespachar(request, response, mensagem, true);
+    }
+
     protected void setarAtributosEDespachar(HttpServletRequest request, HttpServletResponse response, String mensagem, boolean booleano) throws Exception {
     	request.setAttribute("alternarSistema", booleano);
-		request.setAttribute("mensagem", mensagem);
-		request.setAttribute("usuario", daoLogin.buscarLogin(new ModelLogin(email(request), senha(request))));
-		request.getRequestDispatcher("aplicacao/principal/configuracoesUsuario.jsp").forward(request, response);
+    	request.setAttribute("mensagem", mensagem);
+    	setarAtributosAlternarBuscaUsuario(request);
+    	request.getRequestDispatcher("aplicacao/principal/configuracoesUsuario.jsp").forward(request, response);
+    }
+    
+    protected void setarAtributosAlternarBuscaUsuario(HttpServletRequest request) throws Exception {
+    	if(email(request) != null && senha(request) != null) {
+    		request.setAttribute("usuario", daoLogin.buscarLogin(new ModelLogin(email(request), senha(request))));
+    	}else {
+    		request.setAttribute("usuario", daoLogin.buscarLogin(id(request)));
+    	}
     }
 }

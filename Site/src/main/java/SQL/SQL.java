@@ -181,4 +181,19 @@ public class SQL {
 		String sql = "UPDATE projeto SET ranking = " + ranking + " WHERE id = " + id;
 		return sql;
 	}
+	
+	public String atualizacaoSenha(Long id, String senha) {
+		String sql = "UPDATE login SET senha = '" + senha + "' WHERE id = " + id;
+		return sql;
+	}
+	
+	public String atualizacaoEmail(Long id, String email) {
+		String sql = "UPDATE login SET email = '" + email + "' WHERE id = " + id;
+		return sql;
+	}
+	
+	public String atualizacaoNome(Long id, String nome) {
+		String sql = "UPDATE login SET nome = '" + nome + "' WHERE id = " + id;
+		return sql;
+	}
 }

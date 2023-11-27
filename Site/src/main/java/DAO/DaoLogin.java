@@ -16,15 +16,10 @@ private Connection connection;
 	}
 	
 	public boolean validarLogin(ModelLogin modelLogin) throws SQLException {
-		String sql = "SELECT count(1) > 0 AS existe FROM Login WHERE email = ? AND senha = ?";
+		String sql = "SELECT count(1) > 0 AS existe FROM Login WHERE email = '" + modelLogin.getEmail() + "' AND senha = '" + modelLogin.getSenha() + "'";
 		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, modelLogin.getEmail());
-		statement.setString(2, modelLogin.getSenha());
-		
 		ResultSet result = statement.executeQuery();
-		
 		result.next();
-		
 		return result.getBoolean("existe");
 	}
 	
@@ -69,8 +64,7 @@ private Connection connection;
 		return modelLogin;
 	}
 	
-	public void atualizarLogin(String senha, Long id) throws Exception {
-		String sql = "UPDATE login SET senha = '" + senha + "' WHERE id = " + id;
+	public void atualizarLogin(String sql) throws Exception {
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.executeUpdate();
 		connection.commit();
