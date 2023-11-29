@@ -37,9 +37,6 @@
 			</div>
 		</div>
 		<div style="width: calc(100% - 225px); position: relative; left: 225px;">
-			<div style="padding: 20px;">
-				<h4>Área de criação, modificação e exclusão de projetos:</h4>
-			</div>
 			<jsp:include page="includes/tabelasProjetos.jsp"></jsp:include>
 			<jsp:include page="includes/formularioPersistirProjeto.jsp"></jsp:include>
 			<jsp:include page="includes/modalRanking.jsp"></jsp:include>

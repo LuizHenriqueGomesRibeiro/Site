@@ -93,6 +93,8 @@ public class DAOProjetos {
 		modelProjeto.setRanking(resultado.getInt("ranking"));
 		modelProjeto.setNome(resultado.getString("nome"));
 		modelProjeto.setSobre(resultado.getString("sobre"));
+		modelProjeto.setData(resultado.getString("data"));
+		modelProjeto.setLocal(resultado.getString("local"));
 		modelProjeto.setLogin_pai_id(daologin.buscarLogin(sql.buscaDeLoginPorId(resultado.getLong("login_pai_id"))));
 		return modelProjeto;
 	}

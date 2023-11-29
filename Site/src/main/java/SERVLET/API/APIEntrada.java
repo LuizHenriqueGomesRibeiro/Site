@@ -23,6 +23,14 @@ public class APIEntrada extends ServletSessao {
 		return request.getParameter("acao");
 	}
 	
+	public String data(HttpServletRequest request) {
+		return request.getParameter("data");
+	}
+	
+	public String local(HttpServletRequest request) {
+		return request.getParameter("local");
+	}
+	
 	public String senhaAntiga(HttpServletRequest request) {
 		return request.getParameter("senhaAntiga");
 	}
@@ -176,38 +184,6 @@ public class APIEntrada extends ServletSessao {
 		return request.getPart("foto6").getContentType().split("\\/")[1];
 	}
 	
-	public String imagem7(HttpServletRequest request) throws IOException, ServletException {
-		Part part = request.getPart("foto7");
-		byte[] foto = IOUtils.toByteArray(part.getInputStream());
-		String imagem64 = "data:image/" + part.getContentType().split("\\/")[1] + ";base64," + Base64.encodeBase64String(foto);
-		return imagem64;
-	}
-	
-	public String imagem7tipo(HttpServletRequest request) throws IOException, ServletException {
-		return request.getPart("foto7").getContentType().split("\\/")[1];
-	}
-	
-	public String imagem8(HttpServletRequest request) throws IOException, ServletException {
-		Part part = request.getPart("foto8");
-		byte[] foto = IOUtils.toByteArray(part.getInputStream());
-		String imagem64 = "data:image/" + part.getContentType().split("\\/")[1] + ";base64," + Base64.encodeBase64String(foto);
-		return imagem64;
-	}
-	
-	public String imagem8tipo(HttpServletRequest request) throws IOException, ServletException {
-		return request.getPart("foto8").getContentType().split("\\/")[1];
-	}
-	
-	public String imagem9(HttpServletRequest request) throws IOException, ServletException {
-		Part part = request.getPart("foto9");
-		byte[] foto = IOUtils.toByteArray(part.getInputStream());
-		String imagem64 = "data:image/" + part.getContentType().split("\\/")[1] + ";base64," + Base64.encodeBase64String(foto);
-		return imagem64;
-	}
-	
-	public String imagem9tipo(HttpServletRequest request) throws IOException, ServletException {
-		return request.getPart("foto9").getContentType().split("\\/")[1];
-	}
 	
 	public ModelProjeto parametrosPersistirProjeto(HttpServletRequest request) throws Exception {
 		ModelProjeto modelProjeto = new ModelProjeto();
@@ -226,12 +202,6 @@ public class APIEntrada extends ServletSessao {
 			modelProjeto.setExtensaofoto5(imagem5tipo(request));
 			modelProjeto.setFoto6(imagem6(request));
 			modelProjeto.setExtensaofoto6(imagem6tipo(request));
-			modelProjeto.setFoto7(imagem7(request));
-			modelProjeto.setExtensaofoto7(imagem7tipo(request));
-			modelProjeto.setFoto8(imagem8(request));
-			modelProjeto.setExtensaofoto8(imagem8tipo(request));
-			modelProjeto.setFoto9(imagem9(request));
-			modelProjeto.setExtensaofoto9(imagem9tipo(request));
 			modelProjeto.setLogin_pai_id(getUser(request));
 			modelProjeto.setNome(nome_projeto(request));
 			modelProjeto.setId(id_projeto(request));

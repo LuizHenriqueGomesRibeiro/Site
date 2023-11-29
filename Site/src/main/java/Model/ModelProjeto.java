@@ -26,7 +26,21 @@ public class ModelProjeto {
 	private ModelLogin login_pai_id;
 	private String sobre;
 	private int ranking;
+	private String local;
+	private String data;
 	
+	public String getLocal() {
+		return local;
+	}
+	public void setLocal(String local) {
+		this.local = local;
+	}
+	public String getData() {
+		return data;
+	}
+	public void setData(String data) {
+		this.data = data;
+	}
 	public String getSobre() {
 		return sobre;
 	}

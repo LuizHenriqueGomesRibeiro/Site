@@ -39,6 +39,8 @@ public class ServletProjetos extends APIEntrada {
 				alternarRankingProjetos(request, response);
 			}else if(acao(request).equalsIgnoreCase("contato")) {
 				contato(request, response);
+			}else if(acao(request).equalsIgnoreCase("areaRestrita")) {
+				areaRestrita(request, response);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -73,16 +75,13 @@ public class ServletProjetos extends APIEntrada {
 		modelProjeto.setExtensaofoto5(imagem5tipo(request));
 		modelProjeto.setFoto6(imagem6(request));
 		modelProjeto.setExtensaofoto6(imagem6tipo(request));
-		modelProjeto.setFoto7(imagem7(request));
-		modelProjeto.setExtensaofoto7(imagem7tipo(request));
-		modelProjeto.setFoto8(imagem8(request));
-		modelProjeto.setExtensaofoto8(imagem8tipo(request));
-		modelProjeto.setFoto9(imagem9(request));
-		modelProjeto.setExtensaofoto9(imagem9tipo(request));
-		modelProjeto.setRanking(ranking_projeto(request));
 		modelProjeto.setLogin_pai_id(getUser(request));
 		modelProjeto.setNome(nome_projeto(request));
 		modelProjeto.setSobre(sobre_projeto(request));
+		modelProjeto.setData(data(request));
+		modelProjeto.setLocal(local(request));
+		modelProjeto.setRanking(ranking_projeto(request));
+		daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoRankingPorRanking(ranking_projeto(request)));
 		daoprojetos.persistirProjeto(sqlprojeto.persistenciaProjeto(modelProjeto));
 		acessarProjetosServidor(request, response);
 	}
@@ -125,9 +124,6 @@ public class ServletProjetos extends APIEntrada {
 		editarProjetoSetarImagem4(request, response, modelProjeto);
 		editarProjetoSetarImagem5(request, response, modelProjeto);
 		editarProjetoSetarImagem6(request, response, modelProjeto);
-		editarProjetoSetarImagem7(request, response, modelProjeto);
-		editarProjetoSetarImagem8(request, response, modelProjeto);
-		editarProjetoSetarImagem9(request, response, modelProjeto);
 		return modelProjeto;
 	}
 	
@@ -137,6 +133,8 @@ public class ServletProjetos extends APIEntrada {
 		modelProjeto.setNome(nome_projeto(request));
 		modelProjeto.setId(id_projeto(request));
 		modelProjeto.setRanking(ranking_projeto(request));
+		modelProjeto.setData(data(request));
+		modelProjeto.setLocal(local(request));
 		daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoValoresUniversais(modelProjeto));
 		return modelProjeto;
 	}
@@ -149,7 +147,7 @@ public class ServletProjetos extends APIEntrada {
 		}
 		return modelProjeto;
 	}
-	
+
 	public ModelProjeto editarProjetoSetarImagem1(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
 		if(imagem1(request).length() > 100) {
 			modelProjeto.setFoto1(imagem1(request));
@@ -204,33 +202,6 @@ public class ServletProjetos extends APIEntrada {
 		return modelProjeto;
 	}
 	
-	public ModelProjeto editarProjetoSetarImagem7(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
-		if(imagem7(request).length() > 100) {
-			modelProjeto.setFoto7(imagem7(request));
-			modelProjeto.setExtensaofoto7(imagem7tipo(request));
-			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoFoto7(modelProjeto));
-		}
-		return modelProjeto;
-	}
-	
-	public ModelProjeto editarProjetoSetarImagem8(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
-		if(imagem8(request).length() > 100) {
-			modelProjeto.setFoto8(imagem8(request));
-			modelProjeto.setExtensaofoto8(imagem8tipo(request));
-			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoFoto8(modelProjeto));
-		}
-		return modelProjeto;
-	}
-	
-	public ModelProjeto editarProjetoSetarImagem9(HttpServletRequest request, HttpServletResponse response, ModelProjeto modelProjeto) throws Exception{
-		if(imagem9(request).length() > 100) {
-			modelProjeto.setFoto9(imagem9(request));
-			modelProjeto.setExtensaofoto9(imagem9tipo(request));
-			daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoFoto9(modelProjeto));
-		}
-		return modelProjeto;
-	}
-	
 	public void alternarRankingProjetos(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
 		daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoRanking(0, daoprojetos.buscarProjeto(sqlprojeto.buscaProjetoPorRanking(ranking_projeto(request))).getId()));
 		daoprojetos.atualizarProjeto(sqlprojeto.atualizacaoRanking(ranking_projeto(request), id_projeto(request)));
@@ -246,5 +217,9 @@ public class ServletProjetos extends APIEntrada {
 	
 	public void contato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("aplicacao/contato.jsp").forward(request, response);
+	}
+	
+	public void areaRestrita(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.getRequestDispatcher("aplicacao/restrito.jsp").forward(request, response);
 	}
 }

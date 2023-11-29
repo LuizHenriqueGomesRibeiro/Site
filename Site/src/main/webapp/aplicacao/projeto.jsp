@@ -47,13 +47,10 @@
 		<div style="position: relative; top: 20vh;">
 			<div style="position: relative; float: left; width: 30%; padding-left: 20px;">
 				<p>Local:</p>
-				<p></p>
-	
+				<p><c:out value="${projeto.local}"></c:out></p>
+
 				<p>Data do projeto:</p>
-				<p></p>
-	
-				<p>Arquitetura:</p>
-				<p></p>
+				<p><c:out value="${projeto.data}"></c:out></p>
 	
 				<p>Sobre:</p>
 				<p><c:out value="${projeto.sobre}"></c:out></p>

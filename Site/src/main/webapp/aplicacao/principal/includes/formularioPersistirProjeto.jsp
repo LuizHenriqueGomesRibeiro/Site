@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<div style="position: relative; width: 680px; margin: auto;">
+<div style="position: relative; width: 680px; margin: auto; margin-bottom: 20px;">
 	<div id="formulario">
 		<form enctype="multipart/form-data" method="post" action="<%=request.getContextPath()%>/ServletProjetos" id="projeto" name="contactForm" class="contactForm">
 			<input type="hidden" name="id_projeto" id="id_projeto" value="${projeto.id}">
@@ -43,6 +43,14 @@
 			<div class="form-group">
 				<label class="label" for="name">Sobre o projeto:</label> 
 				<textarea name="sobre_projeto" id="sobre_projeto" style="width: 100%; height: 150px;">${projeto.sobre}</textarea>
+			</div>
+			<div class="form-group">
+				<label class="label" for="name">Data do projeto:</label> 
+				<input name="data" id="data" style="width: 100%;" value="${projeto.data}">
+			</div>
+			<div class="form-group">
+				<label class="label" for="name">Local do projeto:</label> 
+				<input name="local" id="local" style="width: 100%;" value="${projeto.local}">
 			</div>
 			<div style="position: relative; left: -52px;">
 				<div class="form-group">
@@ -111,37 +119,6 @@
 							</div>
 						</div>
 						<input type="file" accept="image/*" onchange="visualizarImg('foto646', 'foto6')" class="form-control inputImg" name="foto6" id="foto6">
-					</div>
-				</div>
-				<div style="position: relative; margin-bottom: 180px;" class="row">
-					<div class="col">
-						<div class="form-group">
-							<label style="position: relative; left: 80px;" class="label" for="email">Foto secundária 7:</label>
-							<div style="position: relative;">
-								<img alt="Imagem" style="width: 312px; height: 312px;" id="foto647" class="img" src="${projeto.foto7}">
-								</div>
-							</div>
-							<input type="file" accept="image/*" onchange="visualizarImg('foto647', 'foto7')" class="form-control inputImg" name="foto7" id="foto7">
-						</div>
-						<div class="col">
-							<div class="form-group">
-								<label style="position: relative; left: 80px;" class="label" for="email">Foto secundária 8:</label>
-								<div style="position: relative;">
-								<img alt="Imagem" style="width: 312px; height: 312px;" id="foto648" class="img" src="${projeto.foto8}">
-							</div>
-						</div>
-						<input type="file" accept="image/*" onchange="visualizarImg('foto648', 'foto8')" class="form-control inputImg" name="foto8" id="foto8">
-					</div>
-				</div>
-				<div style="position: relative; margin-bottom: 180px; top: 131px;" class="row">
-					<div class="col">
-						<div class="form-group">
-							<label style="position: relative; left: 80px;" class="label" for="email">Foto secundária 9:</label>
-							<div style="position: relative;">
-								<img alt="Imagem" style="width: 312px; height: 312px;" id="foto649" class="img" src="${projeto.foto9}">
-							</div>
-						</div>
-						<input type="file" accept="image/*" onchange="visualizarImg('foto649', 'foto9')" class="form-control inputImg" name="foto9" id="foto9">
 					</div>
 				</div>
 			</div>
