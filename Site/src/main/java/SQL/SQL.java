@@ -208,6 +208,11 @@ public class SQL {
 		return sql;
 	}
 	
+	public String buscaDeLoginPorNomeSenha(String nome, String senha) {
+		String sql = "SELECT * FROM login WHERE nome = '" + nome + "' AND senha = '" + senha + "'";
+		return sql;
+	}
+	
 	public String buscaDeLoginPorId(Long id) {
 		String sql = "SELECT * FROM login WHERE id = " + id;
 		return sql;

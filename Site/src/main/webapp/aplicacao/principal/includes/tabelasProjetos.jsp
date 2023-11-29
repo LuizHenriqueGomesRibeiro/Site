@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div style="position: relative; margin: auto;">
 	<div>
-		<div style="width: 520px; margin: 10px; position: relative; margin: auto;">
+		<div style="width: 634px; margin: 10px; position: relative; margin: auto;">
 			<table class="table table-striped table-sm">
 				<thead>
 					<tr>
@@ -26,7 +26,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div style="width: 490px; margin: 10px; position: relative; margin: auto;">
+		<div style="width: 634px; margin: 10px; position: relative; margin: auto;">
 			<table id="tabelaDesranqueada" class="table table-striped table-sm">
 				<thead>
 					<tr>

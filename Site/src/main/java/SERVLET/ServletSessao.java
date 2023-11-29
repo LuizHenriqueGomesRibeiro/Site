@@ -18,8 +18,8 @@ public class ServletSessao extends HttpServlet {
 	
     public ModelLogin getUser(HttpServletRequest request) throws Exception {
     	HttpSession session = request.getSession();	
-    	String login = (String) session.getAttribute("nome");
+    	String nome = (String) session.getAttribute("nome");
     	String senha = (String) session.getAttribute("senha");
-    	return daologin.buscarLogin(sql.buscaDeLoginPorLoginSenha(new ModelLogin(login, senha)));
+    	return daologin.buscarLogin(sql.buscaDeLoginPorNomeSenha(nome, senha));
     }
 }
