@@ -16,81 +16,29 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="<%=request.getContextPath()%>/estilos/style.css">
-  <link rel="stylesheet" href="<%=request.getContextPath()%>/estilos/contato.css">
+  <link rel="stylesheet" href="estilos/style.css">
+  <link rel="stylesheet" href="estilos/style2.css">
 </head>
 <body style="background-color: #fff;">
-	<nav style="position: fixed; background-color: white; height: 130px; box-shadow: none; color: black;" class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
-		<div style="position: relative; top: 5px; width: 600px; float: right;"
-			class="container-fluid">
-			<a class="navbar-brand" href="#">Brand</a>
-			<button class="navbar-toggler" type="button"
-				data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<i class="fas fa-bars"></i>
-			</button>
-			<div class="toc collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item 1"><a style="color: black;"
-						class="nav-link active" aria-current="page" href="#">Studiouna</a></li>
-					<li class="nav-item 2"><a style="color: black;"
-						class="nav-link" href="#">Projetos</a></li>
-					<li class="nav-item 3"><a style="color: black;"
-						class="nav-link" href="#">Escritório</a></li>
-					<li class="nav-item 4"><a style="color: black;"
-						class="nav-link" href="#">Mídia</a></li>
-					<li class="nav-item 5"><a style="color: black;"
-						class="nav-link" href="contato.jsp">Contato</a></li>
-					<li class="disabled-link nav-item 5"><a style="color: black;"
-						class="nav-link" href="#">|</a></li>
-					<li class="nav-item 5"><a style="color: black;"
-						class="nav-link" href="aplicacao/restrito.jsp">Área restrita</a></li>
-				</ul>
+	<jsp:include page="includes/superbar.jsp"></jsp:include>
+	<section style="width: 100vw; height: 150px;">
+		<div style="width: 810px; margin: auto; height: 150px; display: flex;">
+			<div style="width: 270px; height: 150px; display: flex;">
+				<i class="fa fa-instagram" aria-hidden="true"></i>
+			</div>
+			<div style="width: 270px; height: 150px; display: flex;">
+				<i class="fa fa-phone" aria-hidden="true"></i>
+			</div>
+			<div style="width: 270px; height: 150px; display: flex;">
+				<i class="fa fa-envelope" aria-hidden="true"></i>
 			</div>
 		</div>
-	</nav>
-	<section style="position: relative; top: 100px;" class="ftco-section">
+	</section>
+	<section style="position: relative;" class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-12">
 					<div class="wrapper">
-						<div style="position: relative; width: 1200px; margin: auto;" class="row mb-5">
-							<div style="width: 400px;" class="col-md-3">
-								<div class="dbox w-100 text-center">
-					        		<div class="icon d-flex align-items-center justify-content-center">
-					        			<span class="fa fa-phone"></span>
-					        		</div>
-			        				<div style="position: relative; top: -65px; left: 140px;" class="text">
-				            			<p><span>Telefone:</span><a href="tel://1234567920">(27) 99751-2899</a></p>
-				          			</div>
-			          			</div>
-							</div>
-							<div style="margin-right: 40px; width: 440px;" class="col-md-3">
-								<div class="dbox w-100 text-center">
-			        		<div class="icon d-flex align-items-center justify-content-center">
-			        			<span class="fa fa-paper-plane"></span>
-			        		</div>
-			        		<div style="position: relative; top: -65px; left: 170px;" class="text">
-				            	<p>
-				            		<span>Email:</span>
-				            		<a href="mailto:info@yoursite.com">brunagomes@gmail.com</a>
-				            	</p>
-				          </div>
-			          </div>
-							</div>
-							<div style="width: 400px;" class="col-md-3">
-								<div class="dbox w-100 text-center">
-					        		<div class="icon d-flex align-items-center justify-content-center">
-					        			<span class="fa fa-globe"></span>
-					        		</div>
-					        		<div style="position: relative; top: -65px; left: 120px;" class="text">
-						            	<p><span>Instagram:</span> <a href="https://www.instagram.com/studiouna__b/">studioUna</a></p>
-						          	</div>
-			          			</div>
-							</div>
-						</div>
 						<div class="row no-gutters">
 							<div class="col-md-7">
 								<div class="contact-wrap w-100 p-md-5 p-4">

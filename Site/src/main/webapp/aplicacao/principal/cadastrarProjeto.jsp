@@ -19,6 +19,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="<%=request.getContextPath()%>/estilos/restritoPersonalizado.css">
   <script type="text/javascript" src="<%=request.getContextPath()%>/script/cadastrarProjeto.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 </head>
 <body style="overflow-x: hidden;">
 	<div style="display: flex;">

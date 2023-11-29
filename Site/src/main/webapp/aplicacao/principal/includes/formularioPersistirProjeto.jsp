@@ -46,7 +46,7 @@
 			</div>
 			<div class="form-group">
 				<label class="label" for="name">Data do projeto:</label> 
-				<input name="data" id="data" style="width: 100%;" value="${projeto.data}">
+				<input name="data" id="data" style="width: 100%;" value="${projeto.data}" onkeypress="$(this).mask('00/00/0000')">
 			</div>
 			<div class="form-group">
 				<label class="label" for="name">Local do projeto:</label> 
@@ -127,5 +127,5 @@
 	</div>
 </div>
 <script type="text/javascript">
-
+	
 </script>
