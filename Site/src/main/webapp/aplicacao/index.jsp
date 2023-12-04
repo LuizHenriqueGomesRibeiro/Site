@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -55,24 +55,8 @@
 	<div style="display: none;" id="carregado">
 		<jsp:include page="includes/superbar.jsp"></jsp:include>
 		<div>
-			<ul class="da">
-				 <c:forEach items="${projetos}" var="ml" varStatus="status">
-				 	<c:if test="${ml.id != null}">
-				 		<li>
-							<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoIndex&ranking_projeto=${ml.ranking}">
-								<figure>
-									<img class="da" src='${ml.foto1}' alt='1'>
-									<figcaption>${ml.nome}</figcaption>
-								</figure>
-							</a>
-						</li>
-				 	</c:if>
-				 </c:forEach>
-			</ul>
-		</div>
-		<!--
-			<div>
-				<div class="carousel">
+			<div style="position: relative; top: -50px;">
+				<div style="height: calc(100vh - 100px); position: relative; top: 50px;" class="carousel">
 					<ul style="position: relative;" class="panes">
 						<c:forEach items="${projetos}" var="ml" varStatus="status">
 							<c:if test="${status.index < 5}">
@@ -82,7 +66,23 @@
 					</ul>
 				</div>
 			</div>
-		 -->
+			<div style="position: relative;">
+				<ul class="da">
+					 <c:forEach items="${projetos}" var="ml" varStatus="status">
+					 	<c:if test="${ml.id != null}">
+					 		<li>
+								<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarProjetoIndex&ranking_projeto=${ml.ranking}">
+									<figure>
+										<img class="da" src='${ml.foto1}' alt='1'>
+										<figcaption>${ml.nome}</figcaption>
+									</figure>
+								</a>
+							</li>
+					 	</c:if>
+					 </c:forEach>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<script type="text/javascript">
 		$(function () {
