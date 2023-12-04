@@ -19,24 +19,42 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="estilos/style.css">
   <link rel="stylesheet" href="estilos/style2.css">
-  <script type="text/javascript" src="script/paginaProjeto.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+  <style type="text/css">
+	.loader {
+		width: 148px;
+		height: 148px;
+		border-radius: 50%;
+		display: inline-block;
+		border-top: 3px solid #FFF;
+		border-right: 3px solid transparent;
+		box-sizing: border-box;
+		animation: rotation 1s linear infinite;
+	}
+	
+	@keyframes rotation {
+	  	0% {
+	    	transform: rotate(0deg);
+	  	}
+	  	100% {
+	    	transform: rotate(360deg);
+	  	}
+	} 
+	
+</style>
 </head>
 <body onload="loading();">
-	<div id="carregando">
-		<h1>Carregando...</h1>
+	<div style="background-color: #C88246; width: 100vw; height: 100vh;" id="carregando">
+		<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+			<div style="position: absolute;" class="loader"></div>
+			<img alt="" style="width: 140px; height: 140px; position: absolute;" src="imagens/thumbnail_LOGO COLORIDA.png"/>
+		</div>
 	</div>
 	<div style="display: none;" id="carregado">
-		<div class="carousel">
-			<jsp:include page="includes/superbar.jsp"></jsp:include>
-			<ul style="position: relative;" class="panes">
-				<c:forEach items="${projetos}" var="ml" varStatus="status">
-					<c:if test="${status.index < 5}">
-           				<li id="s1"><img src="${ml.fotoprojeto}"></li>
-        			</c:if>
-				</c:forEach>
-			</ul>
-		</div>
-		<div style="position: relative; top: 116vh;">
+		<jsp:include page="includes/superbar.jsp"></jsp:include>
+		<div>
 			<ul class="da">
 				 <c:forEach items="${projetos}" var="ml" varStatus="status">
 				 	<c:if test="${ml.id != null}">
@@ -52,11 +70,29 @@
 				 </c:forEach>
 			</ul>
 		</div>
+		<!--
+			<div>
+				<div class="carousel">
+					<ul style="position: relative;" class="panes">
+						<c:forEach items="${projetos}" var="ml" varStatus="status">
+							<c:if test="${status.index < 5}">
+		           				<li id="s1"><img src="${ml.fotoprojeto}"></li>
+		        			</c:if>
+						</c:forEach>
+					</ul>
+				</div>
+			</div>
+		 -->
 	</div>
 	<script type="text/javascript">
-	$(function () {
-		 $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
+		$(function () {
+			$("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
 		});
+		
+		function loading(){
+			jQuery("#carregando").remove();
+			jQuery("#carregado").show();
+		}
 	</script>
 </body>
 </html>

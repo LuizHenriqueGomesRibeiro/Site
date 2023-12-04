@@ -27,23 +27,7 @@
 		<span class="loader"></span>
 	</div>
 	<div style="display: none;" id="carregado">
-	
-		<nav style="position: fixed; background-color: white; height: 130px; box-shadow: none; color: black;" class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
-			<div style="height: 100px; width: 100vw;">
-				<div style="width: 900px; position: relative; margin: auto; height: 100px; top: 10px;">
-					<img alt="" style="width: 70px; height: 70px;" src="imagens/thumbnail_LOGO COLORIDA.png"/>
-					<div style="position: relative; top: -50px; left: 470px;">
-						<a id="juvenal" onclick="teste();" href="#">juvenal</a>
-						<a style="color: blue;" class="navbar-brand" href="#">Studiouna</a>
-						<a style="color: blue;" class="navbar-brand" href="#">Projetos</a>
-						<a style="color: blue;" class="navbar-brand" href="#">Escritório</a>
-						<a style="color: blue;" class="navbar-brand" href="#">Mídia</a>
-						<a style="color: blue;" class="navbar-brand" href="contato.jsp">Contato</a>
-						<a style="color: blue;" class="navbar-brand" href="aplicacao/restrito.jsp">Área restrita</a>
-					</div>
-				</div>
-			</div>
-		</nav>
+		<jsp:include page="includes/superbar.jsp"></jsp:include>
 		<div style="position: relative; top: 20vh;">
 			<div style="position: relative; float: left; width: 30%; padding-left: 20px;">
 				<p>Local:</p>
@@ -121,5 +105,11 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function loading(){
+			jQuery("#carregando").remove();
+			jQuery("#carregado").show();
+		}
+	</script>
 </body>
 </html>
