@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+p, h3 {
+	font-family: 'Quicksand', sans-serif;
+}
+
+.ft14 {
+	font-size: 44px !important;
+	color: red;
+}
+
+.ft60 {
+	font-size: 60px !important;
+}
+
+.clr-blue {
+	color: blue;
+}
+
+.clr-prl {
+	color: purple;
+}
+
+.bg-bl.clr-prl {
+	color: purple;
+}
+
+.bg-blue {
+	background-color: #1b95e0 !important;
+	color: white;
+}
+
+i {
+	color: white !important;
+}

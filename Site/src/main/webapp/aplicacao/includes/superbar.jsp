@@ -5,7 +5,7 @@
 		<div style="position: relative; top: -45px; left: 432px; display: flex;">
 			<div style="border: 1px solid white; border-radius: 27px; width: 90px; height: 25px; top: -4px; left: 10px; margin-right: 20px;">
 				<a style="font-size: 14px; color: white; font-family: 'Quicksand', sans-serif; position: relative; left: 17px; top: -3px;" 
-				class="navbar-brand" href="#">Projetos</a>
+				class="navbar-brand" href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarTelaIndex&filtrarCarregamento=carregados">Tela inicial</a>
 			</div>
 			<div style="border: 1px solid white; border-radius: 27px; width: 90px; height: 25px; margin-right: 20px;">
 				<a style="font-size: 14px; color: white; font-family: 'Quicksand', sans-serif; position: relative; left: 14px; top: -3px;" 
@@ -19,7 +19,6 @@
 				<a style="font-size: 14px; color: white; font-family: 'Quicksand', sans-serif; position: relative; top: -3px; left: 10px;" class="navbar-brand" 
 				href="<%=request.getContextPath()%>/ServletProjetos?acao=areaRestrita&filtrarCarregamento=carregados">Área restrita</a>
 			</div>
-		
 		</div>
 	</div>
 </div>

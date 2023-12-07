@@ -20,26 +20,105 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="estilos/style.css">
   <link rel="stylesheet" href="estilos/style2.css">
+  <link rel="stylesheet" href="estilos/projeto.css">
   <script type="text/javascript" src="<%=request.getContextPath()%>/script/paginaProjeto.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+  <style type="text/css">
+  	p{
+		font-family: 'Quicksand', sans-serif !important;
+		font-size: 15px;
+	}
+	
+	li{
+		margin-bottom: 16px;
+	}
+	
+	.loader {
+		width: 148px;
+		height: 148px;
+		border-radius: 50%;
+		display: inline-block;
+		border-top: 3px solid #FFF;
+		border-right: 3px solid transparent;
+		box-sizing: border-box;
+		animation: rotation 1s linear infinite;
+	}
+	
+	@keyframes rotation {
+	  	0% {
+	    	transform: rotate(0deg);
+	  	}
+	  	100% {
+	    	transform: rotate(360deg);
+	  	}
+	}
+  </style>
 </head>
 <body id="body" onload="loading();">
 	<div id="carregando">
-		<span class="loader"></span>
+		<div style="background-color: #C88246; width: 100vw; height: 100vh;" id="carregando">
+			<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+				<div style="position: absolute;" class="loader"></div>
+				<img alt="" style="width: 140px; height: 140px; position: absolute;" src="imagens/thumbnail_LOGO COLORIDA.png"/>
+			</div>
+		</div>
 	</div>
 	<div style="display: none;" id="carregado">
-		<jsp:include page="includes/superbar.jsp"></jsp:include>
-		<div style="position: relative; top: 20vh;">
-			<div style="position: relative; float: left; width: 30%; padding-left: 20px;">
-				<p>Local:</p>
-				<p><c:out value="${projeto.local}"></c:out></p>
-
-				<p>Data do projeto:</p>
-				<p><c:out value="${projeto.data}"></c:out></p>
-	
-				<p>Sobre:</p>
-				<p><c:out value="${projeto.sobre}"></c:out></p>
+		<div style="height: 100px; width: 100vw; background-color: #C88246">
+			<div style="width: 900px; position: relative; margin: auto; height: 100px; top: 10px;">
+				<img alt="" style="width: 70px; height: 70px;" src="imagens/thumbnail_LOGO COLORIDA.png"/>
+				<div style="position: relative; top: -45px; left: 432px; display: flex;">
+					<div style="border: 1px solid white; border-radius: 27px; width: 90px; height: 25px; top: -4px; left: 10px; margin-right: 20px;">
+						<a style="font-size: 14px; color: white; font-family: 'Quicksand', sans-serif; position: relative; left: 11px; top: -3px;" 
+						class="navbar-brand" href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarTelaIndex&filtrarCarregamento=carregados">Tela inicial</a>
+					</div>
+					<div style="border: 1px solid white; border-radius: 27px; width: 90px; height: 25px; margin-right: 20px;">
+						<a style="font-size: 14px; color: white; font-family: 'Quicksand', sans-serif; position: relative; left: 14px; top: -3px;" 
+						class="navbar-brand" href="#">Escritório</a>
+					</div>
+					<div style="border: 1px solid white; border-radius: 27px; width: 90px; height: 25px; margin-right: 20px;">
+						<a style="font-size: 14px; color: white; font-family: 'Quicksand', sans-serif; position: relative; left: 18px; top: -3px;" class="navbar-brand" 
+						href="<%=request.getContextPath()%>/ServletProjetos?acao=contato&filtrarCarregamento=carregados">Contato</a>
+					</div>
+					<div style="border: 1px solid white; border-radius: 27px; width: 100px; height: 25px; margin-right: 20px;">
+						<a style="font-size: 14px; color: white; font-family: 'Quicksand', sans-serif; position: relative; top: -3px; left: 10px;" class="navbar-brand" 
+						href="<%=request.getContextPath()%>/ServletProjetos?acao=areaRestrita&filtrarCarregamento=carregados">Área restrita</a>
+					</div>
+				</div>
 			</div>
-			<div id="divImagens" style="position: relative; float: right; width: 70%;">
+		</div>
+		<div style="position: relative; top: 5vh;">
+			<div style="position: relative; float: left; width: 35%; padding-left: 20px;">
+				<div style="display: flex;">
+					<div style="color: black; margin-right: 83px; font-weight: 600">
+						<p>Local:</p>
+					</div>
+					<div>
+						<p>${projeto.local}.</p>
+					</div>
+				</div>
+				
+				<div style="display: flex;">
+					<div style="color: black; margin-right: 10px; font-weight: 600">
+						<p>Data do projeto:</p>
+					</div>
+					<div>
+						<p>${projeto.data}.</p>
+					</div>
+				</div>
+				
+				<div style="display: flex;">
+					<div style="color: black; margin-right: 79px; font-weight: 600">
+						<p>Sobre:</p>
+					</div>
+					<div>
+						<p>${projeto.sobre}.</p>
+					</div>
+				</div>
+			</div>
+			<div id="divImagens" style="position: relative; float: right; width: 65%; padding-left: 17px;">
 				<ul class="da">
 					<c:if test="${fn:length(projeto.foto1) > 100}">
 						<li style="width: 261px; height: 261px;">

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +18,14 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-	<h2>Studiouna</h2>
-	<input value="<%= request.getParameter("filtrarCarregamento")%>" name="filtrarCarregamento">
-	<a href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarTelaIndex">Iniciar portfólio</a>
+	<input type="hidden" value="<%= request.getParameter("filtrarCarregamento")%>" name="filtrarCarregamento">
+	<div style="background-color: #C88246; width: 100vw; height: 100vh;" id="carregando">
+		<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+			<img alt="" style="width: 140px; height: 140px; position: absolute;" src="imagens/thumbnail_LOGOCOLORIDA_Novo.png"/>
+			<div style="position: relative; top: 98px; background-color: #C88246; z-index: 9999; padding: 34px; left: -7px;">
+				<a style="color: white; text-decoration: none;" href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarTelaIndex">Iniciar portfólio</a>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

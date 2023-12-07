@@ -42,7 +42,6 @@
 	    	transform: rotate(360deg);
 	  	}
 	} 
-	
 </style>
 </head>
 <body onload="loading();">
@@ -50,10 +49,35 @@
 		<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
 			<div style="position: absolute;" class="loader"></div>
 			<img alt="" style="width: 140px; height: 140px; position: absolute;" src="imagens/thumbnail_LOGO COLORIDA.png"/>
+			<div style="position: relative; top: 98px; background-color: #C88246; z-index: 9999; left: -7px;">
+				<a style="color: white; text-decoration: none;" href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarTelaIndex">Carregando</a>
+			</div>
 		</div>
 	</div>
 	<div style="display: none;" id="carregado">
-		<jsp:include page="includes/superbar.jsp"></jsp:include>
+		<div style="height: 100px; width: 100vw; background-color: #C88246">
+			<div style="width: 900px; position: relative; margin: auto; height: 100px; top: 10px;">
+				<img alt="" style="width: 70px; height: 70px;" src="imagens/thumbnail_LOGO COLORIDA.png"/>
+				<div style="position: relative; top: -45px; left: 432px; display: flex;">
+					<div style="border: 1px solid white; border-radius: 27px; width: 90px; height: 25px; top: -4px; left: 10px; margin-right: 20px;">
+						<a style="font-size: 14px; color: white; font-family: 'Quicksand', sans-serif; position: relative; left: 11px; top: -3px;" 
+						class="navbar-brand" href="<%=request.getContextPath()%>/ServletProjetos?acao=carregarTelaIndex&filtrarCarregamento=carregados">Tela inicial</a>
+					</div>
+					<div style="border: 1px solid white; border-radius: 27px; width: 90px; height: 25px; margin-right: 20px;">
+						<a style="font-size: 14px; color: white; font-family: 'Quicksand', sans-serif; position: relative; left: 14px; top: -3px;" 
+						class="navbar-brand" href="#">Escritório</a>
+					</div>
+					<div style="border: 1px solid white; border-radius: 27px; width: 90px; height: 25px; margin-right: 20px;">
+						<a style="font-size: 14px; color: white; font-family: 'Quicksand', sans-serif; position: relative; left: 18px; top: -3px;" class="navbar-brand" 
+						href="<%=request.getContextPath()%>/ServletProjetos?acao=contato&filtrarCarregamento=carregados">Contato</a>
+					</div>
+					<div style="border: 1px solid white; border-radius: 27px; width: 100px; height: 25px; margin-right: 20px;">
+						<a style="font-size: 14px; color: white; font-family: 'Quicksand', sans-serif; position: relative; top: -3px; left: 10px;" class="navbar-brand" 
+						href="<%=request.getContextPath()%>/ServletProjetos?acao=areaRestrita&filtrarCarregamento=carregados">Área restrita</a>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div>
 			<div style="position: relative; top: -50px;">
 				<div style="height: calc(100vh - 100px); position: relative; top: 50px;" class="carousel">
